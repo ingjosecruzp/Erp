@@ -1,0 +1,175 @@
+<app-gridbase [items]="clientes" [cols]="cols" [Ws]="WsClientes"></app-gridbase>
+
+<p-dialog header="Complemento de pago" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="1000">
+    <form [formGroup]="FrmDocumento" (ngSubmit)="save()">
+        <div class="ui-g ui-fluid">
+            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                <p-fieldset legend="Datos Receptor">
+                    <div formGroupName="Cliente">
+                        <div class="ui-g-12 ui-md-3">
+                            <div class="ui-g-4">
+                                <label for="vin">RFC</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <input formControlName="Rfc" pInputText id="Rfc" />
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-5">
+                            <div class="ui-g-3">
+                                <label for="vin">Razon Social</label>
+                            </div>
+                            <div class="ui-g-9">
+                                <input formControlName="RazonSocial" pInputText id="vin" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-g-3">
+                            <label for="vin">Serie</label>
+                        </div>
+                        <div class="ui-g-3">
+                            <input formControlName="Serie" pInputText id="vin" />
+                        </div>
+                        <div class="ui-g-3">
+                            <label for="vin">Folio</label>
+                        </div>
+                        <div class="ui-g-3">
+                            <input formControlName="Folio" pInputText id="vin" />
+                        </div>
+                    </div>
+                    <div formGroupName="Cliente">
+                        <div class="ui-g-12 ui-md-3">
+                            <div class="ui-g-4">
+                                <label for="vin">CP</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <input formControlName="Cp" pInputText id="vin" />
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-md-5">
+                            <div class="ui-g-3">
+                                <label for="vin">Email</label>
+                            </div>
+                            <div class="ui-g-9">
+                                <input formControlName="Email" pInputText id="vin" />
+                            </div>
+                        </div>
+                    </div>
+                </p-fieldset>
+            </div>
+            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                <p-fieldset legend="Información Bancaria">
+                    <div class="ui-g-12 ui-md-3">
+                        <div class="ui-g-4">
+                            <label for="vin">Forma de Pago</label>
+                        </div>
+                        <div class="ui-g-8">
+                            <input pInputText id="vin" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-5">
+                        <div class="ui-g-3">
+                            <label for="vin">Número de operación</label>
+                        </div>
+                        <div class="ui-g-9">
+                            <input pInputText id="vin" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-4">
+                        <div class="ui-g-3">
+                            <label for="vin">Moneda</label>
+                        </div>
+                        <div class="ui-g-9">
+                            <input pInputText id="vin" />
+                        </div>
+                    </div>
+                </p-fieldset>
+            </div>
+            <div class="ui-g-12 ui-md-12 ui-g-nopad" formArrayName="Detalles">
+                <p-fieldset legend="Documentos Relacionados">
+                    <p-table [value]="Detalles.value">
+                        <ng-template pTemplate="header">
+                            <tr>
+                                <th>UUID</th>
+                                <th>Folio</th>
+                                <!-- <th>Fecha</th>
+                                <th>Moneda</th>
+                                <th>TipoCambio</th>
+                                <th>MetodoPago</th>
+                                <th>NumParcialidad</th>
+                                <th>MontoPago</th>
+                                <th>ImportePagado</th>
+                                <th>SaldoInsoluto</th> -->
+                            </tr>
+                        </ng-template>
+                        <ng-template pTemplate="body" let-rowData>
+                            <tr>
+                                <td pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input type="text" [formControlName]="rowData.UUID">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{rowData.UUID}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <td pEditableColumn>
+                                    <p-cellEditor>
+                                        <ng-template pTemplate="input">
+                                            <input type="text" [formControlName]="rowData.controls.Folio.value">
+                                        </ng-template>
+                                        <ng-template pTemplate="output">
+                                            {{rowData.Folio}}
+                                        </ng-template>
+                                    </p-cellEditor>
+                                </td>
+                                <!-- <td>{{cliente.RazonSocial}}</td>
+                                <td>{{cliente.Pais}}</td>
+                                <td>{{cliente.color}}</td> -->
+                            </tr>
+                            <!-- <tr>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                                <td></td>
+                            </tr> -->
+                        </ng-template>
+                    </p-table>
+                </p-fieldset>
+            </div>
+        </div>
+    </form>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa fa-close" (click)="add()" label="Delete"></button>
+            <button type="submit" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
+<!-- <p-dialog header="Clientes" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="300">
+    <div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="vin">RFC :</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="vin" />
+            </div>
+        </div>
+        <div class="ui-g-12">
+            <div class="ui-g-4">
+                <label for="vin">Razon Social :</label>
+            </div>
+            <div class="ui-g-8">
+                <input pInputText id="vin" />
+            </div>
+        </div>
+    </div>
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Delete"></button>
+            <button type="button" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog> -->

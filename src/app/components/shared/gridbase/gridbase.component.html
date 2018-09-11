@@ -1,0 +1,35 @@
+<p-table #dt dataKey="_id" [value]="items" [resizableColumns]="true" columnResizeMode="expand" selectionMode="single" [(selection)]="selectedCliente">
+    <!-- <ng-template pTemplate="caption">
+        <div style="text-align: right">
+            <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
+            <input type="text" pInputText size="50" placeholder="Buscar" (input)="dt.filterGlobal($event.target.value, 'contains')" style="width:auto">
+        </div>
+    </ng-template> -->
+    <ng-template pTemplate="header" let-columns>
+        <tr>
+            <th *ngFor="let col of cols" [pSortableColumn]="col.field">
+                {{col.header}}
+                <p-sortIcon [field]="col.field" ariaLabel="Activate to sort" ariaLabelDesc="Activate to sort in descending order" ariaLabelAsc="Activate to sort in ascending order"></p-sortIcon>
+            </th>
+        </tr>
+        <!-- <tr>
+            <th *ngFor="let col of cols" [ngSwitch]="col.field">
+                <input *ngSwitchCase="'Rfc'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                <input *ngSwitchCase="'RazonSocial'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+                <input *ngSwitchCase="'Pais'" pInputText type="text" (input)="dt.filter($event.target.value, col.field, col.filterMatchMode)">
+            </th>
+        </tr> -->
+    </ng-template>
+    <ng-template pTemplate="body" let-rowData let-columns="columns">
+        <tr [pSelectableRow]="rowData">
+            <td *ngFor="let col of cols; let i=index">
+                {{rowData[col.field]}}
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div style="text-align: left">
+            Item : {{selectedCliente ? selectedCliente.Rfc : '' }}
+        </div>
+    </ng-template>
+</p-table>

@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  item: any;
+
+  public onRouterOutletActivate(event: any) {
+    console.log(event);
+    this.item= event;
+  }
 }
