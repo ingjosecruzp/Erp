@@ -1,144 +1,97 @@
 <app-gridbase [items]="clientes" [cols]="cols" [Ws]="WsClientes"></app-gridbase>
 
-<p-dialog header="Complemento de pago" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="1000">
+<p-dialog header="Complemento de pago" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="730">
     <form [formGroup]="FrmDocumento" (ngSubmit)="save()">
-        <div class="ui-g ui-fluid">
-            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
-                <p-fieldset legend="Datos Receptor">
-                    <div formGroupName="Cliente">
-                        <div class="ui-g-12 ui-md-3">
-                            <div class="ui-g-4">
-                                <label for="vin">RFC</label>
-                            </div>
-                            <div class="ui-g-8">
-                                <input formControlName="Rfc" pInputText id="Rfc" />
-                            </div>
-                        </div>
-                        <div class="ui-g-12 ui-md-5">
-                            <div class="ui-g-3">
-                                <label for="vin">Razon Social</label>
-                            </div>
-                            <div class="ui-g-9">
-                                <input formControlName="RazonSocial" pInputText id="vin" />
-                            </div>
-                        </div>
+        <p-tabView>
+            <p-tabPanel header="General">
+                <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                    <div class="ui-g-2">
+                        <label for="vin">Nombre:</label>
                     </div>
-                    <div class="ui-g-12 ui-md-4">
-                        <div class="ui-g-3">
-                            <label for="vin">Serie</label>
-                        </div>
-                        <div class="ui-g-3">
-                            <input formControlName="Serie" pInputText id="vin" />
-                        </div>
-                        <div class="ui-g-3">
-                            <label for="vin">Folio</label>
-                        </div>
-                        <div class="ui-g-3">
-                            <input formControlName="Folio" pInputText id="vin" />
-                        </div>
+                    <div class="ui-g-10">
+                        <input formControlName="Nombre" pInputText id="Nombre" />
                     </div>
-                    <div formGroupName="Cliente">
-                        <div class="ui-g-12 ui-md-3">
-                            <div class="ui-g-4">
-                                <label for="vin">CP</label>
-                            </div>
-                            <div class="ui-g-8">
-                                <input formControlName="Cp" pInputText id="vin" />
-                            </div>
-                        </div>
-                        <div class="ui-g-12 ui-md-5">
-                            <div class="ui-g-3">
-                                <label for="vin">Email</label>
-                            </div>
-                            <div class="ui-g-9">
-                                <input formControlName="Email" pInputText id="vin" />
-                            </div>
-                        </div>
+                </div>
+                <hr>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                    <div class="ui-g-2">
+                        <label for="vin">Contacto 1:</label>
                     </div>
-                </p-fieldset>
-            </div>
-            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
-                <p-fieldset legend="Información Bancaria">
-                    <div class="ui-g-12 ui-md-3">
-                        <div class="ui-g-4">
-                            <label for="vin">Forma de Pago</label>
-                        </div>
-                        <div class="ui-g-8">
-                            <input pInputText id="vin" />
-                        </div>
+                    <div class="ui-g-4 ">
+                        <input formControlName="Contacto1" pInputText id="Contacto1" />
                     </div>
-                    <div class="ui-g-12 ui-md-5">
-                        <div class="ui-g-3">
-                            <label for="vin">Número de operación</label>
-                        </div>
-                        <div class="ui-g-9">
-                            <input pInputText id="vin" />
-                        </div>
+                    <div class="ui-g-2">
+                        <label for="vin">C. de pago:</label>
                     </div>
-                    <div class="ui-g-12 ui-md-4">
-                        <div class="ui-g-3">
-                            <label for="vin">Moneda</label>
-                        </div>
-                        <div class="ui-g-9">
-                            <input pInputText id="vin" />
-                        </div>
+                    <div class="ui-g-4">
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="CondicionesPago" [suggestions]="CondicionesDePago" (completeMethod)="search($event)" field="Nombre" [dropdown]="true"></p-autoComplete>
                     </div>
-                </p-fieldset>
-            </div>
-            <div class="ui-g-12 ui-md-12 ui-g-nopad" formArrayName="Detalles">
-                <p-fieldset legend="Documentos Relacionados">
-                    <p-table [value]="Detalles.value">
-                        <ng-template pTemplate="header">
-                            <tr>
-                                <th>UUID</th>
-                                <th>Folio</th>
-                                <!-- <th>Fecha</th>
-                                <th>Moneda</th>
-                                <th>TipoCambio</th>
-                                <th>MetodoPago</th>
-                                <th>NumParcialidad</th>
-                                <th>MontoPago</th>
-                                <th>ImportePagado</th>
-                                <th>SaldoInsoluto</th> -->
-                            </tr>
-                        </ng-template>
-                        <ng-template pTemplate="body" let-rowData>
-                            <tr>
-                                <td pEditableColumn>
-                                    <p-cellEditor>
-                                        <ng-template pTemplate="input">
-                                            <input type="text" [formControlName]="rowData.UUID">
-                                        </ng-template>
-                                        <ng-template pTemplate="output">
-                                            {{rowData.UUID}}
-                                        </ng-template>
-                                    </p-cellEditor>
-                                </td>
-                                <td pEditableColumn>
-                                    <p-cellEditor>
-                                        <ng-template pTemplate="input">
-                                            <input type="text" [formControlName]="rowData.controls.Folio.value">
-                                        </ng-template>
-                                        <ng-template pTemplate="output">
-                                            {{rowData.Folio}}
-                                        </ng-template>
-                                    </p-cellEditor>
-                                </td>
-                                <!-- <td>{{cliente.RazonSocial}}</td>
-                                <td>{{cliente.Pais}}</td>
-                                <td>{{cliente.color}}</td> -->
-                            </tr>
-                            <!-- <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr> -->
-                        </ng-template>
-                    </p-table>
-                </p-fieldset>
-            </div>
-        </div>
+                </div>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                    <div class="ui-g-2">
+                        <label for="vin">Contacto 2:</label>
+                    </div>
+                    <div class="ui-g-4">
+                        <input formControlName="Contacto2" pInputText id="Contacto2" />
+                    </div>
+                    <div class="ui-g-2">
+                        <label for="vin">Tipo de Cliente:</label>
+                    </div>
+                    <div class="ui-g-4">
+                        <input formControlName="TipoCliente" pInputText id="TipoCliente" />
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                    <div class="ui-g-2">
+                        <label for="vin">R.F.C:</label>
+                    </div>
+                    <div class="ui-g-4">
+                        <input formControlName="RFC" pInputText id="RFC" />
+                    </div>
+                    <div class="ui-g-2">
+                        <label for="vin">Zona del Cliente:</label>
+                    </div>
+                    <div class="ui-g-4">
+                        <input formControlName="ZonaCliente" pInputText id="ZonaCliente" />
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                    <div class="ui-g-2">
+                        <label for="vin">Moneda</label>
+                    </div>
+                    <div class="ui-g-4">
+                        <input formControlName="Moneda" pInputText id="Moneda" />
+                    </div>
+                    <div class="ui-g-2">
+                        <label for="vin">Cobrador:</label>
+                    </div>
+                    <div class="ui-g-4">
+                        <input formControlName="Cobrador" pInputText id="Cobrador" />
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                    <div class="ui-g-2">
+                        <label for="vin">Limite de Credito:</label>
+                    </div>
+                    <div class="ui-g-4">
+                        <input currencyMask formControlName="LimiteCredito" pInputText id="LimiteCredito" />
+                    </div>
+                    <div class="ui-g-2">
+                        <label for="vin">Vendedor:</label>
+                    </div>
+                    <div class="ui-g-4">
+                        <input formControlName="Vendedor" pInputText id="Vendedor" />
+                    </div>
+                </div>
+                <hr>
+            </p-tabPanel>
+            <p-tabPanel header="Header 2">
+                Content 2
+            </p-tabPanel>
+            <p-tabPanel header="Header 3">
+                Content 3
+            </p-tabPanel>
+        </p-tabView>
     </form>
     <p-footer>
         <div class="ui-dialog-buttonpane ui-helper-clearfix">

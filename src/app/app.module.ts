@@ -17,6 +17,7 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
 
 import {ToolbarModule} from 'primeng/toolbar';
+import {AutoCompleteModule} from 'primeng/autocomplete';
 import {SplitButtonModule} from 'primeng/splitbutton';
 import {InputTextModule} from 'primeng/inputtext';
 import { GridbaseComponent } from './components/shared/gridbase/gridbase.component';
@@ -25,6 +26,7 @@ import {FieldsetModule} from 'primeng/fieldset';
 import {PaisesComponent } from './components/paises/paises.component';
 import {PanelModule} from 'primeng/panel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 
 @NgModule({
@@ -36,7 +38,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ClientesComponent,
     HomeComponent,
     GridbaseComponent,
-    PaisesComponent,
+    PaisesComponent
   ],
   imports: [
     BrowserModule,
@@ -55,7 +57,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     FieldsetModule,
     PanelModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CurrencyMaskModule,
+    AutoCompleteModule
   ],
   providers: [],
   bootstrap: [AppComponent]
