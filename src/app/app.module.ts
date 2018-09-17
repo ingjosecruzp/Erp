@@ -28,7 +28,6 @@ import {PanelModule} from 'primeng/panel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 
-
 @NgModule({
   declarations: [
     AppComponent,

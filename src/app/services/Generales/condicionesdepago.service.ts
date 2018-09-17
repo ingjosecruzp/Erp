@@ -9,12 +9,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class CondicionesdepagoService extends BaseService<CondicionesDePago> implements ServicesBase {
-      Ws: string;
-      
-      constructor(http: HttpClient) { 
-   
-        super(http);
-        this.Ws = 'test';
+
+      constructor(private http: HttpClient) { 
+        super();
+        this.Ws = 'Servicios/Generales/WcfCondicionesDePago.svc';
+        this.httpWs = http;
       }
 
       getAll(): any {
@@ -22,6 +21,7 @@ export class CondicionesdepagoService extends BaseService<CondicionesDePago> imp
       }
 
      save(): any {
+       console.log('save');
        return null;
      }
 

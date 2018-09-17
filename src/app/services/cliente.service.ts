@@ -17,8 +17,13 @@ export class ClienteService implements ServicesBase {
     return this.http.get<Cliente[]>('http://localhost:60493/Servicios/Ventas/WcfClientes.svc/');
   }
 
-  save(): any {
-    return null;
+  save(item: Cliente): any {
+    let headers = new Headers({
+      'Content-Type' : 'application/json'
+    });
+
+     console.log(item);
+     return this.http.post<Cliente>('http://localhost:60493/Servicios/Ventas/WcfClientes.svc/', item, { headers } );
   }
 
   delete(): any {

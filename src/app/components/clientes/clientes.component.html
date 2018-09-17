@@ -24,7 +24,7 @@
                         <label for="vin">C. de pago:</label>
                     </div>
                     <div class="ui-g-4">
-                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="CondicionesPago" [suggestions]="CondicionesDePago" (completeMethod)="search($event)" field="Nombre" [dropdown]="true"></p-autoComplete>
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="CondicionesDePago" [suggestions]="CondicionesDePago" (completeMethod)="searchCondiciones($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-12 ui-g-nopad">
@@ -38,7 +38,7 @@
                         <label for="vin">Tipo de Cliente:</label>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="TipoCliente" pInputText id="TipoCliente" />
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="TipoCliente" [suggestions]="TipoCliente" (completeMethod)="searchTipoCliente($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-12 ui-g-nopad">
@@ -46,13 +46,13 @@
                         <label for="vin">R.F.C:</label>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="RFC" pInputText id="RFC" />
+                        <input formControlName="Rfc" pInputText id="Rfc" />
                     </div>
                     <div class="ui-g-2">
                         <label for="vin">Zona del Cliente:</label>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="ZonaCliente" pInputText id="ZonaCliente" />
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="ZonaCliente" [suggestions]="ZonaCliente" (completeMethod)="searchZonaCliente($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-12 ui-g-nopad">
@@ -60,13 +60,13 @@
                         <label for="vin">Moneda</label>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="Moneda" pInputText id="Moneda" />
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="Moneda" [suggestions]="Moneda" (completeMethod)="searchMoneda($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                     <div class="ui-g-2">
                         <label for="vin">Cobrador:</label>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="Cobrador" pInputText id="Cobrador" />
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="Cobrador" [suggestions]="Cobrador" (completeMethod)="searchCobrador($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-12 ui-g-nopad">
@@ -80,7 +80,7 @@
                         <label for="vin">Vendedor:</label>
                     </div>
                     <div class="ui-g-4">
-                        <input formControlName="Vendedor" pInputText id="Vendedor" />
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="Vendedor" [suggestions]="Vendedor" (completeMethod)="searchVendedor($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <hr>

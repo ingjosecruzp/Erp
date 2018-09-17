@@ -1,4 +1,4 @@
 export class CondicionesDePago {
-    _id;
+    _id: Object;
     Nombre: String;
 }

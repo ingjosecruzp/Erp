@@ -11,8 +11,8 @@ export class TipoclienteService extends BaseService<TipoCliente> implements Serv
 
       constructor(private http: HttpClient) { 
         super(); 
-        this.httpPeticion = http;
-        this.Ws = 'Servicios/Generales/WcfTipoCliente.svc/';
+        this.Ws = 'Servicios/Generales/WcfTipoCliente.svc';
+        this.httpWs = http;
       }
 
       getAll(): any {
