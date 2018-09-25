@@ -1,6 +1,6 @@
 <app-gridbase [items]="clientes" [cols]="cols" [Ws]="WsClientes"></app-gridbase>
 
-<p-dialog header="Complemento de pago" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="730">
+<p-dialog header="Complemento de pago" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="true" [width]="730">
     <form [formGroup]="FrmDocumento" (ngSubmit)="save()">
         <p-tabView>
             <p-tabPanel header="General">

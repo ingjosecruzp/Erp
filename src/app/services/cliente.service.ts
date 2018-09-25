@@ -18,12 +18,8 @@ export class ClienteService implements ServicesBase {
   }
 
   save(item: Cliente): any {
-    let headers = new Headers({
-      'Content-Type' : 'application/json'
-    });
-
      console.log(item);
-     return this.http.post<Cliente>('http://localhost:60493/Servicios/Ventas/WcfClientes.svc/', item, { headers } );
+     return this.http.post<Cliente>('http://localhost:60493/Servicios/Ventas/WcfClientes.svc/', item);
   }
 
   delete(): any {

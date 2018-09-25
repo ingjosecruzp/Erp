@@ -19,14 +19,18 @@ import { HomeComponent } from './components/home/home.component';
 import {ToolbarModule} from 'primeng/toolbar';
 import {AutoCompleteModule} from 'primeng/autocomplete';
 import {SplitButtonModule} from 'primeng/splitbutton';
+import {ButtonModule} from 'primeng/button';
 import {InputTextModule} from 'primeng/inputtext';
 import { GridbaseComponent } from './components/shared/gridbase/gridbase.component';
-import {DialogModule} from 'primeng/dialog';
+import {DialogModule} from './modules/dialog/dialog.module';
+import {DialogModule as DialogPrime} from 'primeng/dialog';
 import {FieldsetModule} from 'primeng/fieldset';
 import {PaisesComponent } from './components/paises/paises.component';
 import {PanelModule} from 'primeng/panel';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import { ExampleComponent } from './components/example/example.component';
+import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +41,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     ClientesComponent,
     HomeComponent,
     GridbaseComponent,
-    PaisesComponent
+    PaisesComponent,
+    ExampleComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -52,15 +58,18 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     ToolbarModule,
     SplitButtonModule,
     InputTextModule,
+    DialogPrime,
     DialogModule,
     FieldsetModule,
     PanelModule,
     FormsModule,
     ReactiveFormsModule,
     CurrencyMaskModule,
-    AutoCompleteModule
+    AutoCompleteModule,
+    ButtonModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ExampleComponent]
 })
 export class AppModule { }
