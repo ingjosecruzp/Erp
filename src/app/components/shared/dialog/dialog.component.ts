@@ -11,7 +11,7 @@ import { ExampleComponent } from '../../example/example.component';
 export class DialogComponent  implements AfterViewInit, OnDestroy {
   childComponentType: Type<any>;
   componentRef: ComponentRef<any>;
-  displayDialog: boolean = 'true';
+  displayDialog: boolean = true;
 
   @ViewChild(InsertionDirective)
   insertionPoint: InsertionDirective;

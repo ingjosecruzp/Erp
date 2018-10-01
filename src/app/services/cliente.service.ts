@@ -17,7 +17,7 @@ export class ClienteService implements ServicesBase {
     return this.http.get<Cliente[]>('http://localhost:60493/Servicios/Ventas/WcfClientes.svc/');
   }
 
-  save(item: Cliente): any {
+  save(item: any): any {
      console.log(item);
      return this.http.post<Cliente>('http://localhost:60493/Servicios/Ventas/WcfClientes.svc/', item);
   }
