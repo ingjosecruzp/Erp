@@ -17,11 +17,11 @@ export class AppComponent {
   }
 
   constructor(public dialog: DialogService) {
-    const ref = this.dialog.open(ExampleComponent, { 
+    /*const ref = this.dialog.open(ExampleComponent, { 
                     data: { message: 'I am a dynamic component inside of a dialog!' } });
     console.log(ref);
     ref.afterClosed.subscribe(result => {
       console.log('Dialog closed', result);
-    });
+    });*/
   }
 }

@@ -1,5 +1,5 @@
 export interface ServicesBase {
     getAll(): any;
-    save(): any;
+    save(item:any): any;
     /* Test Christian*/
 }
