@@ -3,6 +3,7 @@ import { HomeComponent } from './components/home/home.component';
 import { ClientesComponent } from './components/ventas/clientes/clientes.component';
 import { PaisesComponent } from './components/paises/paises.component';
 import { GridconceptosComponent } from './components/inventarios/conceptos/gridconceptos/gridconceptos.component';
+import { GridunidadesComponent } from './components/inventarios/unidades/gridunidades/gridunidades.component';
 
 
 const APP_ROUTES: Routes = [
@@ -10,6 +11,7 @@ const APP_ROUTES: Routes = [
     { path: 'clientes', component: ClientesComponent},
     { path: 'paises', component: PaisesComponent},
     { path:  'conceptos', component: GridconceptosComponent},
+    { path: 'unidades', component: GridunidadesComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 
