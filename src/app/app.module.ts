@@ -32,6 +32,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { ExampleComponent } from './components/example/example.component';
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
 import { FrmclientesComponent } from './components/ventas/clientes/frmclientes/frmclientes.component';
+import { GridunidadesComponent } from './components/inventarios/unidades/gridunidades/gridunidades.component';
+import { FrmunidadesComponent } from './components/inventarios/unidades/frmunidades/frmunidades.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +48,10 @@ import { FrmclientesComponent } from './components/ventas/clientes/frmclientes/f
     PaisesComponent,
     ExampleComponent,
     ToolbarComponent,
-    FrmclientesComponent
+    FrmclientesComponent,
+    GridunidadesComponent,
+    FrmunidadesComponent
+
   ],
   imports: [
     BrowserModule,
