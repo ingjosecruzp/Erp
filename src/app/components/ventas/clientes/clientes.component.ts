@@ -1,14 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ClienteService } from '../../../services/cliente.service';
 import { Cliente } from '../../../models/cliente';
-import { ComplementoPago } from '../../../models/complementopago';
 import { FormGroup, FormArray } from '@angular/forms';
-import { CondicionesDePago } from '../../../models/condicionesdepago';
-import { TipoCliente } from '../../../models/tipocliente';
-import { Moneda } from '../../../models/Generales/moneda';
-import { Vendedor } from '../../../models/Generales/vendedor';
-import { Cobrador } from '../../../models/Generales/cobrador';
-import { ZonaCliente } from '../../../models/Generales/zonacliente';
 import { DialogService } from '../../../services/dinamicos/dialog.service';
 import { FrmclientesComponent } from './frmclientes/frmclientes.component';
 
@@ -31,7 +24,6 @@ export class ClientesComponent implements OnInit {
 
   add() {
     // this.displayDialog = true;
-
     const ref = this.dialog.open(FrmclientesComponent, { 
                   data: { message: 'I am a dynamic component inside of a dialog!'} });
     /*ref.afterClosed.subscribe(result => {
