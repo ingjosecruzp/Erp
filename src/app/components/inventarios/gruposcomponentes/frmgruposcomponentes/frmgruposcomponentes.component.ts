@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { GrupoComponente } from '../../../../models/Generales/grupocomponente';
 import { GrupocomponenteService } from '../../../../services/inventarios/grupocomponente.service';
+import { DialogConfig } from '../../../shared/dialog/dialog-config';
+import { DialogRef } from '../../../shared/dialog/dialog-ref';
 
 @Component({
   selector: 'app-frmgruposcomponentes',
@@ -8,9 +10,11 @@ import { GrupocomponenteService } from '../../../../services/inventarios/grupoco
   styles: []
 })
 export class FrmgruposcomponentesComponent implements OnInit {
+  displayDialog: boolean;
 
-
-  constructor( ) { }
+  constructor(public config: DialogConfig, public dialog: DialogRef ) {
+    this.displayDialog = true;
+   }
 
   ngOnInit() {
 
