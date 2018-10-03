@@ -38,6 +38,8 @@ import { GridgruposcomponentesComponent } from './components/inventarios/gruposc
 import { FrmgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/frmgruposcomponentes/frmgruposcomponentes.component';
 import { GridsubgrupocomponentesComponent } from './components/inventarios/subgrupocomponentes/gridsubgrupocomponentes/gridsubgrupocomponentes.component';
 import { FrmsubgrupocomponentesComponent } from './components/inventarios/subgrupocomponentes/frmsubgrupocomponentes/frmsubgrupocomponentes.component';
+import { GridconceptosComponent } from './components/inventarios/conceptos/gridconceptos/gridconceptos.component';
+import { FrmconceptosComponent } from './components/inventarios/conceptos/frmconceptos/frmconceptos.component';
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import { FrmsubgrupocomponentesComponent } from './components/inventarios/subgru
     GridgruposcomponentesComponent,
     FrmgruposcomponentesComponent,
     GridsubgrupocomponentesComponent,
-    FrmsubgrupocomponentesComponent
+    FrmsubgrupocomponentesComponent,
+    GridconceptosComponent,
+    FrmconceptosComponent
 
   ],
   imports: [
