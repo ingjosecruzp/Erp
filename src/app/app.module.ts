@@ -32,6 +32,13 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { ExampleComponent } from './components/example/example.component';
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
 import { FrmclientesComponent } from './components/ventas/clientes/frmclientes/frmclientes.component';
+import { GridunidadesComponent } from './components/inventarios/unidades/gridunidades/gridunidades.component';
+import { FrmunidadesComponent } from './components/inventarios/unidades/frmunidades/frmunidades.component';
+import { GridgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/gridgruposcomponentes/gridgruposcomponentes.component';
+import { FrmgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/frmgruposcomponentes/frmgruposcomponentes.component';
+import { GridsubgrupocomponentesComponent } from './components/inventarios/subgrupocomponentes/gridsubgrupocomponentes/gridsubgrupocomponentes.component';
+import { FrmsubgrupocomponentesComponent } from './components/inventarios/subgrupocomponentes/frmsubgrupocomponentes/frmsubgrupocomponentes.component';
+
 
 @NgModule({
   declarations: [
@@ -45,7 +52,14 @@ import { FrmclientesComponent } from './components/ventas/clientes/frmclientes/f
     PaisesComponent,
     ExampleComponent,
     ToolbarComponent,
-    FrmclientesComponent
+    FrmclientesComponent,
+    GridunidadesComponent,
+    FrmunidadesComponent,
+    GridgruposcomponentesComponent,
+    FrmgruposcomponentesComponent,
+    GridsubgrupocomponentesComponent,
+    FrmsubgrupocomponentesComponent
+
   ],
   imports: [
     BrowserModule,
