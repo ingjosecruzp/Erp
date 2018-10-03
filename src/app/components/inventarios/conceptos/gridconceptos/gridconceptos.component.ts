@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Concepto } from '../../../../models/Inventarios/concepto';
 import { ConceptosService } from '../../../../services/inventarios/conceptos.service';
+import { FrmconceptosComponent } from '../frmconceptos/frmconceptos.component';
+import { DialogService } from '../../../../services/dinamicos/dialog.service';
+
 
 @Component({
   selector: 'app-gridconceptos',
@@ -11,20 +14,27 @@ export class GridconceptosComponent implements OnInit {
   cols: any[];
   selectedConcepto: Concepto;
 
-  constructor(private WsConceptos: ConceptosService) {
+  constructor(private WsConceptos: ConceptosService, public dialog: DialogService) {
 
    }
 
   ngOnInit() {
-
     this.cols = [
       { field: 'Clave', header: 'Clave' },
       { field: 'Nombre', header: 'Nombre' },
       { field: 'Naturaleza', header: 'Naturaleza' },
-      { field: 'TipoConcepto._id', header: 'Tipo Concepto' },
+      { field: 'TipoConcepto.Nombre', header: 'Tipo Concepto' },
       { field: 'Predefinido', header: 'Predefinido' }
     ];
 
+  }
+
+  add() {
+    const ref = this.dialog.open(FrmconceptosComponent, { 
+                  data: { message: 'I am a dynamic component inside of a dialog!'} });
+    /*ref.afterClosed.subscribe(result => {
+      console.log('Dialog closed', result);
+    });*/
   }
 
 }

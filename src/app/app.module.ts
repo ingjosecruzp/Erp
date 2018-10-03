@@ -90,6 +90,11 @@ import { FrmconceptosComponent } from './components/inventarios/conceptos/frmcon
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ExampleComponent, FrmclientesComponent]
+  entryComponents: [ExampleComponent,
+                    FrmclientesComponent, 
+                    FrmconceptosComponent, 
+                    FrmgruposcomponentesComponent,
+                    FrmsubgrupocomponentesComponent,
+                    FrmunidadesComponent]
 })
 export class AppModule { }
