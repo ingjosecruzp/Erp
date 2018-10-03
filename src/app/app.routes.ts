@@ -4,6 +4,8 @@ import { ClientesComponent } from './components/ventas/clientes/clientes.compone
 import { PaisesComponent } from './components/paises/paises.component';
 import { GridconceptosComponent } from './components/inventarios/conceptos/gridconceptos/gridconceptos.component';
 import { GridunidadesComponent } from './components/inventarios/unidades/gridunidades/gridunidades.component';
+// tslint:disable-next-line:max-line-length
+import { GridgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/gridgruposcomponentes/gridgruposcomponentes.component';
 
 
 const APP_ROUTES: Routes = [
@@ -12,6 +14,7 @@ const APP_ROUTES: Routes = [
     { path: 'paises', component: PaisesComponent},
     { path:  'conceptos', component: GridconceptosComponent},
     { path: 'unidades', component: GridunidadesComponent},
+    { path: 'grupocompnentes', component: GridgruposcomponentesComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

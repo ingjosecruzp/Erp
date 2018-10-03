@@ -39,6 +39,7 @@ export class MenubarComponent implements OnInit {
                     {label: 'Paises', icon: 'pi pi-fw pi-globe', routerLink: ['/paises']},
                     {label: 'Conceptos', icon: 'pi pi-fw pi-th-large', routerLink: ['/conceptos']},
                     {label: 'Unidades', icon: 'fa fa-puzzle-piece', routerLink: ['/unidades']},
+                    {label: 'Grupos Componentes', icon: 'fa fa-puzzle-piece', routerLink: ['/grupocompnentes']},
                     {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
                 ]
             }
