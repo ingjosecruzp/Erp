@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { GrupoComponente } from '../../../../models/Generales/grupocomponente';
+import { GrupocomponenteService } from '../../../../services/inventarios/grupocomponente.service';
 
 @Component({
   selector: 'app-frmgruposcomponentes',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FrmgruposcomponentesComponent implements OnInit {
 
-  constructor() { }
+
+  constructor( ) { }
 
   ngOnInit() {
+
+
+
   }
 
 }
