@@ -22,7 +22,7 @@ export class GridbaseComponent<T, S extends ServicesBase> implements OnInit {
   ngOnInit() {
     this.Ws.getAll().subscribe(data => {
       this.items = data;
-      //console.log(this.items);
+      // console.log(this.items);
      });
   }
 

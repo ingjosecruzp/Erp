@@ -12,18 +12,16 @@ import { FrmclientesComponent } from './frmclientes/frmclientes.component';
   ]
 })
 export class ClientesComponent implements OnInit {
-   FrmDocumento: FormGroup;
    clientes: Cliente[] = [];
    cols: any[];
    selectedCliente: Cliente;
-   displayDialog: boolean;
+
 
   constructor(private WsClientes: ClienteService, public dialog: DialogService) {
 
   }
 
   add() {
-    // this.displayDialog = true;
     const ref = this.dialog.open(FrmclientesComponent, { 
                   data: { message: 'I am a dynamic component inside of a dialog!'} });
     /*ref.afterClosed.subscribe(result => {
@@ -62,14 +60,14 @@ export class ClientesComponent implements OnInit {
   save () {
     /*if( this.FrmDocumento.status !== 'INVALID' ) 
     {*/
-      let item = new Cliente(this.FrmDocumento.value);
+      // let item = new Cliente(this.FrmDocumento.value);
       // console.log(item);
       // console.log(JSON.stringify(item));
-      this.WsClientes.save(item).subscribe(data => {
+      /*this.WsClientes.save(item).subscribe(data => {
          console.log('Guardado');
-      });
+      });*/
       /*console.log(this.FrmDocumento.value);*/
-    //}
+    // }
   }
 
  /* add() {
@@ -82,7 +80,7 @@ export class ClientesComponent implements OnInit {
 
   get Detalles() {
      // console.log(this.FrmDocumento.get('Detalles') as FormArray);
-    return this.FrmDocumento.get('Detalles') as FormArray;
+    // return this.FrmDocumento.get('Detalles') as FormArray;
   }
 
 }
