@@ -6,6 +6,7 @@ import { GridconceptosComponent } from './components/inventarios/conceptos/gridc
 import { GridunidadesComponent } from './components/inventarios/unidades/gridunidades/gridunidades.component';
 // tslint:disable-next-line:max-line-length
 import { GridgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/gridgruposcomponentes/gridgruposcomponentes.component';
+import { GridsubgrupocomponentesComponent } from './components/inventarios/subgrupocomponentes/gridsubgrupocomponentes/gridsubgrupocomponentes.component';
 
 
 const APP_ROUTES: Routes = [
@@ -15,6 +16,7 @@ const APP_ROUTES: Routes = [
     { path:  'conceptos', component: GridconceptosComponent},
     { path: 'unidades', component: GridunidadesComponent},
     { path: 'grupocompnentes', component: GridgruposcomponentesComponent},
+    { path: 'subgrupocomponentes', component: GridsubgrupocomponentesComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 
