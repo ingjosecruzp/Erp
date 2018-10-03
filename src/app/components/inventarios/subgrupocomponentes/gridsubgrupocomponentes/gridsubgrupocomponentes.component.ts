@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { SubgrupocomponenteService } from '../../../../services/inventarios/subgrupocomponente.service';
 import { SubgrupoComponente } from '../../../../models/Generales/subgrupocompenente';
+import { DialogService } from '../../../../services/dinamicos/dialog.service';
+import { FrmsubgrupocomponentesComponent } from '../frmsubgrupocomponentes/frmsubgrupocomponentes.component';
+
 
 
 @Component({
@@ -12,7 +15,7 @@ export class GridsubgrupocomponentesComponent implements OnInit {
   cols: any[];
   selectedConcepto: SubgrupoComponente;
 
-  constructor(private WsSubgrupocomponentes: SubgrupocomponenteService) { }
+  constructor(private WsSubgrupocomponentes: SubgrupocomponenteService, public dialog: DialogService) { }
 
   ngOnInit() {
 
@@ -22,6 +25,14 @@ export class GridsubgrupocomponentesComponent implements OnInit {
       { field: 'TipoComponente.Nombre', header: 'Tipo Componente' }
     ];
 
+  }
+
+  add() {
+    const ref = this.dialog.open(FrmsubgrupocomponentesComponent, { 
+                  data: { message: 'I am a dynamic component inside of a dialog!'} });
+    /*ref.afterClosed.subscribe(result => {
+      console.log('Dialog closed', result);
+    });*/
   }
 
 }

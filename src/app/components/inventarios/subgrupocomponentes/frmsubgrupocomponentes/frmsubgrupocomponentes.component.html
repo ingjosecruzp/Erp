@@ -1,3 +1,9 @@
-<p>
-  frmsubgrupocomponentes works!
-</p>
+<p-dialog header="Subgrupo Componentes" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="730">
+    Subgrupo Componentes
+    <p-footer>
+        <div class="ui-dialog-buttonpane ui-helper-clearfix">
+            <button type="button" pButton icon="fa fa-close" (click)="add()" label="Delete"></button>
+            <button type="submit" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
+        </div>
+    </p-footer>
+</p-dialog>
