@@ -16,7 +16,6 @@ export class ClientesComponent implements OnInit {
    cols: any[];
    selectedCliente: Cliente;
 
-
   constructor(private WsClientes: ClienteService, public dialog: DialogService) {
 
   }
@@ -78,9 +77,9 @@ export class ClientesComponent implements OnInit {
     }));
   }*/
 
-  get Detalles() {
+  /*get Detalles() {
      // console.log(this.FrmDocumento.get('Detalles') as FormArray);
     // return this.FrmDocumento.get('Detalles') as FormArray;
-  }
+  }*/
 
 }
