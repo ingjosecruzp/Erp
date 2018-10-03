@@ -34,6 +34,8 @@ import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
 import { FrmclientesComponent } from './components/ventas/clientes/frmclientes/frmclientes.component';
 import { GridunidadesComponent } from './components/inventarios/unidades/gridunidades/gridunidades.component';
 import { FrmunidadesComponent } from './components/inventarios/unidades/frmunidades/frmunidades.component';
+import { GridgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/gridgruposcomponentes/gridgruposcomponentes.component';
+import { FrmgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/frmgruposcomponentes/frmgruposcomponentes.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { FrmunidadesComponent } from './components/inventarios/unidades/frmunida
     ToolbarComponent,
     FrmclientesComponent,
     GridunidadesComponent,
-    FrmunidadesComponent
+    FrmunidadesComponent,
+    GridgruposcomponentesComponent,
+    FrmgruposcomponentesComponent
 
   ],
   imports: [
