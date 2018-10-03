@@ -36,6 +36,8 @@ import { GridunidadesComponent } from './components/inventarios/unidades/griduni
 import { FrmunidadesComponent } from './components/inventarios/unidades/frmunidades/frmunidades.component';
 import { GridgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/gridgruposcomponentes/gridgruposcomponentes.component';
 import { FrmgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/frmgruposcomponentes/frmgruposcomponentes.component';
+import { GridsubgrupocomponentesComponent } from './components/inventarios/subgrupocomponentes/gridsubgrupocomponentes/gridsubgrupocomponentes.component';
+import { FrmsubgrupocomponentesComponent } from './components/inventarios/subgrupocomponentes/frmsubgrupocomponentes/frmsubgrupocomponentes.component';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import { FrmgruposcomponentesComponent } from './components/inventarios/gruposco
     GridunidadesComponent,
     FrmunidadesComponent,
     GridgruposcomponentesComponent,
-    FrmgruposcomponentesComponent
+    FrmgruposcomponentesComponent,
+    GridsubgrupocomponentesComponent,
+    FrmsubgrupocomponentesComponent
 
   ],
   imports: [
