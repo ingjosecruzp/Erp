@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-gridconceptos',
-  templateUrl: './gridconceptos.component.html',
-  styleUrls: ['./gridconceptos.component.css']
+  templateUrl: './gridconceptos.component.html'
 })
 export class GridconceptosComponent implements OnInit {
 
