@@ -40,27 +40,15 @@ export class DialogComponent  implements AfterViewInit, OnDestroy {
     evt.stopPropagation();
   }
 
-  /*save () {
-    console.log('test');
-    console.log(this.myChild);
-    console.log(this.componentRef);
-    console.log(this.childComponentType);
-    // this.myChild.save();
-  }*/
-
   loadChildComponent(componentType: Type<any>) {
-    console.log(componentType);
     
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentType);
-    console.log(componentFactory);
+    const componentFactory = this.componentFactoryResolver.resolveComponentFactory(componentType);
 
-    let viewContainerRef = this.insertionPoint.viewContainerRef;
-    console.log(viewContainerRef);
+    const viewContainerRef = this.insertionPoint.viewContainerRef;
 
     viewContainerRef.clear();
 
     this.componentRef = viewContainerRef.createComponent(componentFactory);
-    console.log(this.componentRef);
 }
 
 }

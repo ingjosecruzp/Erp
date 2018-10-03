@@ -13,7 +13,7 @@ import {MenubarModule} from 'primeng/menubar';
 import { MainComponent } from './components/shared/main/main.component';
 import {TabViewModule} from 'primeng/tabview';
 import {TableModule} from 'primeng/table';
-import { ClientesComponent } from './components/clientes/clientes.component';
+import { ClientesComponent } from './components/ventas/clientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
 
 import {ToolbarModule} from 'primeng/toolbar';
@@ -31,6 +31,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { ExampleComponent } from './components/example/example.component';
 import { ToolbarComponent } from './components/shared/toolbar/toolbar.component';
+import { FrmclientesComponent } from './components/ventas/clientes/frmclientes/frmclientes.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
     GridbaseComponent,
     PaisesComponent,
     ExampleComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    FrmclientesComponent
   ],
   imports: [
     BrowserModule,
@@ -70,6 +72,6 @@ import { ToolbarComponent } from './components/shared/toolbar/toolbar.component'
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ExampleComponent]
+  entryComponents: [ExampleComponent, FrmclientesComponent]
 })
 export class AppModule { }

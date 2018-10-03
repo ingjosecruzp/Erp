@@ -5,7 +5,7 @@ import { MainComponent } from '../main/main.component';
 @Component({
   selector: 'app-menubar',
   templateUrl: './menubar.component.html',
-  styleUrls: ['./menubar.component.css']
+  styleUrls: []
 })
 export class MenubarComponent implements OnInit {
   items: MenuItem[];
