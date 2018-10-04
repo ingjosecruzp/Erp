@@ -22,7 +22,7 @@ export class GridsubgrupocomponentesComponent implements OnInit {
     this.cols = [
       { field: 'Nombre', header: 'Nombre' },
       { field: 'GrupoComponente.Nombre', header: 'Nombre Grupo' },
-      { field: 'TipoComponente.Nombre', header: 'Tipo Componente' }
+      { field: 'GrupoComponente.TipoComponente.Nombre', header: 'Tipo Componente' }
     ];
 
   }

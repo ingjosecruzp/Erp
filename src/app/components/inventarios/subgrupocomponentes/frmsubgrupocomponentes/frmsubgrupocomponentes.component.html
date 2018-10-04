@@ -1,7 +1,7 @@
-<p-dialog header="Subgrupo Componentes" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="730">
+<p-dialog header="Subgrupo Componentes" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="500">
     <form [formGroup]="FrmSubgrupoComponente" (ngSubmit)="save()">
         <p-tabView>
-            <p-tabPanel header="Nuevo Subgrupo Componente">
+            <p-tabPanel header="Subgrupo Componente">
                 <div class="ui-g-12 ui-md-12 ui-g-nopad ">
                     <div class="ui-g-4">
                         <label for="vin">Nombre:</label>
@@ -15,9 +15,10 @@
                         <label for="vin">Grupo de Componente:</label>
                     </div>
                     <div class="ui-g-8">
-                        <!-- <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="CondicionesDePago" [suggestions]="CondicionesDePago" (completeMethod)="searchCondiciones($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete> -->
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="GrupoComponente" [suggestions]="GruposComponentes" (completeMethod)="searchGrupoComponente($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
+                <hr>
             </p-tabPanel>
         </p-tabView>
     </form>
