@@ -13,6 +13,7 @@ export class GridconceptosComponent implements OnInit {
   conceptos: Concepto[] = [];
   cols: any[];
   selectedConcepto: Concepto;
+  
 
   constructor(private WsConceptos: ConceptosService, public dialog: DialogService) {
 
@@ -24,9 +25,11 @@ export class GridconceptosComponent implements OnInit {
       { field: 'Nombre', header: 'Nombre' },
       { field: 'Naturaleza', header: 'Naturaleza' },
       { field: 'TipoConcepto.Nombre', header: 'Tipo Concepto' },
+      // { field: this.objectUtils.resolveFieldData(), header: 'Tipo Concepto' },
       { field: 'Predefinido', header: 'Predefinido' }
     ];
-
+  
+    console.log(this.cols);
   }
 
   add() {

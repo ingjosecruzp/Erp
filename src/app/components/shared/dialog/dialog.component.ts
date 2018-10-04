@@ -16,7 +16,7 @@ export class DialogComponent  implements AfterViewInit, OnDestroy {
   @ViewChild(InsertionDirective)
   insertionPoint: InsertionDirective;
 
-  //@ViewChild(ExampleComponent) f: ExampleComponent;
+  // @ViewChild(ExampleComponent) f: ExampleComponent;
   
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver, private cd: ChangeDetectorRef) {}
