@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ServicesBase } from '../../../services/servicesBase';
-import { ClienteService } from '../../../services/cliente.service';
-
-
+import { ObjectUtils } from 'primeng/components/utils/objectutils';
 
 @Component({
   selector: 'app-gridbase',
@@ -14,9 +12,11 @@ export class GridbaseComponent<T, S extends ServicesBase> implements OnInit {
    @Input() cols: any[];
    @Input() Ws: S;
 
+
    selectedCliente: T;
 
-  constructor() {
+  constructor(public objectUtils: ObjectUtils) {
+    
   }
 
   ngOnInit() {

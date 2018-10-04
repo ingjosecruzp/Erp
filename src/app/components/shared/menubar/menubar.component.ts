@@ -38,10 +38,10 @@ export class MenubarComponent implements OnInit {
                     {label: 'Clientes', icon: 'pi pi-fw pi-users', routerLink: ['/clientes']},
                     {label: 'Paises', icon: 'pi pi-fw pi-globe', routerLink: ['/paises']},
                     {label: 'Conceptos', icon: 'pi pi-fw pi-th-large', routerLink: ['/conceptos']},
-                    {label: 'Unidades', icon: 'fa fa-puzzle-piece', routerLink: ['/unidades']},
-                    {label: 'Grupos Componentes', icon: 'fa fa-puzzle-piece', routerLink: ['/grupocompnentes']},
-                    {label: 'Subgrupo Componentes', icon: 'fa fa-object-group', routerLink: ['/subgrupocomponentes']},
-                    {label: 'Refresh', icon: 'pi pi-fw pi-refresh'}
+                    {label: 'Unidades', icon: 'pi pi-fw fa fa-puzzle-piece', routerLink: ['/unidades']},
+                    {label: 'Grupos Componentes', icon: 'pi pi-fw fa fa-puzzle-piece', routerLink: ['/grupocompnentes']},
+                    {label: 'Subgrupo Componentes', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/subgrupocomponentes']},
+                    {label: 'Refresh', icon: 'pi pi-fw pi pi-fw pi-refresh'}
                 ]
             }
         ];

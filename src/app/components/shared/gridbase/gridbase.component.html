@@ -16,8 +16,8 @@
     <ng-template pTemplate="body" let-rowData let-columns="columns">
         <tr [pSelectableRow]="rowData">
             <td *ngFor="let col of cols; let i=index">
-                {{rowData[col.field]}}
-                <!-- {{col.field}} -->
+                <!-- {{rowData[col.field]}} -->
+                {{ this.objectUtils.resolveFieldData(rowData, col.field) }}
             </td>
         </tr>
     </ng-template>
@@ -26,4 +26,4 @@
             Item : {{selectedCliente ? selectedCliente.Rfc : '' }}
         </div>
     </ng-template>
-</p-table>
+</p-table>.

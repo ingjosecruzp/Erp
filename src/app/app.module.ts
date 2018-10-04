@@ -41,6 +41,8 @@ import { FrmsubgrupocomponentesComponent } from './components/inventarios/subgru
 import { GridconceptosComponent } from './components/inventarios/conceptos/gridconceptos/gridconceptos.component';
 import { FrmconceptosComponent } from './components/inventarios/conceptos/frmconceptos/frmconceptos.component';
 
+import { ObjectUtils } from 'primeng/components/utils/objectutils';
+
 
 @NgModule({
   declarations: [
@@ -88,7 +90,7 @@ import { FrmconceptosComponent } from './components/inventarios/conceptos/frmcon
     AutoCompleteModule,
     ButtonModule
   ],
-  providers: [],
+  providers: [ObjectUtils],
   bootstrap: [AppComponent],
   entryComponents: [ExampleComponent,
                     FrmclientesComponent, 
