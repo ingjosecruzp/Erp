@@ -42,6 +42,9 @@ import { GridconceptosComponent } from './components/inventarios/conceptos/gridc
 import { FrmconceptosComponent } from './components/inventarios/conceptos/frmconceptos/frmconceptos.component';
 
 import { ObjectUtils } from 'primeng/components/utils/objectutils';
+import { GridtipocomponentesComponent } from './components/inventarios/tipocomponentes/gridtipocomponentes/gridtipocomponentes.component';
+import { FrmtipocomponentesComponent } from './components/inventarios/tipocomponentes/frmtipocomponentes/frmtipocomponentes.component';
+
 
 
 @NgModule({
@@ -64,7 +67,10 @@ import { ObjectUtils } from 'primeng/components/utils/objectutils';
     GridsubgrupocomponentesComponent,
     FrmsubgrupocomponentesComponent,
     GridconceptosComponent,
-    FrmconceptosComponent
+    FrmconceptosComponent,
+    GridtipocomponentesComponent,
+    FrmtipocomponentesComponent
+   
 
   ],
   imports: [

@@ -7,6 +7,7 @@ import { GridunidadesComponent } from './components/inventarios/unidades/griduni
 // tslint:disable-next-line:max-line-length
 import { GridgruposcomponentesComponent } from './components/inventarios/gruposcomponentes/gridgruposcomponentes/gridgruposcomponentes.component';
 import { GridsubgrupocomponentesComponent } from './components/inventarios/subgrupocomponentes/gridsubgrupocomponentes/gridsubgrupocomponentes.component';
+import { GridtipocomponentesComponent } from './components/inventarios/tipocomponentes/gridtipocomponentes/gridtipocomponentes.component';
 
 
 const APP_ROUTES: Routes = [
@@ -17,6 +18,7 @@ const APP_ROUTES: Routes = [
     { path: 'unidades', component: GridunidadesComponent},
     { path: 'grupocompnentes', component: GridgruposcomponentesComponent},
     { path: 'subgrupocomponentes', component: GridsubgrupocomponentesComponent},
+    { path: 'tipocomponentes', component: GridtipocomponentesComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 
