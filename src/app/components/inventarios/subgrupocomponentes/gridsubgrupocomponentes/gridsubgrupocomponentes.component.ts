@@ -35,4 +35,10 @@ export class GridsubgrupocomponentesComponent implements OnInit {
     });*/
   }
 
+  refresh() {
+    this.WsSubgrupocomponentes.getAll().subscribe(data => {
+      this.SubgrupoComponente = data;
+     });
+  }
+
 }
