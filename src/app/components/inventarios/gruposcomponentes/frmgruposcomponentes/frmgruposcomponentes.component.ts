@@ -30,9 +30,6 @@ export class FrmgruposcomponentesComponent implements OnInit {
        Nombre: ['', [Validators.required]],
        TipoComponente: ['', [Validators.required]]
     });
-
-
-
   }
 
   searchTipoComponente(event) {
@@ -45,12 +42,12 @@ export class FrmgruposcomponentesComponent implements OnInit {
 
   save () {
     let item = new GrupoComponente(this.FrmGrupoComponente.value);
-    console.log(item);
-    console.log(JSON.stringify(item));
+    // console.log(item);
+    // console.log(JSON.stringify(item));
 
     this.WsGrupoComponente.save(item).subscribe(data => {
          console.log('Guardado Grupo componente');
-         console.log(data);
+        //  console.log(data);
     });
   }
 
