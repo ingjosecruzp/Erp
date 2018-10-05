@@ -33,6 +33,11 @@ export class GridgruposcomponentesComponent implements OnInit {
      });
   }
 
+  open() {
+    const ref = this.dialog.open(FrmgruposcomponentesComponent, { 
+      data: { message: 'I am a dynamic component inside of a dialog!'} });
+  }
+
   add() {
     const ref = this.dialog.open(FrmgruposcomponentesComponent, { 
                   data: { message: 'I am a dynamic component inside of a dialog!'} });
