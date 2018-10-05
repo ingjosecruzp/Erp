@@ -12,6 +12,7 @@ import { FrmclientesComponent } from './frmclientes/frmclientes.component';
   ]
 })
 export class ClientesComponent implements OnInit {
+   FrmDocumento: FormGroup;
    clientes: Cliente[] = [];
    cols: any[];
    selectedCliente: Cliente;
