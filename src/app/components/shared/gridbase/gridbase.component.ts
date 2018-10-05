@@ -11,6 +11,7 @@ export class GridbaseComponent<T, S extends ServicesBase> implements OnInit {
    @Input() items: T[] = [];
    @Input() cols: any[];
    @Input() Ws: S;
+   @Input() Grid: any;
 
 
    selectedCliente: T;
@@ -26,7 +27,12 @@ export class GridbaseComponent<T, S extends ServicesBase> implements OnInit {
    }
 
    refresh() {
-     console.log('refrescar') ;
+     console.log('refrescar');
+   }
+
+   onRowDblClick(event, obj) {
+      console.log(obj);
+      this.Grid.open();
    }
 
 }

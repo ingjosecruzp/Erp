@@ -35,6 +35,11 @@ export class ClientesComponent implements OnInit {
      });
   }
 
+  open() {
+    const ref = this.dialog.open(FrmclientesComponent, { 
+      data: { message: 'I am a dynamic component inside of a dialog!'} });
+  }
+
   ngOnInit() {
    this.cols = [
      { field: 'Rfc', header: 'Rfc' },
