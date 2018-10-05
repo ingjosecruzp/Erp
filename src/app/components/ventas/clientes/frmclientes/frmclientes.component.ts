@@ -98,7 +98,16 @@ export class FrmclientesComponent implements OnInit {
     });
   }
 
+
   save () {
-    console.log('FrmCliente');
+    // console.log(item);
+    // console.log(JSON.stringify(item));
+    let item = new Cliente(this.FrmDocumento.value);
+
+    this.WsClientes.save(item).subscribe(data => {
+         console.log('Guardado');
+         console.log(data);
+    });
+
   }
 }
