@@ -57,7 +57,9 @@ export class ClientesComponent implements OnInit {
    // this.add();
   }
 
-  save () {
+  save (test) {
+    console.log(test);
+    console.log('save');
     /*if( this.FrmDocumento.status !== 'INVALID' ) 
     {*/
       // let item = new Cliente(this.FrmDocumento.value);

@@ -97,4 +97,8 @@ export class FrmclientesComponent implements OnInit {
       this.ZonaCliente = data;
     });
   }
+
+  save () {
+    console.log('FrmCliente');
+  }
 }
