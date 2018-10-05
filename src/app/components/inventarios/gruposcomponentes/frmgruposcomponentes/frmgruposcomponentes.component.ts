@@ -47,13 +47,12 @@ export class FrmgruposcomponentesComponent implements OnInit {
 
     this.WsGrupoComponente.save(item).subscribe(data => {
          console.log('Guardado Grupo componente');
+         this.FrmGrupoComponente.reset();
         //  console.log(data);
     });
   }
 
-  limpiar() {
-    
-  }
+ 
 
 
 }
