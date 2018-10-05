@@ -25,7 +25,6 @@ export class FrmgruposcomponentesComponent implements OnInit {
    }
 
   ngOnInit() {
-
        this.FrmGrupoComponente = this.fb.group({
        Nombre: ['', [Validators.required]],
        TipoComponente: ['', [Validators.required]]
