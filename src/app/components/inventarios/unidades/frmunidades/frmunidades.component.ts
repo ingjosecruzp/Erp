@@ -29,6 +29,7 @@ export class FrmunidadesComponent implements OnInit {
     this.WsUnindad.save(item).subscribe(data => {
          console.log('Guardado');
          console.log(data);
+         this.FrmDocumento.reset();
     });
   }
 
