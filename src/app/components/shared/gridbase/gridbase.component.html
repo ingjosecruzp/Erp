@@ -14,7 +14,7 @@
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-rowData let-columns="columns">
-        <tr [pSelectableRow]="rowData">
+        <tr [pSelectableRow]="rowData" (dblclick)="onRowDblClick($event, rowData)">
             <td *ngFor="let col of cols; let i=index">
                 <!-- {{rowData[col.field]}} -->
                 {{ this.objectUtils.resolveFieldData(rowData, col.field) }}
