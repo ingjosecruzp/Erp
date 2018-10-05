@@ -41,4 +41,10 @@ export class FrmgruposcomponentesComponent implements OnInit {
     });
   }
 
+
+  save () {
+    console.log('SaveGrupoCompnente');
+  }
+
+
 }
