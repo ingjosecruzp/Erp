@@ -27,6 +27,12 @@ export class GridgruposcomponentesComponent implements OnInit {
     ];
   }
 
+  refresh() {
+    this.WsGrupocomponenteService.getAll().subscribe(data => {
+      this.GrupoComponente = data;
+     });
+  }
+
   add() {
     const ref = this.dialog.open(FrmgruposcomponentesComponent, { 
                   data: { message: 'I am a dynamic component inside of a dialog!'} });

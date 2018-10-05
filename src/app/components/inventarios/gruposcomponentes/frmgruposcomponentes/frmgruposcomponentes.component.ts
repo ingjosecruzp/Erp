@@ -51,5 +51,9 @@ export class FrmgruposcomponentesComponent implements OnInit {
     });
   }
 
+  limpiar() {
+    
+  }
+
 
 }
