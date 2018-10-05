@@ -1,31 +1,26 @@
-<p-dialog header="Grupo Componentes" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="550">
+<p-dialog header="Grupo Componentes" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="400">
     <form [formGroup]="FrmGrupoComponente" (ngSubmit)="save()">
         <p-tabView>
-            <!-- <p-tabPanel header="Subgrupo Componente123"> -->
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
                 <div class="ui-g-4">
-                    <label for="vin">Nombre:</label>
+                    <label for="vin"><b>Nombre:</b></label>
                 </div>
                 <div class="ui-g-8">
-                    <input formControlName="Nombre" pInputText id="Nombre" />
+                    <input formControlName="Nombre" pInputText id="Nombre" placeholder="Nombre" />
                 </div>
             </div>
             <div class="ui-g-12 ui-md-12 ui-g-nopad">
                 <div class="ui-g-4">
-                    <label for="vin">Tipo de Componente:</label>
+                    <label for="vin"><b>Tipo de Componente:</b></label>
                 </div>
                 <div class="ui-g-8">
                     <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="TipoComponente" [suggestions]="TipoComponente" (completeMethod)="searchTipoComponente($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
             </div>
             <hr>
-            <!-- </p-tabPanel> -->
         </p-tabView>
     </form>
     <p-footer>
-        <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="fa fa-close" (click)="add()" label="Delete"></button>
-            <button type="submit" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
-        </div>
+        <app-toolbar></app-toolbar>
     </p-footer>
 </p-dialog>

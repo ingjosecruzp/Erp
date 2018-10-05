@@ -22,7 +22,7 @@ export class GridgruposcomponentesComponent implements OnInit {
   ngOnInit() {
 
     this.cols = [
-      { field: 'Nombre', header: 'Nobre' },
+      { field: 'Nombre', header: 'Nombre' },
       { field: 'TipoComponente.Nombre', header: 'Tipo Componente' }
     ];
   }
