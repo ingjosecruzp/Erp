@@ -22,6 +22,8 @@ export class FrmunidadesComponent implements OnInit {
    });
   }
 
+
+
   save () {
 
     let item = new Unidad(this.FrmDocumento.value);
@@ -29,6 +31,7 @@ export class FrmunidadesComponent implements OnInit {
     this.WsUnindad.save(item).subscribe(data => {
          console.log('Guardado');
          console.log(data);
+         this.FrmDocumento.reset();
     });
   }
 

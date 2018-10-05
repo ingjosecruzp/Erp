@@ -27,6 +27,11 @@ export class GridunidadesComponent implements OnInit {
       this.unidades = data;
      });
   }
+
+  open() {
+    const ref = this.dialog.open(FrmunidadesComponent, { 
+      data: { message: 'I am a dynamic component inside of a dialog!'} });
+  }
   add() {
     const ref = this.dialog.open(FrmunidadesComponent , { 
                   data: { message: 'I am a dynamic component inside of a dialog!'} });
