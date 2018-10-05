@@ -36,14 +36,9 @@ export class FrmsubgrupocomponentesComponent implements OnInit {
   }
 
   save () {
-    // console.log('FrmSubgrupoComponente');
-      // console.log(item);
-    // console.log(JSON.stringify(item));
     let item = new SubgrupoComponente(this.FrmSubgrupoComponente.value);
  console.log(JSON.stringify(item));
     this.WsSubgrupoComponentes.save(item).subscribe(data => {
-         console.log('Guardado');
-         console.log(data);
         });
   }
 }

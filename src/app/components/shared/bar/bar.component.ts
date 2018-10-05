@@ -12,8 +12,12 @@ export class BarComponent implements OnInit {
 
   constructor() { }
 
-  save() {
+  add() {
     this.item.add();
+  }
+
+  refresh() {
+    this.item.refresh();
   }
 
   ngOnInit() {
