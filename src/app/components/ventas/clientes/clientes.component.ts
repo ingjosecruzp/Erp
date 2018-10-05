@@ -29,6 +29,12 @@ export class ClientesComponent implements OnInit {
     });*/
   }
 
+  refresh() {
+    this.WsClientes.getAll().subscribe(data => {
+      this.clientes = data;
+     });
+  }
+
   ngOnInit() {
    this.cols = [
      { field: 'Rfc', header: 'Rfc' },
