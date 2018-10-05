@@ -32,4 +32,8 @@ export class FrmsubgrupocomponentesComponent implements OnInit {
       this.GruposComponentes = data;
     });
   }
+
+  save () {
+    console.log('FrmSubgrupoComponente');
+  }
 }
