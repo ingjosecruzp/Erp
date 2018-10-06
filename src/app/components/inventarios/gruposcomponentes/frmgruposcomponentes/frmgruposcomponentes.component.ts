@@ -6,6 +6,7 @@ import { TipoComponente } from '../../../../models/Generales/tipocomponente';
 import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@angular/forms';
 import { TipocomponenteService } from '../../../../services/inventarios/tipocomponente.service';
 import { GrupoComponente } from '../../../../models/Generales/grupocomponente';
+import { EventEmitter } from 'events';
 
 
 
@@ -34,6 +35,8 @@ export class FrmgruposcomponentesComponent implements OnInit {
 
     if (this.config.data._id !== undefined) {
       this.WsGrupoComponente.get(this.config.data._id).subscribe(data => {
+         let item = new GrupoComponente(data);
+         this.FrmGrupoComponente.patchValue(item);
          console.log('Respuesta del servidor', data);
       });
     }
@@ -56,9 +59,13 @@ export class FrmgruposcomponentesComponent implements OnInit {
     this.WsGrupoComponente.save(item).subscribe(data => {
          console.log('Guardado Grupo componente');
          this.FrmGrupoComponente.reset();
-        //  this.FrmGrupoComponente.controls['Nombre'].
+
         //  console.log(data);
     });
+  }
+
+  delete() {
+    
   }
 
  
