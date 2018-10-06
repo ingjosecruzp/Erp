@@ -1,10 +1,18 @@
 <p-dialog header="Unidades" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="440">
 
-    <form [formGroup]="FrmTipoComponente" (ngSubmit)="save()">
+    <form [formGroup]="FrmDocumento" (ngSubmit)="save()">
         <p-tabView>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
                 <div class="ui-g-4">
                     <label for="vin">Nombre:</label>
+                </div>
+                <div class="ui-g-8">
+                    <input formControlName="Nombre" pInputText id="Nombre" />
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                <div class="ui-g-4">
+                    <label for="vin">Abreviatura:</label>
                 </div>
                 <div class="ui-g-8">
                     <input formControlName="Nombre" pInputText id="Nombre" />
