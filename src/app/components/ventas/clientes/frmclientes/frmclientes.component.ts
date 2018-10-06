@@ -45,7 +45,6 @@ export class FrmclientesComponent implements OnInit {
     private WsZonaCliente: ZonaclienteService, public config: DialogConfig, public dialog: DialogRef) {
       this.displayDialog = true;
       if (config.data._id !== undefined) {
-        console.log(config.data._id);
         this.WsClientes.get(config.data._id).subscribe(data => {
            console.log(data);
         });
