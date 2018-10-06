@@ -13,7 +13,9 @@ import { UnidadService } from '../../../../services/inventarios/unidad.service';
 export class FrmunidadesComponent implements OnInit {
   FrmDocumento: FormGroup;
   displayDialog: boolean;
-  constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, private WsUnindad: UnidadService) {this.displayDialog = true; }
+  constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, private WsUnindad: UnidadService) {
+    this.displayDialog = true;
+   }
 
   ngOnInit() {
     this.FrmDocumento = this.fb.group({

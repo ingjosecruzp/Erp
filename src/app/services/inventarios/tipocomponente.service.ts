@@ -8,7 +8,7 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class TipocomponenteService extends BaseService<TipoComponente> implements ServicesBase{
+export class TipocomponenteService extends BaseService<TipoComponente> implements ServicesBase {
 
   constructor(private http: HttpClient) {
     super();
