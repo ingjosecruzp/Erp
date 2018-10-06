@@ -15,6 +15,7 @@ export class FrmunidadesComponent implements OnInit {
   displayDialog: boolean;
   constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, private WsUnindad: UnidadService) {
     this.displayDialog = true;
+    console.log(config.data._id);
    }
 
   ngOnInit() {
