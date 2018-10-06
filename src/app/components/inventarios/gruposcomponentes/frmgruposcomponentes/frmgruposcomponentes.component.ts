@@ -23,6 +23,7 @@ export class FrmgruposcomponentesComponent implements OnInit {
   constructor(public config: DialogConfig, public dialog: DialogRef, private WsGrupoComponente: GrupocomponenteService,
                                            private WsTipoComponente: TipocomponenteService, private fb: FormBuilder ) {
     this.displayDialog = true;
+    // console.log(config.data._id);
    }
 
   ngOnInit() {
