@@ -9,13 +9,15 @@ import { FrmgruposcomponentesComponent } from '../frmgruposcomponentes/frmgrupos
   templateUrl: './gridgruposcomponentes.component.html',
   styles: []
 })
+
 export class GridgruposcomponentesComponent implements OnInit {
   GrupoComponente: GrupoComponente[] = [];
   cols: any[];
   selectedGruposComponentes: GrupoComponente; 
 
 
-  constructor(private WsGrupocomponenteService: GrupocomponenteService, public dialog: DialogService) { 
+  constructor(private WsGrupocomponenteService: GrupocomponenteService,
+              public dialog: DialogService) { 
     
   }
 

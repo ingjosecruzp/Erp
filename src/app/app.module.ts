@@ -103,6 +103,7 @@ import { FrmtipocomponentesComponent } from './components/inventarios/tipocompon
                     FrmconceptosComponent, 
                     FrmgruposcomponentesComponent,
                     FrmsubgrupocomponentesComponent,
+                    FrmtipocomponentesComponent,
                     FrmunidadesComponent]
 })
 export class AppModule { }

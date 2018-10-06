@@ -15,19 +15,20 @@ export class FrmtipocomponentesComponent implements OnInit {
   FrmTipoComponente: FormGroup;
   displayDialog: boolean;
 
-  constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, private WsTipoComponente: TipocomponenteService) {
+  constructor(public config: DialogConfig, public dialog: DialogRef,
+               private fb: FormBuilder, private WsTipoComponente: TipocomponenteService) {
     this.displayDialog = true;
    }
 
   ngOnInit() {
     this.FrmTipoComponente = this.fb.group({
-      Nombre: ['', [Validators.required]],
+      Nombre: ['', [Validators.required]]
    });
+   console.log('ñaña');
   }
 
 
   save () {
-
     let item = new TipoComponente(this.FrmTipoComponente.value);
 
     this.WsTipoComponente.save(item).subscribe(data => {

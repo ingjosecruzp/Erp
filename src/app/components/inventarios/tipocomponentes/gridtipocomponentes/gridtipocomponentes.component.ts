@@ -5,6 +5,7 @@ import { TipoComponente } from '../../../../models/Generales/tipocomponente';
 import { FrmtipocomponentesComponent } from '../frmtipocomponentes/frmtipocomponentes.component';
 
 
+
 @Component({
   selector: 'app-gridtipocomponentes',
   templateUrl: './gridtipocomponentes.component.html',
@@ -15,19 +16,19 @@ export class GridtipocomponentesComponent implements OnInit {
   cols: any[];
   selectedConcepto: TipoComponente;
 
-  constructor(private WsTipoComponente: TipocomponenteService, public dialog: DialogService) { }
+  constructor(private WsTipoComponente: TipocomponenteService,
+               public dialog: DialogService) { }
 
   ngOnInit( ) {
       this.cols = [
        { field: 'Nombre', header: 'Nombre' }
-  
   ];
   }
 
   
   refresh() {
     this.WsTipoComponente.getAll().subscribe(data => {
-      this.WsTipoComponente = data;
+      this.TipoComponentes = data;
      });
   }
 
@@ -38,8 +39,9 @@ export class GridtipocomponentesComponent implements OnInit {
   }
 
   add() {
-    const ref = this.dialog.open(FrmtipocomponentesComponent , { 
+    const ref = this.dialog.open(FrmtipocomponentesComponent, { 
                   data: { message: 'I am a dynamic component inside of a dialog!'} });
+  
     /*ref.afterClosed.subscribe(result => {
       console.log('Dialog closed', result);
     });*/

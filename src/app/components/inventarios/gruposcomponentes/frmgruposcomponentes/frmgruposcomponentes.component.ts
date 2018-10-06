@@ -20,7 +20,8 @@ export class FrmgruposcomponentesComponent implements OnInit {
   TipoComponente: TipoComponente[]; // se guarda en la base de datos al arrelgo
 
   // tslint:disable-next-line:max-line-length
-  constructor(public config: DialogConfig, public dialog: DialogRef, private WsGrupoComponente: GrupocomponenteService , private WsTipoComponente: TipocomponenteService, private fb: FormBuilder ) {
+  constructor(public config: DialogConfig, public dialog: DialogRef, private WsGrupoComponente: GrupocomponenteService,
+                                           private WsTipoComponente: TipocomponenteService, private fb: FormBuilder ) {
     this.displayDialog = true;
    }
 

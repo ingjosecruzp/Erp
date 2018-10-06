@@ -20,4 +20,8 @@ export class ToolbarComponent implements OnInit {
      this.Formulario.save();
   }
 
+  delete() {
+    this.Formulario.delete();
+  }
+
 }
