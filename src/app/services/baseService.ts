@@ -9,4 +9,10 @@ export class BaseService<Modelo>   {
 
         return this.httpWs.get<Modelo[]>(url);
     }
+
+    get(id: string): any {
+        const url = `http://localhost:60493/${this.Ws}/${id}`;
+
+        return this.httpWs.get<Modelo[]>(url);
+    }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from '../../../services/cliente.service';
+import { ClienteService } from '../../../services/ventas/cliente.service';
 import { Cliente } from '../../../models/cliente';
 import { FormGroup, FormArray } from '@angular/forms';
 import { DialogService } from '../../../services/dinamicos/dialog.service';
@@ -34,9 +34,9 @@ export class ClientesComponent implements OnInit {
      });
   }
 
-  open() {
+  open(item: Cliente) {
     const ref = this.dialog.open(FrmclientesComponent, { 
-      data: { _id: '123456789' } });
+      data: { _id: item._id} });
   }
 
   ngOnInit() {
