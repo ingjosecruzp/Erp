@@ -26,7 +26,10 @@ export class FrmunidadesComponent implements OnInit {
 
    if (this.config.data._id !== undefined) {
     this.WsUnindad.get(this.config.data._id).subscribe(data => {
-       console.log(data);
+      let item = new Unidad(data);
+      console.log(item);
+      this.FrmDocumento.patchValue(item);
+ 
     });
   }
   }
