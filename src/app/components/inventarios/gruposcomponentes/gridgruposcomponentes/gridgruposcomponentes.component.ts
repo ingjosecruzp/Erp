@@ -35,9 +35,9 @@ export class GridgruposcomponentesComponent implements OnInit {
      });
   }
 
-  open() {
+  open(item: GrupoComponente) {
     const ref = this.dialog.open(FrmgruposcomponentesComponent, { 
-      data: { _id: 'Manda ID'} });
+      data: {_id: item._id} });
   }
 
   add() {

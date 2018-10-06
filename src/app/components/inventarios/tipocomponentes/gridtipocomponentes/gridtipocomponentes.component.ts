@@ -33,9 +33,9 @@ export class GridtipocomponentesComponent implements OnInit {
   }
 
 
-  open() {
+  open(item: TipoComponente) {
     const ref = this.dialog.open(FrmtipocomponentesComponent, { 
-      data: { message: 'I am a dynamic component inside of a dialog!'} });
+      data: { _id: item._id} });
   }
 
   add() {

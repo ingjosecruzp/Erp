@@ -28,10 +28,11 @@ export class GridunidadesComponent implements OnInit {
      });
   }
 
-  open() {
+  open(item: Unidad) {
     const ref = this.dialog.open(FrmunidadesComponent, { 
-      data: { _id: 'test' } });
+      data: { _id: item._id} });
   }
+
 
   
   add() {

@@ -23,6 +23,12 @@ export class FrmunidadesComponent implements OnInit {
       Nombre: ['', [Validators.required]],
       Abreviatura: ['', [Validators.required]],
    });
+
+   if (this.config.data._id !== undefined) {
+    this.WsUnindad.get(this.config.data._id).subscribe(data => {
+       console.log(data);
+    });
+  }
   }
 
 
