@@ -44,11 +44,6 @@ export class FrmclientesComponent implements OnInit {
     private WsVendedor: VendedorService, private WsCobrador: CobradorService, 
     private WsZonaCliente: ZonaclienteService, public config: DialogConfig, public dialog: DialogRef) {
       this.displayDialog = true;
-      if (config.data._id !== undefined) {
-        this.WsClientes.get(config.data._id).subscribe(data => {
-           console.log(data);
-        });
-      }
   }
 
   ngOnInit() {
@@ -65,6 +60,12 @@ export class FrmclientesComponent implements OnInit {
       Cobrador: ['', [Validators.required]],
       Vendedor: ['', [Validators.required]]
    });
+
+    if (this.config.data._id !== undefined) {
+      this.WsClientes.get(this.config.data._id).subscribe(data => {
+         console.log(data);
+      });
+    }
   }
   
   searchCondiciones(event) {
