@@ -44,6 +44,7 @@ export class FrmclientesComponent implements OnInit {
     private WsVendedor: VendedorService, private WsCobrador: CobradorService, 
     private WsZonaCliente: ZonaclienteService, public config: DialogConfig, public dialog: DialogRef) {
       this.displayDialog = true;
+      console.log(config.data._id);
   }
 
   ngOnInit() {
