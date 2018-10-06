@@ -27,6 +27,8 @@ export class FrmtipocomponentesComponent implements OnInit {
    
    if (this.config.data._id !== undefined) {
     this.WsTipoComponente.get(this.config.data._id).subscribe(data => {
+        let item = new TipoComponente(data);
+         this.FrmTipoComponente.patchValue(item);
        console.log('Respuesta del servidor', data);
     });
   }
