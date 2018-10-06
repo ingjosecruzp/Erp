@@ -63,7 +63,10 @@ export class FrmclientesComponent implements OnInit {
 
     if (this.config.data._id !== undefined) {
       this.WsClientes.get(this.config.data._id).subscribe(data => {
-         console.log(data);
+         let item = new Cliente(data);
+
+         // this.FrmDocumento.setValue(data);
+         this.FrmDocumento.patchValue(item);
       });
     }
   }
