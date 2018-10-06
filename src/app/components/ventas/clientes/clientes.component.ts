@@ -18,7 +18,6 @@ export class ClientesComponent implements OnInit {
    selectedCliente: Cliente;
 
   constructor(private WsClientes: ClienteService, public dialog: DialogService) {
-
   }
 
   add() {
@@ -37,7 +36,7 @@ export class ClientesComponent implements OnInit {
 
   open() {
     const ref = this.dialog.open(FrmclientesComponent, { 
-      data: { message: 'I am a dynamic component inside of a dialog!'} });
+      data: { _id: '123456789' } });
   }
 
   ngOnInit() {
