@@ -7,7 +7,7 @@ import { VendedorService } from '../../../../services/Generales/vendedor.service
 import { CobradorService } from '../../../../services/Generales/cobrador.service';
 import { ZonaclienteService } from '../../../../services/Generales/zonacliente.service';
 import { CondicionesdepagoService } from '../../../../services/Generales/condicionesdepago.service';
-import { ClienteService } from '../../../../services/cliente.service';
+import { ClienteService } from '../../../../services/ventas/cliente.service';
 import { Moneda } from '../../../../models/Generales/moneda';
 import { Vendedor } from '../../../../models/Generales/vendedor';
 import { Cobrador } from '../../../../models/Generales/cobrador';
@@ -44,7 +44,12 @@ export class FrmclientesComponent implements OnInit {
     private WsVendedor: VendedorService, private WsCobrador: CobradorService, 
     private WsZonaCliente: ZonaclienteService, public config: DialogConfig, public dialog: DialogRef) {
       this.displayDialog = true;
-      console.log(config.data._id);
+      if (config.data._id !== undefined) {
+        console.log(config.data._id);
+        this.WsClientes.get(config.data._id).subscribe(data => {
+           console.log(data);
+        });
+      }
   }
 
   ngOnInit() {

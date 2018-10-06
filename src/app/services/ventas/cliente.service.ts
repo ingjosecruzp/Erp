@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Cliente } from '../models/cliente';
-import { ServicesBase } from '../services/servicesBase';
+import { Cliente } from '../../models/cliente';
+import { ServicesBase } from '../servicesBase';
+import { BaseService } from '../baseService';
 
 
 @Injectable({
   providedIn: 'root'
 })
-export class ClienteService implements ServicesBase {
+export class ClienteService  extends BaseService<Cliente> implements ServicesBase {
 
   constructor(private http: HttpClient) {
-
+    super();
+    this.Ws = 'Servicios/Ventas/WcfClientes.svc';
+    this.httpWs = http;
   }
 
   getAll(): any {

@@ -31,8 +31,7 @@ export class GridbaseComponent<T, S extends ServicesBase> implements OnInit {
    }
 
    onRowDblClick(event, obj) {
-      console.log(obj);
-      this.Grid.open();
+      this.Grid.open(obj);
    }
 
 }
