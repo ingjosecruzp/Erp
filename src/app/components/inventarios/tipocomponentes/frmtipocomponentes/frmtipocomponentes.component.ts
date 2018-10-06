@@ -24,7 +24,13 @@ export class FrmtipocomponentesComponent implements OnInit {
     this.FrmTipoComponente = this.fb.group({
       Nombre: ['', [Validators.required]]
    });
-   console.log('ñaña');
+   
+   if (this.config.data._id !== undefined) {
+    this.WsTipoComponente.get(this.config.data._id).subscribe(data => {
+       console.log('Respuesta del servidor', data);
+    });
+  }
+
   }
 
 
