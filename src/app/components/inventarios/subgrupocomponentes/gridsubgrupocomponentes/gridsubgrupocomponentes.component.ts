@@ -5,7 +5,6 @@ import { DialogService } from '../../../../services/dinamicos/dialog.service';
 import { FrmsubgrupocomponentesComponent } from '../frmsubgrupocomponentes/frmsubgrupocomponentes.component';
 
 
-
 @Component({
   selector: 'app-gridsubgrupocomponentes',
   templateUrl: './gridsubgrupocomponentes.component.html'
@@ -24,7 +23,6 @@ export class GridsubgrupocomponentesComponent implements OnInit {
       { field: 'GrupoComponente.Nombre', header: 'Nombre Grupo' },
       { field: 'GrupoComponente.TipoComponente.Nombre', header: 'Tipo Componente' }
     ];
-
   }
 
   add() {
@@ -45,6 +43,5 @@ export class GridsubgrupocomponentesComponent implements OnInit {
     const ref = this.dialog.open(FrmsubgrupocomponentesComponent, { 
       data: {_id: item._id} });
   }
-
 }
 

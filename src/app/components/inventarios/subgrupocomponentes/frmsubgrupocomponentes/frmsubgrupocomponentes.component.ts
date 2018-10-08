@@ -36,8 +36,6 @@ export class FrmsubgrupocomponentesComponent implements OnInit {
   }
   }
 
-  
-
   searchGrupoComponente(event) {
     this.WsGrupoComponentes.search(event.query).subscribe(data => {
       console.log(data);
