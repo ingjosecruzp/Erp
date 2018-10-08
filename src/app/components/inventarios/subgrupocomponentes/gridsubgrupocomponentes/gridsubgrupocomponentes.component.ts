@@ -41,9 +41,10 @@ export class GridsubgrupocomponentesComponent implements OnInit {
      });
   }
 
-  open() {
+  open(item: SubgrupoComponente) {
     const ref = this.dialog.open(FrmsubgrupocomponentesComponent, { 
-      data: { message: 'I am a dynamic component inside of a dialog!'} });
+      data: {_id: item._id} });
   }
 
 }
+

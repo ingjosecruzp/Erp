@@ -26,7 +26,17 @@ export class FrmsubgrupocomponentesComponent implements OnInit {
       Nombre: ['', [Validators.required]],
       GrupoComponente: ['', [Validators.required]]
    });
+
+   if (this.config.data._id !== undefined) {
+    this.WsSubgrupoComponentes.get(this.config.data._id).subscribe(data => {
+       let item = new GrupoComponente(data);
+       this.FrmSubgrupoComponente.patchValue(item);
+       console.log('Respuesta del servidor', data);
+    });
   }
+  }
+
+  
 
   searchGrupoComponente(event) {
     this.WsGrupoComponentes.search(event.query).subscribe(data => {
@@ -43,3 +53,4 @@ export class FrmsubgrupocomponentesComponent implements OnInit {
         });
   }
 }
+
