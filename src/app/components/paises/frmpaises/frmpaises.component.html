@@ -1,0 +1,26 @@
+<p-dialog header="Subgrupo Componentes" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="400">
+    <form [formGroup]="FrmPaises" (ngSubmit)="save()">
+        <p-tabView>
+            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                <div class="ui-g-4">
+                    <label for="vin">Nombre:</label>
+                </div>
+                <div class="ui-g-8">
+                    <input formControlName="Nombre" pInputText id="Nombre" />
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                <div class="ui-g-4">
+                    <label for="vin">Abreviatura:</label>
+                </div>
+                <div class="ui-g-8">
+                    <input formControlName="Abreviatura" pInputText id="Abreviatura" />
+                </div>
+            </div>
+            <hr>
+        </p-tabView>
+    </form>
+    <p-footer>
+        <app-toolbar [Formulario]="this"></app-toolbar>
+    </p-footer>
+</p-dialog>
