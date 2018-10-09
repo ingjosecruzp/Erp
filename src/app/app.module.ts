@@ -44,6 +44,7 @@ import { FrmconceptosComponent } from './components/inventarios/conceptos/frmcon
 import { ObjectUtils } from 'primeng/components/utils/objectutils';
 import { GridtipocomponentesComponent } from './components/inventarios/tipocomponentes/gridtipocomponentes/gridtipocomponentes.component';
 import { FrmtipocomponentesComponent } from './components/inventarios/tipocomponentes/frmtipocomponentes/frmtipocomponentes.component';
+import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.component';
 
 
 
@@ -69,7 +70,8 @@ import { FrmtipocomponentesComponent } from './components/inventarios/tipocompon
     GridconceptosComponent,
     FrmconceptosComponent,
     GridtipocomponentesComponent,
-    FrmtipocomponentesComponent
+    FrmtipocomponentesComponent,
+    FrmpaisesComponent
    
 
   ],
@@ -104,6 +106,8 @@ import { FrmtipocomponentesComponent } from './components/inventarios/tipocompon
                     FrmgruposcomponentesComponent,
                     FrmsubgrupocomponentesComponent,
                     FrmtipocomponentesComponent,
-                    FrmunidadesComponent]
+                    FrmunidadesComponent,
+                    FrmpaisesComponent,
+                    FrmconceptosComponent]
 })
 export class AppModule { }
