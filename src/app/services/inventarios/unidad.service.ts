@@ -22,6 +22,4 @@ export class UnidadService extends BaseService<Unidad> implements ServicesBase {
    save(item: any): any {
     return this.http.post<Unidad>('http://localhost:60493/Servicios/Inventarios/WcfUnidades.svc/', item);
  }
-
- 
 }

@@ -50,7 +50,6 @@ export class FrmgruposcomponentesComponent implements OnInit {
     });
   }
 
-
   save () {
     let item = new GrupoComponente(this.FrmGrupoComponente.value);
     // console.log(item);

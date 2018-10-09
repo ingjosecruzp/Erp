@@ -107,6 +107,7 @@ import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.comp
                     FrmsubgrupocomponentesComponent,
                     FrmtipocomponentesComponent,
                     FrmunidadesComponent,
-                    FrmpaisesComponent]
+                    FrmpaisesComponent,
+                    FrmconceptosComponent]
 })
 export class AppModule { }

@@ -1,9 +1,26 @@
 <p-dialog header="Conceptos" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="730">
-    Conceptos
+    <form [formGroup]="FrmConceptos" (ngSubmit)="save()">
+        <p-tabView>
+            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                <div class="ui-g-4">
+                    <label for="vin"><b>Nombre:</b></label>
+                </div>
+                <div class="ui-g-8">
+                    <input formControlName="Nombre" pInputText id="Nombre" #nombresito />
+                </div>
+            </div>
+            <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                <div class="ui-g-4">
+                    <label for="vin"><b>Tipo de Concepto:</b></label>
+                </div>
+                <div class="ui-g-8">
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="TipoConcepto" [suggestions]="TipoConcepto" (completeMethod)="searchTipoComponente($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                </div>
+            </div>
+            <hr>
+        </p-tabView>
+    </form>
     <p-footer>
-        <div class="ui-dialog-buttonpane ui-helper-clearfix">
-            <button type="button" pButton icon="fa fa-close" (click)="add()" label="Delete"></button>
-            <button type="submit" pButton icon="fa fa-check" (click)="save()" label="Save"></button>
-        </div>
+        <app-toolbar [Formulario]="this"></app-toolbar>
     </p-footer>
 </p-dialog>
