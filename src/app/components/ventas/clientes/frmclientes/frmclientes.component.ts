@@ -18,6 +18,8 @@ import { TipoCliente } from '../../../../models/tipocliente';
 
 import { DialogConfig } from '../../../shared/dialog/dialog-config';
 import { DialogRef } from '../../../shared/dialog/dialog-ref';
+import { IFrmBase } from '../../../ifrmbase';
+import { FrmBase } from '../../../frmbase';
 
 
 
@@ -26,28 +28,23 @@ import { DialogRef } from '../../../shared/dialog/dialog-ref';
   templateUrl: './frmclientes.component.html',
   styleUrls: []
 })
-export class FrmclientesComponent implements OnInit {
-  FrmDocumento: FormGroup;
+export class FrmclientesComponent extends FrmBase<Cliente> implements OnInit, IFrmBase {
   clientes: Cliente[] = [];
   cols: any[];
   selectedCliente: Cliente;
   displayDialog: boolean;
-  CondicionesDePago: CondicionesDePago[];
-  TipoCliente: TipoCliente[];
-  Moneda: Moneda[];
-  Vendedor: Vendedor[];
-  Cobrador: Cobrador[];
-  ZonaCliente: ZonaCliente[];
 
   constructor(private WsClientes: ClienteService, private WsCondicionesDePago: CondicionesdepagoService,
     private WsTipoCliente: TipoclienteService, private fb: FormBuilder, private WsMoneda: MonedaService,
     private WsVendedor: VendedorService, private WsCobrador: CobradorService, 
     private WsZonaCliente: ZonaclienteService, public config: DialogConfig, public dialog: DialogRef) {
+      super();
       this.displayDialog = true;
+      this.Ws = WsClientes;
   }
 
   ngOnInit() {
-    this.FrmDocumento = this.fb.group({
+    this.FrmItem = this.fb.group({
       Nombre: ['', [Validators.required]],
       Rfc: ['', [Validators.required]],
       Contacto1: ['', [Validators.required]],
@@ -64,58 +61,14 @@ export class FrmclientesComponent implements OnInit {
     if (this.config.data._id !== undefined) {
       this.WsClientes.get(this.config.data._id).subscribe(data => {
          let item = new Cliente(data);
-
-         // this.FrmDocumento.setValue(data);
-         this.FrmDocumento.patchValue(item);
+         this.FrmItem.patchValue(item);
       });
     }
   }
-  
-  searchCondiciones(event) {
-    this.WsCondicionesDePago.search(event.query).subscribe(data => {
-      this.CondicionesDePago = data;
-    });
-  }
-
-  searchTipoCliente(event) {
-    this.WsTipoCliente.search(event.query).subscribe(data => {
-      this.TipoCliente = data;
-    });
-  }
-
-  searchCobrador(event) {
-    this.WsCobrador.search(event.query).subscribe(data => {
-      this.Cobrador = data;
-    });
-  }
-
-  searchVendedor(event) {
-    this.WsVendedor.search(event.query).subscribe(data => {
-      this.Vendedor = data;
-    });
-  }
-
-  searchMoneda(event) {
-    this.WsMoneda.search(event.query).subscribe(data => {
-      this.Moneda = data;
-    });
-  }
-
-  searchZonaCliente(event) {
-    this.WsZonaCliente.search(event.query).subscribe(data => {
-      this.ZonaCliente = data;
-    });
-  }
-
 
   save () {
-    let item = new Cliente(this.FrmDocumento.value);
-
-    this.WsClientes.save(item).subscribe(data => {
-         console.log('Guardado');
-         console.log(data);
-         this.FrmDocumento.reset();
-    });
+    this.item = new Cliente(this.FrmItem.value);
+    super.save();
   }
 
 }
