@@ -18,7 +18,7 @@ export class BaseService<Modelo>   {
 
     update(item: Modelo, id: string): any {
         const url = `http://localhost:60493/${this.Ws}/${id}`;
-        item._id=id;
+        item['_id'] = id;
 
         return this.httpWs.put<Modelo[]>(url, item);
     }

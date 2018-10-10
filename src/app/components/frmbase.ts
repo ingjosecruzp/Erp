@@ -32,7 +32,7 @@ export class FrmBase<Modelo>   {
     console.log(this.item);
     
     this.Cargando = true;
-    if (this.item._id !== undefined) {
+    if (this.item['_id'] !== undefined) {
       this.Ws.save(this.item).subscribe(data => {
           console.log('Guardado');
           console.log(data);
@@ -40,7 +40,7 @@ export class FrmBase<Modelo>   {
           this.FrmItem.reset();
       });
     } else {
-      this.Ws.update(this.item,this._id).subscribe(data => {
+      this.Ws.update(this.item, this._id).subscribe(data => {
         console.log('Modificado');
         console.log(data);
         this.Cargando = false;
