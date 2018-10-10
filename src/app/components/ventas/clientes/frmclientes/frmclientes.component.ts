@@ -56,6 +56,7 @@ export class FrmclientesComponent extends FrmBase<Cliente> implements OnInit, IF
 
     if (this.config.data._id !== undefined) {
       this.WsClientes.get(this.config.data._id).subscribe(data => {
+         this._id = data._id;
          let item = new Cliente(data);
          this.FrmItem.patchValue(item);
       });

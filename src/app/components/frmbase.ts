@@ -8,9 +8,11 @@ import { CondicionesDePago } from '../models/condicionesdepago';
 import { Vendedor } from '../models/Generales/vendedor';
 import { TipoCliente } from '../models/tipocliente';
 import { TipoComponente } from '../models/Generales/tipocomponente';
+import { GrupoComponente } from '../models/Generales/grupocomponente';
 
 
 export class FrmBase<Modelo>   {
+    _id: string;
     Ws: any;
     FrmItem: FormGroup;
     item: Modelo;
@@ -25,20 +27,27 @@ export class FrmBase<Modelo>   {
     public TiposCliente: TipoCliente[];
     public CondicionesDePago: CondicionesDePago[];
     public TiposComponentes: TipoComponente[];
+    public GrupoComponentes: GrupoComponente[];
     /********** */
     
     save(): any {
     console.log(this.item);
     
     this.Cargando = true;
-    this.Ws.save(this.item).subscribe(data => {
+    if (this.item['_id'] !== undefined) {
+      this.Ws.save(this.item).subscribe(data => {
           console.log('Guardado');
           console.log(data);
           this.Cargando = false;
           this.FrmItem.reset();
-    });
-    
-    return null;
+      });
+    } else {
+      this.Ws.update(this.item, this._id).subscribe(data => {
+        console.log('Modificado');
+        console.log(data);
+        this.Cargando = false;
+        this.FrmItem.reset();
+      });
     }
     /*********Cargar combos*************/
     public searchMoneda(event, ws) {
@@ -83,6 +92,13 @@ export class FrmBase<Modelo>   {
         this.TiposComponentes = data;
       });
     }
+
+    public searchGrupoComponente(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.GrupoComponentes = data;
+      });
+    }
 /******************************** */
 
 }
+

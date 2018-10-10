@@ -14,7 +14,7 @@
                     <label for="vin">Grupo de Componente:</label>
                 </div>
                 <div class="ui-g-8">
-                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="GrupoComponente" [suggestions]="GruposComponentes" (completeMethod)="searchGrupoComponente($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="GrupoComponente" [suggestions]="GrupoComponentes" (completeMethod)="searchGrupoComponente($event,WsGrupoComponentes)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
             </div>
             <hr>
