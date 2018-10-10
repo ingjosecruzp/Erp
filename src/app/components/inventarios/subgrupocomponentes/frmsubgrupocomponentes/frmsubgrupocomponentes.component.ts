@@ -40,15 +40,9 @@ export class FrmsubgrupocomponentesComponent extends FrmBase<SubgrupoComponente>
   }
   }
 
-  searchGrupoComponente(event) {
-    this.WsGrupoComponentes.search(event.query).subscribe(data => {
-      console.log(data);
-      this.FrmItem = data;
-    });
-  }
-
   save () {
     this.item = new SubgrupoComponente(this.FrmItem.value);
     super.save();
   }
 }
+

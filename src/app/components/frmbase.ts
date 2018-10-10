@@ -8,6 +8,7 @@ import { CondicionesDePago } from '../models/condicionesdepago';
 import { Vendedor } from '../models/Generales/vendedor';
 import { TipoCliente } from '../models/tipocliente';
 import { TipoComponente } from '../models/Generales/tipocomponente';
+import { GrupoComponente } from '../models/Generales/grupocomponente';
 
 
 export class FrmBase<Modelo>   {
@@ -25,6 +26,7 @@ export class FrmBase<Modelo>   {
     public TiposCliente: TipoCliente[];
     public CondicionesDePago: CondicionesDePago[];
     public TiposComponentes: TipoComponente[];
+    public GrupoComponentes: GrupoComponente[];
     /********** */
     
     save(): any {
@@ -83,6 +85,13 @@ export class FrmBase<Modelo>   {
         this.TiposComponentes = data;
       });
     }
+
+    public searchGrupoComponente(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.GrupoComponentes = data;
+      });
+    }
 /******************************** */
 
 }
+
