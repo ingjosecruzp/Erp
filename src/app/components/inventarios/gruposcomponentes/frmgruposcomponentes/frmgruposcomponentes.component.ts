@@ -7,6 +7,8 @@ import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@ang
 import { TipocomponenteService } from '../../../../services/inventarios/tipocomponente.service';
 import { GrupoComponente } from '../../../../models/Generales/grupocomponente';
 import { EventEmitter } from 'events';
+import { IFrmBase } from '../../../ifrmbase';
+import { FrmBase } from '../../../frmbase';
 
 
 
@@ -15,7 +17,7 @@ import { EventEmitter } from 'events';
   templateUrl: './frmgruposcomponentes.component.html',
   styles: []
 })
-export class FrmgruposcomponentesComponent implements OnInit {
+export class FrmgruposcomponentesComponent extends FrmBase<GrupoComponente> implements OnInit, IFrmBase {
   FrmGrupoComponente: FormGroup;
   displayDialog: boolean;
   TipoComponente: TipoComponente[]; // se guarda en la base de datos al arrelgo
@@ -23,12 +25,14 @@ export class FrmgruposcomponentesComponent implements OnInit {
   // tslint:disable-next-line:max-line-length
   constructor(public config: DialogConfig, public dialog: DialogRef, private WsGrupoComponente: GrupocomponenteService,
                                            private WsTipoComponente: TipocomponenteService, private fb: FormBuilder ) {
+    super();
     this.displayDialog = true;
+    this.Ws = WsGrupoComponente;
     // console.log(config.data._id);
    }
 
   ngOnInit() {
-       this.FrmGrupoComponente = this.fb.group({
+       this.FrmItem = this.fb.group({
        Nombre: ['', [Validators.required]],
        TipoComponente: ['', [Validators.required]]
     });
@@ -36,36 +40,18 @@ export class FrmgruposcomponentesComponent implements OnInit {
     if (this.config.data._id !== undefined) {
       this.WsGrupoComponente.get(this.config.data._id).subscribe(data => {
          let item = new GrupoComponente(data);
-         this.FrmGrupoComponente.patchValue(item);
+         this.FrmItem.patchValue(item);
          console.log('Respuesta del servidor', data);
       });
     }
 
   }
 
-  searchTipoComponente(event) {
-    this.WsTipoComponente.search(event.query).subscribe(data => {
-      console.log(data);
-      this.TipoComponente = data;
-    });
-  }
-
   save () {
-    let item = new GrupoComponente(this.FrmGrupoComponente.value);
-    // console.log(item);
-    // console.log(JSON.stringify(item));
-
-    this.WsGrupoComponente.save(item).subscribe(data => {
-         console.log('Guardado Grupo componente');
-         this.FrmGrupoComponente.reset();
-
-        //  console.log(data);
-    });
+    this.item = new GrupoComponente(this.FrmItem.value);
+    super.save();
   }
 
-  delete() {
-    
-  }
 
  
 
