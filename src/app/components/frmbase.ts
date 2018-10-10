@@ -34,7 +34,8 @@ export class FrmBase<Modelo>   {
     console.log(this.item);
     
     this.Cargando = true;
-    if (this.item['_id'] !== undefined) {
+   
+    if (this._id === undefined || this._id === null) {
       this.Ws.save(this.item).subscribe(data => {
           console.log('Guardado');
           console.log(data);

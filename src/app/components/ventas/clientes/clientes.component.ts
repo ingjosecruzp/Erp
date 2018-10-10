@@ -44,7 +44,8 @@ export class ClientesComponent implements OnInit {
    this.cols = [
      { field: 'Rfc', header: 'Rfc' },
      { field: 'Nombre', header: 'Razon Social' },
-     { field: 'TipoCliente.Nombre', header: 'Tipo Cliente' }
+     { field: 'TipoCliente.Nombre', header: 'Tipo Cliente' },
+     { field: 'Cobrador.Nombre', header: 'Cobrador' }
    ];
 
     // this.FrmDocumento = this.fb.group(new Cliente());
