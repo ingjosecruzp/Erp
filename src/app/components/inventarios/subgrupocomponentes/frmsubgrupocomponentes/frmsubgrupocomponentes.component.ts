@@ -27,7 +27,7 @@ export class FrmsubgrupocomponentesComponent extends FrmBase<SubgrupoComponente>
 
   ngOnInit() {
     this.FrmItem = this.fb.group({
-      Nombre: ['', [Validators.required]],
+      Nombre: [null, [Validators.required]],
       GrupoComponente: ['', [Validators.required]]
    });
 
