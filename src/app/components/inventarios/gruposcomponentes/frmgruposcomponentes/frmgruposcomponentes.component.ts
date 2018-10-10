@@ -39,6 +39,7 @@ export class FrmgruposcomponentesComponent extends FrmBase<GrupoComponente> impl
 
     if (this.config.data._id !== undefined) {
       this.WsGrupoComponente.get(this.config.data._id).subscribe(data => {
+         this._id = data._id;
          let item = new GrupoComponente(data);
          this.FrmItem.patchValue(item);
          console.log('Respuesta del servidor DC', data);
