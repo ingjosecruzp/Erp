@@ -15,4 +15,11 @@ export class BaseService<Modelo>   {
 
         return this.httpWs.get<Modelo[]>(url);
     }
+
+    update(item: Modelo, id: string): any {
+        const url = `http://localhost:60493/${this.Ws}/${id}`;
+        item._id=id;
+
+        return this.httpWs.put<Modelo[]>(url, item);
+    }
 }

@@ -1,8 +1,4 @@
 <div class="ui-dialog-buttonpane ui-helper-clearfix">
-    <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Delete"></button>
-    <!-- <button type="button" pButton icon="fa fa-check" (click)="save()" label="Save"></button> -->
-    <button type="button" pButton [icon]="Formulario.Cargando==false ? 'fa fa-check' : 'fa fa-circle-o-notch fa-spin' " (click)="save()" label="Save"></button>
-    <!-- <button pButton type="button" label="Save">
-        <i class="fa fa-circle-o-notch fa-spin"></i>
-    </button> -->
+    <button type="button" pButton icon="fa fa-close" (click)="delete()" label="Eliminar"></button>
+    <button type="button" pButton [icon]="Formulario.Cargando==false ? 'fa fa-check' : 'fa fa-circle-o-notch fa-spin' " (click)="save()" label="Guardar"></button>
 </div>

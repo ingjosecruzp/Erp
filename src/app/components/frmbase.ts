@@ -10,6 +10,7 @@ import { TipoCliente } from '../models/tipocliente';
 
 
 export class FrmBase<Modelo>   {
+    _id: string;
     Ws: any;
     FrmItem: FormGroup;
     item: Modelo;
@@ -29,14 +30,20 @@ export class FrmBase<Modelo>   {
     console.log(this.item);
     
     this.Cargando = true;
-    this.Ws.save(this.item).subscribe(data => {
+    if (this.item._id !== undefined) {
+      this.Ws.save(this.item).subscribe(data => {
           console.log('Guardado');
           console.log(data);
           this.Cargando = false;
           this.FrmItem.reset();
-    });
-    
-    return null;
+      });
+    } else {
+      this.Ws.update(this.item,this._id).subscribe(data => {
+        console.log('Modificado');
+        console.log(data);
+        this.Cargando = false;
+        this.FrmItem.reset();
+      });
     }
     /*********Cargar combos*************/
     public searchMoneda(event, ws) {
