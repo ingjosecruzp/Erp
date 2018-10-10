@@ -22,7 +22,7 @@
                         <label for="vin">C. de pago:</label>
                     </div>
                     <div class="ui-g-4">
-                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="CondicionesDePago" [suggestions]="CondicionesDePago" (completeMethod)="searchCondiciones($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="CondicionesDePago" [suggestions]="CondicionesDePago" (completeMethod)="searchCondiciones($event,WsCondicionesDePago)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-12 ui-g-nopad">
@@ -36,7 +36,7 @@
                         <label for="vin">Tipo de Cliente:</label>
                     </div>
                     <div class="ui-g-4">
-                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="TipoCliente" [suggestions]="TipoCliente" (completeMethod)="searchTipoCliente($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="TipoCliente" [suggestions]="TiposCliente" (completeMethod)="searchTipoCliente($event,WsTipoCliente)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-12 ui-g-nopad">
@@ -50,7 +50,7 @@
                         <label for="vin">Zona del Cliente:</label>
                     </div>
                     <div class="ui-g-4">
-                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="ZonaCliente" [suggestions]="ZonaCliente" (completeMethod)="searchZonaCliente($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="ZonaCliente" [suggestions]="ZonasCliente" (completeMethod)="searchZonaCliente($event, WsZonaCliente)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-12 ui-g-nopad">
@@ -58,13 +58,13 @@
                         <label for="vin">Moneda</label>
                     </div>
                     <div class="ui-g-4">
-                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="Moneda" [suggestions]="Moneda" (completeMethod)="searchMoneda($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="Moneda" [suggestions]="Monedas" (completeMethod)="searchMoneda($event,WsMoneda)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                     <div class="ui-g-2">
                         <label for="vin">Cobrador:</label>
                     </div>
                     <div class="ui-g-4">
-                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="Cobrador" [suggestions]="Cobrador" (completeMethod)="searchCobrador($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="Cobrador" [suggestions]="Cobradores" (completeMethod)="searchCobrador($event,WsCobrador)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <div class="ui-g-12 ui-md-12 ui-g-nopad">
@@ -78,7 +78,7 @@
                         <label for="vin">Vendedor:</label>
                     </div>
                     <div class="ui-g-4">
-                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="Vendedor" [suggestions]="Vendedor" (completeMethod)="searchVendedor($event)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="Vendedor" [suggestions]="Vendedores" (completeMethod)="searchVendedor($event,WsVendedor)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                     </div>
                 </div>
                 <hr>

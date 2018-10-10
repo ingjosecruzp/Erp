@@ -8,13 +8,9 @@ import { CobradorService } from '../../../../services/Generales/cobrador.service
 import { ZonaclienteService } from '../../../../services/Generales/zonacliente.service';
 import { CondicionesdepagoService } from '../../../../services/Generales/condicionesdepago.service';
 import { ClienteService } from '../../../../services/ventas/cliente.service';
-import { Moneda } from '../../../../models/Generales/moneda';
-import { Vendedor } from '../../../../models/Generales/vendedor';
-import { Cobrador } from '../../../../models/Generales/cobrador';
-import { ZonaCliente } from '../../../../models/Generales/zonacliente';
-import { CondicionesDePago } from '../../../../models/condicionesdepago';
+
 import { Cliente } from '../../../../models/cliente';
-import { TipoCliente } from '../../../../models/tipocliente';
+
 
 import { DialogConfig } from '../../../shared/dialog/dialog-config';
 import { DialogRef } from '../../../shared/dialog/dialog-ref';

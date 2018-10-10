@@ -7,6 +7,8 @@ import { Component, OnInit, Output, EventEmitter, Input  } from '@angular/core';
 })
 export class ToolbarComponent implements OnInit {
   @Input() Formulario: any;
+  btnIcon: string = 'fa fa-check';
+  // cargando: boolean=true;
   
   constructor() { 
     
@@ -17,6 +19,7 @@ export class ToolbarComponent implements OnInit {
   }
 
   save() {
+    console.log(this.Formulario.Cargando);
      this.Formulario.save();
   }
 
