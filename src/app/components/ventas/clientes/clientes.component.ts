@@ -18,6 +18,7 @@ export class ClientesComponent implements OnInit {
    selectedCliente: Cliente;
 
   constructor(private WsClientes: ClienteService, public dialog: DialogService) {
+
   }
 
   add() {
@@ -42,8 +43,8 @@ export class ClientesComponent implements OnInit {
   ngOnInit() {
    this.cols = [
      { field: 'Rfc', header: 'Rfc' },
-     { field: 'RazonSocial', header: 'Razon Social' },
-     { field: 'Pais', header: 'Pais' }
+     { field: 'Nombre', header: 'Razon Social' },
+     { field: 'TipoCliente.Nombre', header: 'Tipo Cliente' }
    ];
 
     // this.FrmDocumento = this.fb.group(new Cliente());
