@@ -7,6 +7,7 @@ import { ZonaCliente } from '../models/Generales/zonacliente';
 import { CondicionesDePago } from '../models/condicionesdepago';
 import { Vendedor } from '../models/Generales/vendedor';
 import { TipoCliente } from '../models/tipocliente';
+import { TipoComponente } from '../models/Generales/tipocomponente';
 
 
 export class FrmBase<Modelo>   {
@@ -23,6 +24,7 @@ export class FrmBase<Modelo>   {
     public ZonasCliente: ZonaCliente[];
     public TiposCliente: TipoCliente[];
     public CondicionesDePago: CondicionesDePago[];
+    public TiposComponentes: TipoComponente[];
     /********** */
     
     save(): any {
@@ -73,6 +75,12 @@ export class FrmBase<Modelo>   {
     public searchZonaCliente(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.ZonasCliente = data;
+      });
+    }
+
+    public searchTipoComponente(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.TiposComponentes = data;
       });
     }
 /******************************** */
