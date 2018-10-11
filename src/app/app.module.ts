@@ -24,6 +24,7 @@ import {InputTextModule} from 'primeng/inputtext';
 import { GridbaseComponent } from './components/shared/gridbase/gridbase.component';
 import {DialogModule} from './modules/dialog/dialog.module';
 import {DialogModule as DialogPrime} from 'primeng/dialog';
+import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import {FieldsetModule} from 'primeng/fieldset';
 import {PaisesComponent } from './components/paises/paises.component';
 import {PanelModule} from 'primeng/panel';
@@ -46,7 +47,7 @@ import { GridtipocomponentesComponent } from './components/inventarios/tipocompo
 import { FrmtipocomponentesComponent } from './components/inventarios/tipocomponentes/frmtipocomponentes/frmtipocomponentes.component';
 import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.component';
 
-
+import {ConfirmationService} from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -72,8 +73,6 @@ import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.comp
     GridtipocomponentesComponent,
     FrmtipocomponentesComponent,
     FrmpaisesComponent
-   
-
   ],
   imports: [
     BrowserModule,
@@ -96,9 +95,10 @@ import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.comp
     ReactiveFormsModule,
     CurrencyMaskModule,
     AutoCompleteModule,
-    ButtonModule
+    ButtonModule,
+    ConfirmDialogModule
   ],
-  providers: [ObjectUtils],
+  providers: [ObjectUtils, ConfirmationService],
   bootstrap: [AppComponent],
   entryComponents: [ExampleComponent,
                     FrmclientesComponent, 

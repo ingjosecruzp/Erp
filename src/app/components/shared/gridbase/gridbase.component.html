@@ -1,4 +1,4 @@
-<p-table #dt dataKey="_id" [value]="items" [resizableColumns]="true" columnResizeMode="expand" selectionMode="single" [(selection)]="selectedCliente">
+<p-table #dt dataKey="_id" [value]="items" [resizableColumns]="true" columnResizeMode="expand" selectionMode="single" [(selection)]="selectedCliente" [scrollable]="true" scrollHeight="78vh">
     <!-- <ng-template pTemplate="caption">
         <div style="text-align: right">
             <i class="fa fa-search" style="margin:4px 4px 0 0"></i>
@@ -26,4 +26,4 @@
             Item : {{selectedCliente ? selectedCliente.Rfc : '' }}
         </div>
     </ng-template>
-</p-table>.
+</p-table>
