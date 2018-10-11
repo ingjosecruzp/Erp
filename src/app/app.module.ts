@@ -52,6 +52,8 @@ import { GridusuariosComponent } from './components/administracion/usuarios/grid
 import { FrmusuariosComponent } from './components/administracion/usuarios/frmusuarios/frmusuarios.component';
 import { GridusuariosrolesComponent } from './components/administracion/usuariosroles/gridusuariosroles/gridusuariosroles.component';
 import { FrmusuariosrolesComponent } from './components/administracion/usuariosroles/frmusuariosroles/frmusuariosroles.component';
+import { GridtipoconceptosComponent } from './components/inventarios/tipoconceptos/gridtipoconceptos/gridtipoconceptos.component';
+import { FrmtipoconceptosComponent } from './components/inventarios/tipoconceptos/frmtipoconceptos/frmtipoconceptos.component';
 
 @NgModule({
   declarations: [
@@ -80,7 +82,9 @@ import { FrmusuariosrolesComponent } from './components/administracion/usuariosr
     GridusuariosComponent,
     FrmusuariosComponent,
     GridusuariosrolesComponent,
-    FrmusuariosrolesComponent
+    FrmusuariosrolesComponent,
+    GridtipoconceptosComponent,
+    FrmtipoconceptosComponent
   ],
   imports: [
     BrowserModule,
