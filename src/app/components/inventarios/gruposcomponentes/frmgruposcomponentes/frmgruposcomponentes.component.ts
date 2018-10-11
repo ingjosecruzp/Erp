@@ -9,8 +9,7 @@ import { GrupoComponente } from '../../../../models/Generales/grupocomponente';
 import { EventEmitter } from 'events';
 import { IFrmBase } from '../../../ifrmbase';
 import { FrmBase } from '../../../frmbase';
-
-
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-frmgruposcomponentes',
@@ -23,8 +22,12 @@ export class FrmgruposcomponentesComponent extends FrmBase<GrupoComponente> impl
   TipoComponente: TipoComponente[]; // se guarda en la base de datos al arrelgo
 
   // tslint:disable-next-line:max-line-length
-  constructor(public config: DialogConfig, public dialog: DialogRef, private WsGrupoComponente: GrupocomponenteService,
-                                           private WsTipoComponente: TipocomponenteService, private fb: FormBuilder ) {
+  constructor(public config: DialogConfig,
+              public dialog: DialogRef,
+              private WsGrupoComponente: GrupocomponenteService,
+              private WsTipoComponente: TipocomponenteService,
+              private fb: FormBuilder,
+              private confirmationService: ConfirmationService ) {
     super();
     this.displayDialog = true;
     this.Ws = WsGrupoComponente;
@@ -49,8 +52,18 @@ export class FrmgruposcomponentesComponent extends FrmBase<GrupoComponente> impl
   }
 
   save () {
-    this.item = new GrupoComponente(this.FrmItem.value);
-    super.save();
+    this.confirmationService.confirm({
+      message: '¿Esta seguro de guardar la información?',
+      header: 'Erp',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.item = new GrupoComponente(this.FrmItem.value);
+        super.save();
+      },
+      reject: () => {
+        console.log('cancelar');
+      }
+  });
   }
 
 
