@@ -6,6 +6,7 @@ import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@ang
 import { Unidad } from '../../../../models/Generales/Unidad';
 import { UnidadService } from '../../../../services/inventarios/unidad.service';
 import { FrmBase } from 'src/app/components/frmbase';
+import { ConfirmationService } from 'primeng/api';
 
 @Component({
   selector: 'app-frmunidades',
@@ -14,7 +15,7 @@ import { FrmBase } from 'src/app/components/frmbase';
 export class FrmunidadesComponent extends FrmBase<Unidad> implements OnInit {
   FrmDocumento: FormGroup;
   displayDialog: boolean;
-  constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, private WsUnindad: UnidadService) {
+  constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, private WsUnindad: UnidadService, private confirmationService: ConfirmationService) {
     super();
     this.displayDialog = true;
     this.Ws = WsUnindad;
@@ -23,8 +24,8 @@ export class FrmunidadesComponent extends FrmBase<Unidad> implements OnInit {
 
   ngOnInit() {
     this.FrmItem = this.fb.group({
-      Nombre: ['', [Validators.required]],
-      Abreviatura: ['', [Validators.required]],
+      Nombre: [null, [Validators.required]],
+      Abreviatura: [null, [Validators.required]],
    });
 
    if (this.config.data._id !== undefined) {
@@ -38,8 +39,18 @@ export class FrmunidadesComponent extends FrmBase<Unidad> implements OnInit {
   }
 
   save () {
-    this.item = new Unidad(this.FrmItem.value);
-    super.save();
+    this.confirmationService.confirm({
+        message: '¿Esta seguro de guardar la información?',
+        header: 'Erp',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this.item = new Unidad(this.FrmItem.value);
+          super.save();
+        },
+        reject: () => {
+          console.log('cancelar');
+        }
+    });
   }
 
 
