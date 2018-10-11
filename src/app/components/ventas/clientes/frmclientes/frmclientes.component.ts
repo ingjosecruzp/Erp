@@ -16,8 +16,7 @@ import { DialogConfig } from '../../../shared/dialog/dialog-config';
 import { DialogRef } from '../../../shared/dialog/dialog-ref';
 import { IFrmBase } from '../../../ifrmbase';
 import { FrmBase } from '../../../frmbase';
-
-
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-frmclientes',
@@ -33,7 +32,8 @@ export class FrmclientesComponent extends FrmBase<Cliente> implements OnInit, IF
   constructor(private WsClientes: ClienteService, private WsCondicionesDePago: CondicionesdepagoService,
     private WsTipoCliente: TipoclienteService, private fb: FormBuilder, private WsMoneda: MonedaService,
     private WsVendedor: VendedorService, private WsCobrador: CobradorService, 
-    private WsZonaCliente: ZonaclienteService, public config: DialogConfig, public dialog: DialogRef) {
+    private WsZonaCliente: ZonaclienteService, public config: DialogConfig, public dialog: DialogRef,
+    private confirmationService: ConfirmationService) {
       super();
       this.displayDialog = true;
       this.Ws = WsClientes;
@@ -41,17 +41,17 @@ export class FrmclientesComponent extends FrmBase<Cliente> implements OnInit, IF
 
   ngOnInit() {
     this.FrmItem = this.fb.group({
-      Nombre: ['', [Validators.required]],
-      Rfc: ['', [Validators.required]],
-      Contacto1: ['', [Validators.required]],
-      Contacto2: ['', [Validators.required]],
-      CondicionesDePago: ['', [Validators.required]],
-      TipoCliente: ['', [Validators.required]],
-      LimiteCredito: ['', [Validators.required]],
-      ZonaCliente: ['', [Validators.required]],
-      Moneda: ['', [Validators.required]],
-      Cobrador: ['', [Validators.required]],
-      Vendedor: ['', [Validators.required]]
+      Nombre: [null, [Validators.required]],
+      Rfc: [null, [Validators.required]],
+      Contacto1: [null, [Validators.required]],
+      Contacto2: [null, [Validators.required]],
+      CondicionesDePago: [null, [Validators.required]],
+      TipoCliente: [null, [Validators.required]],
+      LimiteCredito: [null, [Validators.required]],
+      ZonaCliente: [null, [Validators.required]],
+      Moneda: [null, [Validators.required]],
+      Cobrador: [null, [Validators.required]],
+      Vendedor: [null, [Validators.required]]
    });
 
     if (this.config.data._id !== undefined) {
@@ -64,8 +64,18 @@ export class FrmclientesComponent extends FrmBase<Cliente> implements OnInit, IF
   }
 
   save () {
-    this.item = new Cliente(this.FrmItem.value);
-    super.save();
+    this.confirmationService.confirm({
+        message: '¿Esta seguro de guardar la información?',
+        header: 'Erp',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this.item = new Cliente(this.FrmItem.value);
+          super.save();
+        },
+        reject: () => {
+          console.log('cancelar');
+        }
+    });
   }
 
 }

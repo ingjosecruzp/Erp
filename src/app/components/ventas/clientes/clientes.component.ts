@@ -4,6 +4,7 @@ import { Cliente } from '../../../models/cliente';
 import { FormGroup, FormArray } from '@angular/forms';
 import { DialogService } from '../../../services/dinamicos/dialog.service';
 import { FrmclientesComponent } from './frmclientes/frmclientes.component';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-clientes',
@@ -17,16 +18,17 @@ export class ClientesComponent implements OnInit {
    cols: any[];
    selectedCliente: Cliente;
 
-  constructor(private WsClientes: ClienteService, public dialog: DialogService) {
+  constructor(private WsClientes: ClienteService, public dialog: DialogService,  private confirmationService: ConfirmationService) {
 
   }
 
   add() {
     const ref = this.dialog.open(FrmclientesComponent, { 
-                  data: { message: 'I am a dynamic component inside of a dialog!'} });
+                   data: { message: 'I am a dynamic component inside of a dialog!'} });
     /*ref.afterClosed.subscribe(result => {
       console.log('Dialog closed', result);
     });*/
+
   }
 
   refresh() {
