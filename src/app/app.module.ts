@@ -122,6 +122,7 @@ import { FrmtipoconceptosComponent } from './components/inventarios/tipoconcepto
                     FrmpaisesComponent,
                     FrmconceptosComponent,
                     FrmusuariosComponent,
-                    FrmusuariosrolesComponent]
+                    FrmusuariosrolesComponent,
+                    FrmtipoconceptosComponent]
 })
 export class AppModule { }
