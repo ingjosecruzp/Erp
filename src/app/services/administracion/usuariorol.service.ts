@@ -20,7 +20,7 @@ export class UsuariorolService extends BaseService<UsuarioRol> implements Servic
    }
 
    save(item: any): any {
-    return this.http.post<UsuarioRol>('http://localhost:60493/Servicios/Servicios/Administracion/WcfUsuariosRoles.svc/', item);
+    return this.http.post<UsuarioRol>('http://localhost:60493/Servicios/Administracion/WcfUsuariosRoles.svc/', item);
   }
 
 }

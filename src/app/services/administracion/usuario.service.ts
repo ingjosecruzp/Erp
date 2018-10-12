@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { BaseService } from '../baseService';
 import { ServicesBase } from '../servicesBase';
-import { HttpClient } from '@angular/common/http';
 import { Usuario } from '../../models/Administracion/Usuario';
-
 
 @Injectable({
   providedIn: 'root'
