@@ -22,7 +22,8 @@ export class FrmusuariosComponent extends FrmBase<Usuario> implements OnInit, IF
               public dialog: DialogRef,
               private fb: FormBuilder,
               private confirmationService: ConfirmationService,
-              private WsUsuario: UsuariorolService) { 
+              private WsUsuario: UsuariorolService,
+              private WsUsuarioRol: UsuariorolService) { 
   super();
   this.displayDialog = true;
   this.Ws = WsUsuario;

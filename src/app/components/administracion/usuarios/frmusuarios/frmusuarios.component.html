@@ -30,7 +30,7 @@
                     <label for="vin"><b>Rol de Usuario</b></label>
                 </div>
                 <div class="ui-g-8">
-                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="TipoComponente" [suggestions]="TiposComponentes" (completeMethod)="searchTipoComponente($event,WsTipoComponente)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="UsuarioRol" [suggestions]="UsuarioRoles" (completeMethod)="searchUsuarioRol($event,WsUsuarioRol)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
             </div>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
