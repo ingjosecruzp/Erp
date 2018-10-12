@@ -9,6 +9,7 @@ import { Vendedor } from '../models/Generales/vendedor';
 import { TipoCliente } from '../models/tipocliente';
 import { TipoComponente } from '../models/Generales/tipocomponente';
 import { GrupoComponente } from '../models/Generales/grupocomponente';
+import { TipoConcepto } from '../models/Inventarios/tipoconcepto';
 
 
 export class FrmBase<Modelo>   {
@@ -28,6 +29,7 @@ export class FrmBase<Modelo>   {
     public CondicionesDePago: CondicionesDePago[];
     public TiposComponentes: TipoComponente[];
     public GrupoComponentes: GrupoComponente[];
+    public TipoConceptos: TipoConcepto[];
     /********** */
     
     save(): any {
@@ -101,6 +103,12 @@ export class FrmBase<Modelo>   {
     public searchGrupoComponente(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.GrupoComponentes = data;
+      });
+    }
+
+    public searchTipoConcepto(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.TipoConceptos = data;
       });
     }
 /******************************** */

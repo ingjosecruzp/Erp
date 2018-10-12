@@ -18,13 +18,13 @@ export class GridtipoconceptosComponent implements OnInit {
 
   ngOnInit() {
     this.cols = [
-      { field: 'Nombre', header: 'Nombre' }
+      { field: 'Nombre', header: 'Tipo Concepto' }
     ];
   }
-
+  
   refresh() {
     this.WsTipoConcepto.getAll().subscribe(data => {
-      this.WsTipoConcepto = data;
+      this.TipoConcepto = data;
      });
   }
 
