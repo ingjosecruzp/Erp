@@ -8,6 +8,7 @@ import { SubgrupoComponente } from '../../../../models/Generales/subgrupocompene
 import { SubgrupocomponenteService } from '../../../../services/inventarios/subgrupocomponente.service';
 import { FrmBase } from 'src/app/components/frmbase';
 import { IFrmBase } from '../../../ifrmbase';
+import {ConfirmationService} from 'primeng/api';
 
 @Component({
   selector: 'app-frmsubgrupocomponentes',
@@ -19,7 +20,8 @@ export class FrmsubgrupocomponentesComponent extends FrmBase<SubgrupoComponente>
   GruposComponentes: GrupoComponente[];
 
   constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, 
-              private WsGrupoComponentes: GrupocomponenteService, private WsSubgrupoComponentes: SubgrupocomponenteService) {
+              private WsGrupoComponentes: GrupocomponenteService, private WsSubgrupoComponentes: SubgrupocomponenteService,
+              private confirmationService: ConfirmationService) {
                 super();
                 this.displayDialog = true;
                 this.Ws = WsSubgrupoComponentes;
@@ -28,7 +30,7 @@ export class FrmsubgrupocomponentesComponent extends FrmBase<SubgrupoComponente>
   ngOnInit() {
     this.FrmItem = this.fb.group({
       Nombre: [null, [Validators.required]],
-      GrupoComponente: ['', [Validators.required]]
+      GrupoComponente: [null, [Validators.required]]
    });
 
    if (this.config.data._id !== undefined) {
@@ -42,8 +44,17 @@ export class FrmsubgrupocomponentesComponent extends FrmBase<SubgrupoComponente>
   }
 
   save () {
-    this.item = new SubgrupoComponente(this.FrmItem.value);
+    this.confirmationService.confirm({
+      message: '¿Esta seguro de guardar la información?',
+      header: 'Erp',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.item = new SubgrupoComponente(this.FrmItem.value);
     super.save();
+      },
+      reject: () => {
+        console.log('cancelar');
+      }
+  });
   }
 }
-
