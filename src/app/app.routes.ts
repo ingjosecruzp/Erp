@@ -10,6 +10,7 @@ import { GridsubgrupocomponentesComponent } from './components/inventarios/subgr
 import { GridtipocomponentesComponent } from './components/inventarios/tipocomponentes/gridtipocomponentes/gridtipocomponentes.component';
 import { GridusuariosrolesComponent } from './components/administracion/usuariosroles/gridusuariosroles/gridusuariosroles.component';
 import { GridusuariosComponent } from './components/administracion/usuarios/gridusuarios/gridusuarios.component';
+import { GridtipoconceptosComponent } from './components/inventarios/tipoconceptos/gridtipoconceptos/gridtipoconceptos.component';
 
 
 const APP_ROUTES: Routes = [
@@ -23,6 +24,7 @@ const APP_ROUTES: Routes = [
     { path: 'tipocomponentes', component: GridtipocomponentesComponent},
     { path: 'usuario', component: GridusuariosComponent},
     { path: 'usuariorol', component: GridusuariosrolesComponent},
+    { path: 'tipoconcepto', component: GridtipoconceptosComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 
