@@ -55,11 +55,11 @@ export class FrmBase<Modelo>   {
       });
     }
     /*********Cargar combos*************/
-    public searchMoneda(event, ws) {
+     public searchMoneda(event, ws) {
       ws.search(event.query).subscribe(data => {
-        this.Monedas = data;
+         this.Monedas = data;
       });
-    }
+     }
     
     public searchCondiciones(event, ws) {
       ws.search(event.query).subscribe(data => {
