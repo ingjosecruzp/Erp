@@ -27,6 +27,7 @@ export class GridgruposcomponentesComponent implements OnInit {
       { field: 'Nombre', header: 'Nombre' },
       { field: 'TipoComponente.Nombre', header: 'Tipo Componente' }
     ];
+    
   }
 
   refresh() {
