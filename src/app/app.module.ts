@@ -48,6 +48,12 @@ import { FrmtipocomponentesComponent } from './components/inventarios/tipocompon
 import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.component';
 
 import {ConfirmationService} from 'primeng/api';
+import { GridusuariosComponent } from './components/administracion/usuarios/gridusuarios/gridusuarios.component';
+import { FrmusuariosComponent } from './components/administracion/usuarios/frmusuarios/frmusuarios.component';
+import { GridusuariosrolesComponent } from './components/administracion/usuariosroles/gridusuariosroles/gridusuariosroles.component';
+import { FrmusuariosrolesComponent } from './components/administracion/usuariosroles/frmusuariosroles/frmusuariosroles.component';
+import { GridtipoconceptosComponent } from './components/inventarios/tipoconceptos/gridtipoconceptos/gridtipoconceptos.component';
+import { FrmtipoconceptosComponent } from './components/inventarios/tipoconceptos/frmtipoconceptos/frmtipoconceptos.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +78,13 @@ import {ConfirmationService} from 'primeng/api';
     FrmconceptosComponent,
     GridtipocomponentesComponent,
     FrmtipocomponentesComponent,
-    FrmpaisesComponent
+    FrmpaisesComponent,
+    GridusuariosComponent,
+    FrmusuariosComponent,
+    GridusuariosrolesComponent,
+    FrmusuariosrolesComponent,
+    GridtipoconceptosComponent,
+    FrmtipoconceptosComponent
   ],
   imports: [
     BrowserModule,
@@ -108,6 +120,9 @@ import {ConfirmationService} from 'primeng/api';
                     FrmtipocomponentesComponent,
                     FrmunidadesComponent,
                     FrmpaisesComponent,
-                    FrmconceptosComponent]
+                    FrmconceptosComponent,
+                    FrmusuariosComponent,
+                    FrmusuariosrolesComponent,
+                    FrmtipoconceptosComponent]
 })
 export class AppModule { }

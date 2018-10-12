@@ -38,11 +38,14 @@ export class MenubarComponent implements OnInit {
                     {label: 'Clientes', icon: 'pi pi-fw pi-users', routerLink: ['/clientes']},
                     {label: 'Paises', icon: 'pi pi-fw pi-globe', routerLink: ['/paises']},
                     {label: 'Conceptos', icon: 'pi pi-fw pi-th-large', routerLink: ['/conceptos']},
+                    {label: 'Tipo Concepto', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/tipoconcepto']},
                     {label: 'Unidades', icon: 'pi pi-fw fa fa-puzzle-piece', routerLink: ['/unidades']},
                     {label: 'Grupos Componentes', icon: 'pi pi-fw fa fa-puzzle-piece', routerLink: ['/grupocompnentes']},
                     {label: 'Subgrupo Componentes', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/subgrupocomponentes']},
-                    {label: 'Refresh', icon: 'pi pi-fw pi pi-fw pi-refresh'},
                     {label: 'tipo Componentes', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/tipocomponentes']},
+                    {label: 'Usuarios', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/usuario']},
+                    {label: 'Usuarios Rol', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/usuariorol']},
+                    {label: 'Refresh', icon: 'pi pi-fw pi pi-fw pi-refresh'},
                 ]
             }
         ];
