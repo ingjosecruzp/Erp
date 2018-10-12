@@ -4,24 +4,34 @@ import { DialogRef } from '../../../shared/dialog/dialog-ref';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { ConceptosService } from '../../../../services/inventarios/conceptos.service';
 import { Concepto } from '../../../../models/Inventarios/concepto';
+import { FrmBase } from 'src/app/components/frmbase';
+import { IFrmBase } from 'src/app/components/ifrmbase';
+import { TipoconceptoService } from 'src/app/services/inventarios/tipoconcepto.service';
 
 @Component({
   selector: 'app-frmconceptos',
   templateUrl: './frmconceptos.component.html'
 })
-export class FrmconceptosComponent implements OnInit {
+export class FrmconceptosComponent extends FrmBase<Concepto> implements OnInit, IFrmBase {
   FrmConceptos: FormGroup;
   displayDialog: boolean;
 
   constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, 
-              private WsCoceptos: ConceptosService, ) {
-    this.displayDialog = true;
+              private WsCoceptos: ConceptosService, private WsTipoConcepto: TipoconceptoService ) {
+                super();
+                this.displayDialog = true;
+                this.Ws = WsCoceptos;
   }
 
   ngOnInit() {
     this.FrmConceptos = this.fb.group({
+      Clave: ['', [Validators.required]],
+      FolioAutomatico: ['', [Validators.required]],
       Nombre: ['', [Validators.required]],
-      TipoComponente: ['', [Validators.required]]
+      Naturaleza: ['', [Validators.required]],
+      TipoConcepto: ['', [Validators.required]],
+      Predefinido: ['', [Validators.required]],
+      CostoAutomatico: ['', [Validators.required]]
    });
 
    if (this.config.data._id !== undefined) {

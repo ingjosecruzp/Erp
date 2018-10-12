@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FrmBase } from 'src/app/components/frmbase';
 import { TipoConcepto } from 'src/app/models/Inventarios/tipoconcepto';
 import { IFrmBase } from 'src/app/components/ifrmbase';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { DialogConfig } from 'src/app/components/shared/dialog/dialog-config';
 import { DialogRef } from 'src/app/components/shared/dialog/dialog-ref';
 import { TipoconceptoService } from 'src/app/services/inventarios/tipoconcepto.service';
@@ -24,7 +24,34 @@ export class FrmtipoconceptosComponent extends FrmBase<TipoConcepto> implements 
       this.Ws = WsTipoConcepto;
     }
 
-  ngOnInit() {
-  }
+    ngOnInit() {
+      this.FrmItem = this.fb.group({
+        Nombre: ['', [Validators.required]]
+     });
+     if (this.config.data._id !== undefined) {
+      this.WsTipoConcepto.get(this.config.data._id).subscribe(data => {
+          this._id = data._id;
+          let item = new TipoConcepto(data);
+          this.FrmItem.patchValue(item);
+         console.log('Respuesta del servidor', data);
+      });
+    }
+    }
 
+    save () {
+      this.confirmationService.confirm({
+        message: '¿Esta seguro de guardar la información?',
+        header: 'Erp',
+        icon: 'pi pi-exclamation-triangle',
+        accept: () => {
+          this.item = new TipoConcepto(this.FrmItem.value);
+          super.save();
+        },
+        reject: () => {
+          console.log('cancelar');
+        }
+    });
+    }
+
+   
 }

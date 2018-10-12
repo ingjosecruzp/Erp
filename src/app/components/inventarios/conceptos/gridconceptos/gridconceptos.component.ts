@@ -32,6 +32,17 @@ export class GridconceptosComponent implements OnInit {
     console.log(this.cols);
   }
 
+  refresh() {
+    this.WsConceptos.getAll().subscribe(data => {
+      this.conceptos = data;
+     });
+  }
+
+  open(item: Concepto) {
+    const ref = this.dialog.open(FrmconceptosComponent, { 
+      data: {_id: item._id} });
+  }
+
   add() {
     const ref = this.dialog.open(FrmconceptosComponent, { 
                   data: { message: 'I am a dynamic component inside of a dialog!'} });
