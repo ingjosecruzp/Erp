@@ -10,7 +10,7 @@ export class GridtipoconceptosComponent implements OnInit {
  cols: any[];
   selectedConcepto: TipoConcepto;
 
-  constructor( ) { }
+  constructor() { }
 
   ngOnInit() {
   }
