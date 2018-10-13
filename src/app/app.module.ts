@@ -55,6 +55,7 @@ import { FrmusuariosrolesComponent } from './components/administracion/usuariosr
 import { GridtipoconceptosComponent } from './components/inventarios/tipoconceptos/gridtipoconceptos/gridtipoconceptos.component';
 import { FrmtipoconceptosComponent } from './components/inventarios/tipoconceptos/frmtipoconceptos/frmtipoconceptos.component';
 
+import {DropdownModule} from 'primeng/primeng';
 @NgModule({
   declarations: [
     AppComponent,
@@ -87,6 +88,7 @@ import { FrmtipoconceptosComponent } from './components/inventarios/tipoconcepto
     FrmtipoconceptosComponent
   ],
   imports: [
+    DropdownModule,
     BrowserModule,
     APP_ROUTING,
     BrowserAnimationsModule,

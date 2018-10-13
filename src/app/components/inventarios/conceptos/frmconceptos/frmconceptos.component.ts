@@ -8,19 +8,38 @@ import { FrmBase } from 'src/app/components/frmbase';
 import { IFrmBase } from 'src/app/components/ifrmbase';
 import { TipoconceptoService } from 'src/app/services/inventarios/tipoconcepto.service';
 
+import { SelectItem } from 'primeng/api';
+
+
 @Component({
   selector: 'app-frmconceptos',
   templateUrl: './frmconceptos.component.html'
 })
+
 export class FrmconceptosComponent extends FrmBase<Concepto> implements OnInit, IFrmBase {
   FrmConceptos: FormGroup;
   displayDialog: boolean;
+  Opcion: SelectItem[];
+  Naturaleza: SelectItem[];
+  
+  
 
   constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, 
               private WsCoceptos: ConceptosService, private WsTipoConcepto: TipoconceptoService ) {
                 super();
                 this.displayDialog = true;
                 this.Ws = WsCoceptos;
+
+                this.Opcion = [
+                  {label: 'Selecionar Opcion', value:null},
+                  {label: 'Si', value: {id: 1, name: 'Si', code: 'Si'}},
+                  {label: 'No', value: {id: 2, name: 'No', code: 'No'}},
+              ];
+              this.Naturaleza = [
+                {label: 'Selecionar Opcion', value:null},
+                {label: 'Entrada', value: {id: 1, name: 'Entrada', code: 'in'}},
+                {label: 'Salida', value: {id: 2, name: 'Salida', code: 'out'}},
+            ];
   }
 
   ngOnInit() {
