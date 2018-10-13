@@ -32,6 +32,8 @@ export class FrmBase<Modelo>   {
     public GrupoComponentes: GrupoComponente[];
     public TipoConceptos: TipoConcepto[];
     public UsuarioRoles: UsuarioRol[];
+    public SourceOpcion: string[] = ['SI', 'NO'];
+    public Opcion: any[];
     /********** */
     
     save(): any {
@@ -119,6 +121,15 @@ export class FrmBase<Modelo>   {
         this.UsuarioRoles = data;
       });
     }
+    public searchOpciones(event) {
+      this.Opcion = [];
+      for(let i = 0; i < this.SourceOpcion.length; i++) {
+          let item = this.SourceOpcion[i];
+          if(item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+              this.Opcion.push(item);
+          }
+      }
+  }
 /******************************** */
 
 }

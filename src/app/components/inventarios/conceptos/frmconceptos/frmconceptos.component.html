@@ -1,5 +1,5 @@
 <p-dialog header="Conceptos" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="600">
-    <form [formGroup]="FrmConceptos" (ngSubmit)="save()">
+    <form [formGroup]="FrmItem" (ngSubmit)="save()">
         <p-tabView>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
                 <div class="ui-g-2">
@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="ui-g-4">
-                    <p-dropdown [options]="Opcion" formControlName="FolioAutomatico"></p-dropdown>
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="FolioAutomatico" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
             </div>
 
@@ -30,7 +30,7 @@
                     <label for="vin"><b>Naturaleza:</b></label>
                 </div>
                 <div class="ui-g-10">
-                    <p-dropdown [options]="Opcion" formControlName="Naturaleza"></p-dropdown>
+                    <p-dropdown [options]="Naturaleza" placeholder="Seleccionar Opcion" formControlName="Naturaleza"></p-dropdown>
                 </div>
             </div>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
@@ -46,13 +46,13 @@
                     <label for="vin"><b>Predefinido:</b></label>
                 </div>
                 <div class="ui-g-4">
-                    <p-dropdown [options]="Opcion" formControlName="Predefinido"></p-dropdown>
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'94%'}" formControlName="Predefinido" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
                 <div class=" ui-g-2 ">
                     <label for="vin "><b>Costo Automatico:</b></label>
                 </div>
                 <div class="ui-g-4 ">
-                    <p-dropdown [options]="Opcion " formControlName="CostoAutomatico"></p-dropdown>
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="CostoAutomatico" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
             </div>
 
