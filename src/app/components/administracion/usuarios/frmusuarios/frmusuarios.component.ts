@@ -20,7 +20,7 @@ export class FrmusuariosComponent extends FrmBase<Usuario> implements OnInit, IF
   FrmGrupoComponente: FormGroup;
   displayDialog: boolean;
   UsuarioRol: UsuarioRol[]; // se guarda en la base de datos al arrelgo
-  EstatusUsuario: SelectItem[];
+
 
   constructor(public config: DialogConfig,
               public dialog: DialogRef,
@@ -31,12 +31,6 @@ export class FrmusuariosComponent extends FrmBase<Usuario> implements OnInit, IF
   super();
   this.displayDialog = true;
   this.Ws = WsUsuario;
-
-  this.EstatusUsuario = [
-    {label: 'Selecionar Opc', value: null},
-    {label: 'Activo', value: {id: 1, name: 'Activo', code: '1'}},
-    {label: 'Inactivo', value: {id: 2, name: 'Inactivo', code: '0'}},
-];
   }
 
   ngOnInit() {

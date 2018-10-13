@@ -14,7 +14,7 @@
                     <label for="vin"><b>Nombre Usuario:</b></label>
                 </div>
                 <div class="ui-g-8">
-                    <input formControlName="NombreUsuario" pInputText id="Nombre" />
+                    <input formControlName="NombreUsuario" pInputText id="NombreUsuario" />
                 </div>
             </div>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
@@ -22,7 +22,7 @@
                     <label for="vin"><b>Contraseña:</b></label>
                 </div>
                 <div class="ui-g-8">
-                    <input formControlName="Contraseña" pInputText id="Nombre" type="password" />
+                    <input formControlName="Contraseña" pInputText id="Contraseña" type="password" />
                 </div>
             </div>
 
@@ -48,8 +48,8 @@
                 <div class="ui-g-4">
                     <label for="vin"><b>Estatus de usuario:</b></label>
                 </div>
-                <div class="ui-g-4">
-                    <p-dropdown [options]="EstatusUsuario" formControlName="EstatusUsuario"></p-dropdown>
+                <div class="ui-g-8">
+                    <input formControlName="EstatusUsuario" pInputText id="EstatusUsuario" type="text" />
                 </div>
             </div>
             <hr>
