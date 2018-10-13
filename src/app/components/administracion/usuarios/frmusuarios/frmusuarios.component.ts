@@ -8,6 +8,9 @@ import { DialogConfig } from '../../../shared/dialog/dialog-config';
 import { DialogRef } from '../../../shared/dialog/dialog-ref';
 import { UsuariorolService } from 'src/app/services/administracion/usuariorol.service';
 import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
+import { SelectItem } from 'primeng/api';
+import { UsuarioService } from 'src/app/services/administracion/usuario.service';
+
 
 @Component({
   selector: 'app-frmusuarios',
@@ -18,11 +21,12 @@ export class FrmusuariosComponent extends FrmBase<Usuario> implements OnInit, IF
   displayDialog: boolean;
   UsuarioRol: UsuarioRol[]; // se guarda en la base de datos al arrelgo
 
+
   constructor(public config: DialogConfig,
               public dialog: DialogRef,
               private fb: FormBuilder,
               private confirmationService: ConfirmationService,
-              private WsUsuario: UsuariorolService,
+              private WsUsuario: UsuarioService,
               private WsUsuarioRol: UsuariorolService) { 
   super();
   this.displayDialog = true;
