@@ -10,6 +10,7 @@ import { TipoCliente } from '../models/tipocliente';
 import { TipoComponente } from '../models/Generales/tipocomponente';
 import { GrupoComponente } from '../models/Generales/grupocomponente';
 import { TipoConcepto } from '../models/Inventarios/tipoconcepto';
+import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
 
 
 export class FrmBase<Modelo>   {
@@ -30,6 +31,7 @@ export class FrmBase<Modelo>   {
     public TiposComponentes: TipoComponente[];
     public GrupoComponentes: GrupoComponente[];
     public TipoConceptos: TipoConcepto[];
+    public UsuarioRoles: UsuarioRol[];
     /********** */
     
     save(): any {
@@ -109,6 +111,12 @@ export class FrmBase<Modelo>   {
     public searchTipoConcepto(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.TipoConceptos = data;
+      });
+    }
+
+    public searchUsuarioRol(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.UsuarioRoles = data;
       });
     }
 /******************************** */

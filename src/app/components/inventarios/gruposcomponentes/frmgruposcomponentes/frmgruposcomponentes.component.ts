@@ -21,7 +21,6 @@ export class FrmgruposcomponentesComponent extends FrmBase<GrupoComponente> impl
   displayDialog: boolean;
   TipoComponente: TipoComponente[]; // se guarda en la base de datos al arrelgo
 
-  // tslint:disable-next-line:max-line-length
   constructor(public config: DialogConfig,
               public dialog: DialogRef,
               private WsGrupoComponente: GrupocomponenteService,
@@ -64,6 +63,8 @@ export class FrmgruposcomponentesComponent extends FrmBase<GrupoComponente> impl
         console.log('cancelar');
       }
   });
+
+  
   }
 
 
