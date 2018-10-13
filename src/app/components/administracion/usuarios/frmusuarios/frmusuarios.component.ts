@@ -61,8 +61,7 @@ export class FrmusuariosComponent extends FrmBase<Usuario> implements OnInit, IF
         console.log('cancelar');
       }
   });
-
-
 }
+
 
 }

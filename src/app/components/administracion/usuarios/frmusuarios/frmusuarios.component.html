@@ -25,6 +25,7 @@
                     <input formControlName="Contraseña" pInputText id="Nombre" type="password" />
                 </div>
             </div>
+
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
                 <div class="ui-g-4">
                     <label for="vin"><b>Confirmar Contraseña:</b></label>
@@ -33,6 +34,7 @@
                     <input type="password" />
                 </div>
             </div>
+
             <div class="ui-g-12 ui-md-12 ui-g-nopad">
                 <div class="ui-g-4">
                     <label for="vin"><b>Rol de Usuario</b></label>
@@ -41,6 +43,7 @@
                     <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="UsuarioRol" [suggestions]="UsuarioRoles" (completeMethod)="searchUsuarioRol($event,WsUsuarioRol)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
             </div>
+
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
                 <div class="ui-g-4">
                     <label for="vin"><b>Estatus de usuario:</b></label>
