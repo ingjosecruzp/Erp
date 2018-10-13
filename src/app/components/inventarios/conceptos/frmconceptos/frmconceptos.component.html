@@ -1,4 +1,4 @@
-<p-dialog header="Conceptos" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="730">
+<p-dialog header="Conceptos" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="600">
     <form [formGroup]="FrmConceptos" (ngSubmit)="save()">
         <p-tabView>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
@@ -11,8 +11,9 @@
                 <div class="ui-g-2">
                     <label for="vin"><b>Folio Automatico:</b></label>
                 </div>
+
                 <div class="ui-g-4">
-                    <input formControlName="FolioAutomatico" pInputText id="FolioAutomatico" />
+                    <p-dropdown [options]="Opcion" formControlName="FolioAutomatico"></p-dropdown>
                 </div>
             </div>
 
@@ -21,7 +22,7 @@
                     <label for="vin"><b>Nombre:</b></label>
                 </div>
                 <div class="ui-g-10">
-                    <input formControlName="Nombre" pInputText id="Nombre" />
+                    <input formControlName="Nombre" />
                 </div>
             </div>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
@@ -29,7 +30,7 @@
                     <label for="vin"><b>Naturaleza:</b></label>
                 </div>
                 <div class="ui-g-10">
-                    <input formControlName="Naturaleza" pInputText id="Naturaleza" />
+                    <p-dropdown [options]="Opcion" formControlName="Naturaleza"></p-dropdown>
                 </div>
             </div>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
@@ -45,13 +46,13 @@
                     <label for="vin"><b>Predefinido:</b></label>
                 </div>
                 <div class="ui-g-4">
-                    <input formControlName="Predefinido" pInputText id="Predefinido" />
+                    <p-dropdown [options]="Opcion" formControlName="Predefinido"></p-dropdown>
                 </div>
-                <div class="ui-g-2">
-                    <label for="vin"><b>Costo Automatico:</b></label>
+                <div class=" ui-g-2 ">
+                    <label for="vin "><b>Costo Automatico:</b></label>
                 </div>
-                <div class="ui-g-4">
-                    <input formControlName="CostoAutomatico" pInputText id="CostoAutomatico" />
+                <div class="ui-g-4 ">
+                    <p-dropdown [options]="Opcion " formControlName="CostoAutomatico"></p-dropdown>
                 </div>
             </div>
 
