@@ -18,26 +18,12 @@ import { ConfirmationService } from 'primeng/api';
 
 export class FrmconceptosComponent extends FrmBase<Concepto> implements OnInit, IFrmBase {
   displayDialog: boolean;
-  Opcion: SelectItem[];
-  Naturaleza: SelectItem[];
-  
-  
 
   constructor(public config: DialogConfig, public dialog: DialogRef, private fb: FormBuilder, 
               private WsCoceptos: ConceptosService, private WsTipoConcepto: TipoconceptoService,private confirmationService: ConfirmationService) {
                 super();
                 this.displayDialog = true;
                 this.Ws = WsCoceptos;
-
-                this.Opcion = [
-                  {label: 'SI', value: 'SI' } ,
-                  {label: 'NO', value: 'NO'},
-                ];
-
-                this.Naturaleza = [
-                  {label: 'ENTRADA', value: 'ENTRADA'},
-                  {label: 'SALIDA', value:  'SALIDA'},
-                ];
   }
 
   ngOnInit() {

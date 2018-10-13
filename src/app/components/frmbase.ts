@@ -32,9 +32,16 @@ export class FrmBase<Modelo>   {
     public GrupoComponentes: GrupoComponente[];
     public TipoConceptos: TipoConcepto[];
     public UsuarioRoles: UsuarioRol[];
+
+    /*******************************/
     public SourceOpcion: string[] = ['SI', 'NO'];
     public Opcion: any[];
-    /********** */
+
+    public SourceNaturaleza: string[] = ['ENTRADA', 'SALIDA'];
+    public OpcionNaraleza: any[];
+
+  
+    /*******************************/
     
     save(): any {
     console.log(this.item);
@@ -121,16 +128,30 @@ export class FrmBase<Modelo>   {
         this.UsuarioRoles = data;
       });
     }
+   /***********************************/
+   
+   
+
     public searchOpciones(event) {
       this.Opcion = [];
-      for(let i = 0; i < this.SourceOpcion.length; i++) {
+      for (let i = 0; i < this.SourceOpcion.length; i++) {
           let item = this.SourceOpcion[i];
-          if(item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+          if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
               this.Opcion.push(item);
           }
       }
-  }
-/******************************** */
+    }
+
+    public sourceNaturaleza(event) {
+      this.OpcionNaraleza = [];
+      for (let i = 0; i < this.SourceNaturaleza.length; i++) {
+          let item = this.SourceNaturaleza[i];
+          if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+              this.OpcionNaraleza.push(item);
+          }
+      }
+    }
+/***********************************/
 
 }
 
