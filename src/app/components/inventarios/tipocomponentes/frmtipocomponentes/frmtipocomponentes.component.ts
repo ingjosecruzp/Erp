@@ -28,7 +28,7 @@ export class FrmtipocomponentesComponent extends FrmBase<TipoComponente> impleme
 
   ngOnInit() {
     this.FrmItem = this.fb.group({
-      Nombre: ['', [Validators.required]]
+      Nombre: [null, [Validators.required]]
    });
    
    if (this.config.data._id !== undefined) {
