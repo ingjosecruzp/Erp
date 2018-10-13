@@ -153,7 +153,7 @@ export class FrmBase<Modelo>   {
       }
     }
 
-    public sourceEstatus(event) {
+    public searchEstatus(event) {
       this.OpcionEstatus = [];
       for (let i = 0; i < this.SourceEstatus.length; i++) {
           let item = this.SourceEstatus[i];

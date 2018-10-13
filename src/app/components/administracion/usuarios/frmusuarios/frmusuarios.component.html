@@ -49,7 +49,8 @@
                     <label for="vin"><b>Estatus de usuario:</b></label>
                 </div>
                 <div class="ui-g-8">
-                    <input formControlName="EstatusUsuario" pInputText id="EstatusUsuario" type="text" />
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="EstatusUsuario" [suggestions]="OpcionEstatus" (completeMethod)="searchEstatus($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                    <!-- <input formControlName="EstatusUsuario" pInputText id="EstatusUsuario" type="text" /> -->
                 </div>
             </div>
             <hr>
