@@ -40,7 +40,8 @@ export class FrmBase<Modelo>   {
     public SourceNaturaleza: string[] = ['ENTRADA', 'SALIDA'];
     public OpcionNaraleza: any[];
 
-  
+    public SourceEstatus: string[] = ['ACTIVO', 'INACTIVO'];
+    public OpcionEstatus: any[];
     /*******************************/
     
     save(): any {
@@ -148,6 +149,16 @@ export class FrmBase<Modelo>   {
           let item = this.SourceNaturaleza[i];
           if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
               this.OpcionNaraleza.push(item);
+          }
+      }
+    }
+
+    public sourceEstatus(event) {
+      this.OpcionEstatus = [];
+      for (let i = 0; i < this.SourceEstatus.length; i++) {
+          let item = this.SourceEstatus[i];
+          if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+              this.OpcionEstatus.push(item);
           }
       }
     }
