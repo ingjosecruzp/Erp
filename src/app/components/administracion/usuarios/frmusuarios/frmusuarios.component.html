@@ -48,8 +48,8 @@
                 <div class="ui-g-4">
                     <label for="vin"><b>Estatus de usuario:</b></label>
                 </div>
-                <div class="ui-g-8">
-                    <input formControlName="EstatusUsuario" pInputText id="Nombre" />
+                <div class="ui-g-4">
+                    <p-dropdown [options]="EstatusUsuario" formControlName="EstatusUsuario"></p-dropdown>
                 </div>
             </div>
             <hr>
@@ -59,4 +59,4 @@
         <app-toolbar [Formulario]="this"></app-toolbar>
     </p-footer>
     {{ FrmItem.valid }}
-</p-dialog>
+</p-dialog>EstatusUsuario

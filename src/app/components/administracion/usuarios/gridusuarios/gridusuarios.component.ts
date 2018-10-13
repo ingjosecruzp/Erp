@@ -34,6 +34,7 @@ export class GridusuariosComponent implements OnInit {
     this.WsUsuario.getAll().subscribe(data => {
       this.Usuario = data;
      });
+     console.log('refresh');
   }
 
   open(item: Usuario) {
