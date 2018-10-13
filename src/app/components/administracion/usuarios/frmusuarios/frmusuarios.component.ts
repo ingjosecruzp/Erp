@@ -31,11 +31,11 @@ export class FrmusuariosComponent extends FrmBase<Usuario> implements OnInit, IF
 
   ngOnInit() {
     this.FrmItem = this.fb.group({
-      Nombre: ['', [Validators.required]],
-      NombreUsuario: ['', [Validators.required]],
-      Contraseña: ['', [Validators.required]],
-      UsuarioRol: ['', [Validators.required]],
-      EstatusUsuario: ['', [Validators.required]],
+      Nombre: [null, [Validators.required]],
+      NombreUsuario: [null, [Validators.required]],
+      Contraseña: [null, [Validators.required]],
+      UsuarioRol: [null, [Validators.required]],
+      EstatusUsuario: [null, [Validators.required]],
    });
 
    if (this.config.data._id !== undefined) {
@@ -61,8 +61,7 @@ export class FrmusuariosComponent extends FrmBase<Usuario> implements OnInit, IF
         console.log('cancelar');
       }
   });
-
-
 }
+
 
 }
