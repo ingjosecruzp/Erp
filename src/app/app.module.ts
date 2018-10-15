@@ -48,6 +48,8 @@ import { FrmtipocomponentesComponent } from './components/inventarios/tipocompon
 import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.component';
 
 import {ConfirmationService} from 'primeng/api';
+import { GridarticulosComponent } from './components/inventarios/articulos/gridarticulos/gridarticulos.component';
+import { FrmarticulosComponent } from './components/inventarios/articulos/frmarticulos/frmarticulos.component';
 
 @NgModule({
   declarations: [
@@ -72,7 +74,9 @@ import {ConfirmationService} from 'primeng/api';
     FrmconceptosComponent,
     GridtipocomponentesComponent,
     FrmtipocomponentesComponent,
-    FrmpaisesComponent
+    FrmpaisesComponent,
+    GridarticulosComponent,
+    FrmarticulosComponent
   ],
   imports: [
     BrowserModule,
@@ -108,6 +112,7 @@ import {ConfirmationService} from 'primeng/api';
                     FrmtipocomponentesComponent,
                     FrmunidadesComponent,
                     FrmpaisesComponent,
-                    FrmconceptosComponent]
+                    FrmconceptosComponent,
+                    FrmarticulosComponent]
 })
 export class AppModule { }
