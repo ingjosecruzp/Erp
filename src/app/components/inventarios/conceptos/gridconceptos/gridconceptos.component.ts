@@ -40,9 +40,8 @@ export class GridconceptosComponent implements OnInit {
 
   open(item: Concepto) {
     const ref = this.dialog.open(FrmconceptosComponent, { 
-      data: {_id: item._id} });
+      data: { _id: item._id} });
   }
-
   add() {
     const ref = this.dialog.open(FrmconceptosComponent, { 
                   data: { message: 'I am a dynamic component inside of a dialog!'} });

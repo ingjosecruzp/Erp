@@ -11,7 +11,6 @@
                 <div class="ui-g-2">
                     <label for="vin"><b>Folio Automatico:</b></label>
                 </div>
-
                 <div class="ui-g-4">
                     <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="FolioAutomatico" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
@@ -22,15 +21,16 @@
                     <label for="vin"><b>Nombre:</b></label>
                 </div>
                 <div class="ui-g-10">
-                    <input formControlName="Nombre" />
+                    <input formControlName="Nombre" pInputText id="Nombre" />
                 </div>
             </div>
+
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
                 <div class="ui-g-2">
                     <label for="vin"><b>Naturaleza:</b></label>
                 </div>
                 <div class="ui-g-10">
-                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="Naturaleza" [suggestions]="OpcionNaraleza" (completeMethod)="sourceNaturaleza($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'94%'}" formControlName="Naturaleza" [suggestions]="OpcionNaraleza" (completeMethod)="sourceNaturaleza($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
             </div>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
@@ -38,7 +38,7 @@
                     <label for="vin"><b>Tipo de Concepto:</b></label>
                 </div>
                 <div class="ui-g-10">
-                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="TipoConcepto" [suggestions]="TipoConceptos" (completeMethod)="searchTipoConcepto($event,WsTipoConcepto)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'94%'}" formControlName="TipoConcepto" [suggestions]="TipoConceptos" (completeMethod)="searchTipoConcepto($event,WsTipoConcepto)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
             </div>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
@@ -46,13 +46,13 @@
                     <label for="vin"><b>Predefinido:</b></label>
                 </div>
                 <div class="ui-g-4">
-                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'94%'}" formControlName="Predefinido" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'84%'}" formControlName="Predefinido" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
                 <div class=" ui-g-2 ">
                     <label for="vin "><b>Costo Automatico:</b></label>
                 </div>
                 <div class="ui-g-4 ">
-                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="CostoAutomatico" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'84%'}" formControlName="CostoAutomatico" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                 </div>
             </div>
 

@@ -46,6 +46,8 @@ export class MenubarComponent implements OnInit {
                     {label: 'Articulos', icon: 'pi pi-fw fa fa-product-hunt', routerLink: ['/articulos']},
                     {label: 'Usuarios', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/usuario']},
                     {label: 'Usuarios Rol', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/usuariorol']},
+                    {label: 'Almacenes', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/marca']},
+                    {label: 'Marcas', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/almacenes']},
                     {label: 'Refresh', icon: 'pi pi-fw pi pi-fw pi-refresh'},
                 ]
             }
