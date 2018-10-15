@@ -6,6 +6,7 @@ import { TipocomponenteService } from '../../../../services/inventarios/tipocomp
 import { TipoComponente } from '../../../../models/Generales/tipocomponente';
 import { IFrmBase } from '../../../ifrmbase';
 import { FrmBase } from '../../../frmbase';
+import {ConfirmationService} from 'primeng/api';
 
 
 @Component({
@@ -18,7 +19,8 @@ export class FrmtipocomponentesComponent extends FrmBase<TipoComponente> impleme
   displayDialog: boolean;
 
   constructor(public config: DialogConfig, public dialog: DialogRef,
-               private fb: FormBuilder, private WsTipoComponente: TipocomponenteService) {
+               private fb: FormBuilder, private WsTipoComponente: TipocomponenteService,
+               private confirmationService: ConfirmationService) {
     super();
     this.displayDialog = true;
     this.Ws = WsTipoComponente;
@@ -26,7 +28,7 @@ export class FrmtipocomponentesComponent extends FrmBase<TipoComponente> impleme
 
   ngOnInit() {
     this.FrmItem = this.fb.group({
-      Nombre: ['', [Validators.required]]
+      Nombre: [null, [Validators.required]]
    });
    
    if (this.config.data._id !== undefined) {
@@ -41,8 +43,18 @@ export class FrmtipocomponentesComponent extends FrmBase<TipoComponente> impleme
   }
 
   save () {
-    this.item = new TipoComponente(this.FrmItem.value);
-    super.save();
+    this.confirmationService.confirm({
+      message: '¿Esta seguro de guardar la información?',
+      header: 'Erp',
+      icon: 'pi pi-exclamation-triangle',
+      accept: () => {
+        this.item = new TipoComponente(this.FrmItem.value);
+        super.save();
+      },
+      reject: () => {
+        console.log('cancelar');
+      }
+  });
   }
 
 }

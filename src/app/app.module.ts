@@ -50,7 +50,14 @@ import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.comp
 import {ConfirmationService} from 'primeng/api';
 import { GridarticulosComponent } from './components/inventarios/articulos/gridarticulos/gridarticulos.component';
 import { FrmarticulosComponent } from './components/inventarios/articulos/frmarticulos/frmarticulos.component';
+import { GridusuariosComponent } from './components/administracion/usuarios/gridusuarios/gridusuarios.component';
+import { FrmusuariosComponent } from './components/administracion/usuarios/frmusuarios/frmusuarios.component';
+import { GridusuariosrolesComponent } from './components/administracion/usuariosroles/gridusuariosroles/gridusuariosroles.component';
+import { FrmusuariosrolesComponent } from './components/administracion/usuariosroles/frmusuariosroles/frmusuariosroles.component';
+import { GridtipoconceptosComponent } from './components/inventarios/tipoconceptos/gridtipoconceptos/gridtipoconceptos.component';
+import { FrmtipoconceptosComponent } from './components/inventarios/tipoconceptos/frmtipoconceptos/frmtipoconceptos.component';
 
+import {DropdownModule} from 'primeng/primeng';
 @NgModule({
   declarations: [
     AppComponent,
@@ -76,9 +83,16 @@ import { FrmarticulosComponent } from './components/inventarios/articulos/frmart
     FrmtipocomponentesComponent,
     FrmpaisesComponent,
     GridarticulosComponent,
-    FrmarticulosComponent
+    FrmarticulosComponent,
+    GridusuariosComponent,
+    FrmusuariosComponent,
+    GridusuariosrolesComponent,
+    FrmusuariosrolesComponent,
+    GridtipoconceptosComponent,
+    FrmtipoconceptosComponent
   ],
   imports: [
+    DropdownModule,
     BrowserModule,
     APP_ROUTING,
     BrowserAnimationsModule,
@@ -113,6 +127,9 @@ import { FrmarticulosComponent } from './components/inventarios/articulos/frmart
                     FrmunidadesComponent,
                     FrmpaisesComponent,
                     FrmconceptosComponent,
-                    FrmarticulosComponent]
+                    FrmarticulosComponent,
+                    FrmusuariosComponent,
+                    FrmusuariosrolesComponent,
+                    FrmtipoconceptosComponent]
 })
 export class AppModule { }

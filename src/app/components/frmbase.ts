@@ -9,6 +9,8 @@ import { Vendedor } from '../models/Generales/vendedor';
 import { TipoCliente } from '../models/tipocliente';
 import { TipoComponente } from '../models/Generales/tipocomponente';
 import { GrupoComponente } from '../models/Generales/grupocomponente';
+import { TipoConcepto } from '../models/Inventarios/tipoconcepto';
+import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
 
 
 export class FrmBase<Modelo>   {
@@ -28,7 +30,19 @@ export class FrmBase<Modelo>   {
     public CondicionesDePago: CondicionesDePago[];
     public TiposComponentes: TipoComponente[];
     public GrupoComponentes: GrupoComponente[];
-    /********** */
+    public TipoConceptos: TipoConcepto[];
+    public UsuarioRoles: UsuarioRol[];
+
+    /*******************************/
+    public SourceOpcion: string[] = ['SI', 'NO'];
+    public Opcion: any[];
+
+    public SourceNaturaleza: string[] = ['ENTRADA', 'SALIDA'];
+    public OpcionNaraleza: any[];
+
+    public SourceEstatus: string[] = ['ACTIVO', 'INACTIVO'];
+    public OpcionEstatus: any[];
+    /*******************************/
     
     save(): any {
 
@@ -55,11 +69,11 @@ export class FrmBase<Modelo>   {
       });
     }
     /*********Cargar combos*************/
-    public searchMoneda(event, ws) {
+     public searchMoneda(event, ws) {
       ws.search(event.query).subscribe(data => {
-        this.Monedas = data;
+         this.Monedas = data;
       });
-    }
+     }
     
     public searchCondiciones(event, ws) {
       ws.search(event.query).subscribe(data => {
@@ -103,7 +117,52 @@ export class FrmBase<Modelo>   {
         this.GrupoComponentes = data;
       });
     }
-/******************************** */
+
+    public searchTipoConcepto(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.TipoConceptos = data;
+      });
+    }
+
+    public searchUsuarioRol(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.UsuarioRoles = data;
+      });
+    }
+   /***********************************/
+   
+   
+
+    public searchOpciones(event) {
+      this.Opcion = [];
+      for (let i = 0; i < this.SourceOpcion.length; i++) {
+          let item = this.SourceOpcion[i];
+          if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+              this.Opcion.push(item);
+          }
+      }
+    }
+
+    public sourceNaturaleza(event) {
+      this.OpcionNaraleza = [];
+      for (let i = 0; i < this.SourceNaturaleza.length; i++) {
+          let item = this.SourceNaturaleza[i];
+          if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+              this.OpcionNaraleza.push(item);
+          }
+      }
+    }
+
+    public searchEstatus(event) {
+      this.OpcionEstatus = [];
+      for (let i = 0; i < this.SourceEstatus.length; i++) {
+          let item = this.SourceEstatus[i];
+          if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+              this.OpcionEstatus.push(item);
+          }
+      }
+    }
+/***********************************/
 
 }
 

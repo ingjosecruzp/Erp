@@ -72,6 +72,7 @@ export class FrmclientesComponent extends FrmBase<Cliente> implements OnInit, IF
           this.item = new Cliente(this.FrmItem.value);
           super.save();
         },
+        
         reject: () => {
           console.log('cancelar');
         }
