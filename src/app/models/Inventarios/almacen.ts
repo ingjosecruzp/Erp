@@ -11,4 +11,5 @@ export class Almacen {
     public constructor(init?: Partial<Almacen>) {
         Object.assign(this, init);
     }
+    
 }
