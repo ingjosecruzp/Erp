@@ -58,6 +58,12 @@ import { GridtipoconceptosComponent } from './components/inventarios/tipoconcept
 import { FrmtipoconceptosComponent } from './components/inventarios/tipoconceptos/frmtipoconceptos/frmtipoconceptos.component';
 
 import {DropdownModule} from 'primeng/primeng';
+import { GridalmacenesComponent } from './components/inventarios/almacenes/gridalmacenes/gridalmacenes.component';
+import { FrmalmacenesComponent } from './components/inventarios/almacenes/frmalmacenes/frmalmacenes.component';
+import { GridmarcasComponent } from './components/generales/marcas/gridmarcas/gridmarcas.component';
+import { FrmmarcasComponent } from './components/generales/marcas/frmmarcas/frmmarcas.component';
+import { GriddepartamentosComponent } from './components/generales/departamentos/griddepartamentos/griddepartamentos.component';
+import { FrmdepartamentosComponent } from './components/generales/departamentos/frmdepartamentos/frmdepartamentos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -89,7 +95,13 @@ import {DropdownModule} from 'primeng/primeng';
     GridusuariosrolesComponent,
     FrmusuariosrolesComponent,
     GridtipoconceptosComponent,
-    FrmtipoconceptosComponent
+    FrmtipoconceptosComponent,
+    GridalmacenesComponent,
+    FrmalmacenesComponent,
+    GridmarcasComponent,
+    FrmmarcasComponent,
+    GriddepartamentosComponent,
+    FrmdepartamentosComponent
   ],
   imports: [
     DropdownModule,
@@ -130,6 +142,10 @@ import {DropdownModule} from 'primeng/primeng';
                     FrmarticulosComponent,
                     FrmusuariosComponent,
                     FrmusuariosrolesComponent,
-                    FrmtipoconceptosComponent]
+                    FrmtipoconceptosComponent,
+                    FrmalmacenesComponent,
+                    FrmmarcasComponent,
+                    FrmdepartamentosComponent
+                    ]
 })
 export class AppModule { }

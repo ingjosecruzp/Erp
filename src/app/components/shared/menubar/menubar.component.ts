@@ -44,8 +44,18 @@ export class MenubarComponent implements OnInit {
                     {label: 'Subgrupo Componentes', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/subgrupocomponentes']},
                     {label: 'tipo Componentes', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/tipocomponentes']},
                     {label: 'Articulos', icon: 'pi pi-fw fa fa-product-hunt', routerLink: ['/articulos']},
+<<<<<<< HEAD
                     {label: 'Usuarios', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/usuario']},
                     {label: 'Usuarios Rol', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/usuariorol']},
+                    {label: 'Almacenes', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/marca']},
+                    {label: 'Marcas', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/almacenes']},
+                    {label: 'Departamentos', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/departamentos']},
+=======
+                    {label: 'Usuarios', icon: 'pi pi-fw pi-user-plus', routerLink: ['/usuario']},
+                    {label: 'Usuarios Rol', icon: 'pi pi-fw pi-user', routerLink: ['/usuariorol']},
+                    {label: 'Marca', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/marca']},
+                    {label: 'Almacen', icon: 'pi pi-fw pi-home', routerLink: ['/almacenes']},
+>>>>>>> 4b6bea946826fa2099cacffa913ea605bab433cc
                     {label: 'Refresh', icon: 'pi pi-fw pi pi-fw pi-refresh'},
                 ]
             }
