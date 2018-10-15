@@ -14,6 +14,7 @@ import { GridusuariosComponent } from './components/administracion/usuarios/grid
 import { GridtipoconceptosComponent } from './components/inventarios/tipoconceptos/gridtipoconceptos/gridtipoconceptos.component';
 import { GridmarcasComponent } from './components/generales/marcas/gridmarcas/gridmarcas.component';
 import { GridalmacenesComponent } from './components/inventarios/almacenes/gridalmacenes/gridalmacenes.component';
+import { GriddepartamentosComponent } from './components/generales/departamentos/griddepartamentos/griddepartamentos.component';
 
 
 const APP_ROUTES: Routes = [
@@ -31,6 +32,7 @@ const APP_ROUTES: Routes = [
     { path: 'tipoconcepto', component: GridtipoconceptosComponent},
     { path: 'marca', component: GridmarcasComponent},
     { path: 'almacenes', component: GridalmacenesComponent},
+    { path: 'departamentos', component: GriddepartamentosComponent},
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
 

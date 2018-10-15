@@ -22,6 +22,12 @@ export class SubgrupocomponenteService  extends BaseService<SubgrupoComponente> 
 
    save(item: any): any {
     return this.http.post<SubgrupoComponente>('http://localhost:60493/Servicios/Inventarios/WcfSubgruposComponentes.svc/', item);
- }
+  }
+
+  searchxGrupo(busqueda: string, _id: string): any {
+    const url = `http://localhost:60493/${this.Ws}/?searchBy=getXGrupo&busqueda=${busqueda}&_id=${_id}`;
+
+    return this.httpWs.get<SubgrupoComponente[]>(url);
+  }
 
 }

@@ -1,10 +1,10 @@
-<p-dialog header="MARCA" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="440">
+<p-dialog header="Departamento" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="440">
 
     <form [formGroup]="FrmItem" (ngSubmit)="save()">
         <p-tabView>
             <div class="ui-g-12 ui-md-12 ui-g-nopad ">
                 <div class="ui-g-4">
-                    <label for="vin">Marca:</label>
+                    <label for="vin">Departamento:</label>
                 </div>
                 <div class="ui-g-8">
                     <input formControlName="Nombre" pInputText id="Nombre" />
