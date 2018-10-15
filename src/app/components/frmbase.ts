@@ -11,6 +11,7 @@ import { TipoComponente } from '../models/Generales/tipocomponente';
 import { GrupoComponente } from '../models/Generales/grupocomponente';
 import { TipoConcepto } from '../models/Inventarios/tipoconcepto';
 import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
+import { SubgrupoComponente } from '../models/Generales/subgrupocompenente';
 
 
 export class FrmBase<Modelo>   {
@@ -30,6 +31,7 @@ export class FrmBase<Modelo>   {
     public CondicionesDePago: CondicionesDePago[];
     public TiposComponentes: TipoComponente[];
     public GrupoComponentes: GrupoComponente[];
+    public SubGrupoComponentes: SubgrupoComponente[];
     public TipoConceptos: TipoConcepto[];
     public UsuarioRoles: UsuarioRol[];
 
@@ -115,6 +117,16 @@ export class FrmBase<Modelo>   {
     public searchGrupoComponente(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.GrupoComponentes = data;
+      });
+    }
+
+    public searchSubGrupoComponenteXGrupo(event, _id , ws) {
+      if ( _id === null || _id === undefined) {
+        return null;
+      }
+
+      ws.searchxGrupo(event.query, _id).subscribe(data => {
+        this.SubGrupoComponentes = data;
       });
     }
 
