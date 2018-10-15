@@ -43,8 +43,8 @@ export class FrmclientesComponent extends FrmBase<Cliente> implements OnInit, IF
     this.FrmItem = this.fb.group({
       Nombre: [null, [Validators.required]],
       Rfc: [null, [Validators.required]],
-      Contacto1: [null, [Validators.required]],
-      Contacto2: [null, [Validators.required]],
+      Contacto1: [null, []],
+      Contacto2: [null, []],
       CondicionesDePago: [null, [Validators.required]],
       TipoCliente: [null, [Validators.required]],
       LimiteCredito: [null, [Validators.required]],

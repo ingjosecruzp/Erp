@@ -31,11 +31,11 @@ export class FrmBase<Modelo>   {
     /********** */
     
     save(): any {
-    console.log(this.item);
 
-    console.log(this.FrmItem);
-    if(this.FrmItem.status === 'INVALID')
-            return;
+    if (this.FrmItem.status === 'INVALID') {
+   
+      return;
+    }
     
     this.Cargando = true;
    
