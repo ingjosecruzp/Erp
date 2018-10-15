@@ -48,6 +48,8 @@ import { FrmtipocomponentesComponent } from './components/inventarios/tipocompon
 import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.component';
 
 import {ConfirmationService} from 'primeng/api';
+import { GridarticulosComponent } from './components/inventarios/articulos/gridarticulos/gridarticulos.component';
+import { FrmarticulosComponent } from './components/inventarios/articulos/frmarticulos/frmarticulos.component';
 import { GridusuariosComponent } from './components/administracion/usuarios/gridusuarios/gridusuarios.component';
 import { FrmusuariosComponent } from './components/administracion/usuarios/frmusuarios/frmusuarios.component';
 import { GridusuariosrolesComponent } from './components/administracion/usuariosroles/gridusuariosroles/gridusuariosroles.component';
@@ -80,6 +82,8 @@ import {DropdownModule} from 'primeng/primeng';
     GridtipocomponentesComponent,
     FrmtipocomponentesComponent,
     FrmpaisesComponent,
+    GridarticulosComponent,
+    FrmarticulosComponent,
     GridusuariosComponent,
     FrmusuariosComponent,
     GridusuariosrolesComponent,
@@ -123,6 +127,7 @@ import {DropdownModule} from 'primeng/primeng';
                     FrmunidadesComponent,
                     FrmpaisesComponent,
                     FrmconceptosComponent,
+                    FrmarticulosComponent,
                     FrmusuariosComponent,
                     FrmusuariosrolesComponent,
                     FrmtipoconceptosComponent]
