@@ -44,6 +44,31 @@
                                 [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                         </div>
                     </div>
+                    <div class="ui-g-8 ui-md-8 ui-g-nopad">
+                        <div class="ui-g-3">
+                            <label for="vin">Grupo Unidades:</label>
+                        </div>
+                        <div class="ui-g-9">
+                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'87%'}" formControlName="GrupoUnidad" [suggestions]="GrupoUnidades" (completeMethod)="searchGrupoUnidad($event,WsGrupoUnidad)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        </div>
+                    </div>
+                    <div class="ui-g-4 ui-md-4 ui-g-nopad">
+                        <div class="ui-g-4">
+                            <label for="vin">Activo:</label>
+                        </div>
+                        <div class="ui-g-8">
+                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'66%'}" formControlName="Activo" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                        <div class="ui-g-2">
+                            <label for="vin">Marca:</label>
+                        </div>
+                        <div class="ui-g-10">
+                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'92%'}" formControlName="SubGrupoComponente" [suggestions]="SubGrupoComponentes" (completeMethod)="searchSubGrupoComponenteXGrupo($event,SubgrupoComponenteId,WsSubgrupoComponente)" field="Nombre"
+                                [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        </div>
+                    </div>
                 </div>
                 <div class="ui-g-4 ui-md-4">Imagen</div>
             </p-tabPanel>
