@@ -46,6 +46,9 @@ export class FrmBase<Modelo>   {
 
     public SourceEstatus: string[] = ['ACTIVO', 'INACTIVO'];
     public OpcionEstatus: any[];
+
+    public SourceTipoAlmacen: string[] = ['PRINCIPAL', 'AUXILIAR'];
+    public OpcionTipoAlmacen: any[];
     /*******************************/
     
     save(): any {
@@ -180,6 +183,16 @@ export class FrmBase<Modelo>   {
           let item = this.SourceEstatus[i];
           if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
               this.OpcionEstatus.push(item);
+          }
+      }
+    }
+
+    public searchTipoAlmacen(event) {
+      this.OpcionTipoAlmacen = [];
+      for (let i = 0; i < this.SourceTipoAlmacen.length; i++) {
+          let item = this.SourceTipoAlmacen[i];
+          if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+              this.OpcionTipoAlmacen.push(item);
           }
       }
     }

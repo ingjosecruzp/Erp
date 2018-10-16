@@ -64,6 +64,8 @@ import { GridmarcasComponent } from './components/generales/marcas/gridmarcas/gr
 import { FrmmarcasComponent } from './components/generales/marcas/frmmarcas/frmmarcas.component';
 import { GriddepartamentosComponent } from './components/generales/departamentos/griddepartamentos/griddepartamentos.component';
 import { FrmdepartamentosComponent } from './components/generales/departamentos/frmdepartamentos/frmdepartamentos.component';
+import { FrmpuestosComponent } from './components/generales/puestos/frmpuestos/frmpuestos.component';
+import { GridpuestosComponent } from './components/generales/puestos/gridpuestos/gridpuestos.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -101,7 +103,9 @@ import { FrmdepartamentosComponent } from './components/generales/departamentos/
     GridmarcasComponent,
     FrmmarcasComponent,
     GriddepartamentosComponent,
-    FrmdepartamentosComponent
+    FrmdepartamentosComponent,
+    FrmpuestosComponent,
+    GridpuestosComponent
   ],
   imports: [
     DropdownModule,
@@ -145,7 +149,8 @@ import { FrmdepartamentosComponent } from './components/generales/departamentos/
                     FrmtipoconceptosComponent,
                     FrmalmacenesComponent,
                     FrmmarcasComponent,
-                    FrmdepartamentosComponent
+                    FrmdepartamentosComponent,
+                    FrmpuestosComponent
                     ]
 })
 export class AppModule { }
