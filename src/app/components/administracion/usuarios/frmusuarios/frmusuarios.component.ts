@@ -11,7 +11,6 @@ import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
 import { SelectItem } from 'primeng/api';
 import { UsuarioService } from 'src/app/services/administracion/usuario.service';
 
-
 @Component({
   selector: 'app-frmusuarios',
   templateUrl: './frmusuarios.component.html'
@@ -40,6 +39,7 @@ export class FrmusuariosComponent extends FrmBase<Usuario> implements OnInit, IF
       Contraseña: [null, [Validators.required]],
       UsuarioRol: [null, [Validators.required]],
       EstatusUsuario: [null, [Validators.required]],
+      Contraseña2: [null, [Validators.required]]
    });
 
    if (this.config.data._id !== undefined) {
@@ -50,7 +50,26 @@ export class FrmusuariosComponent extends FrmBase<Usuario> implements OnInit, IF
         console.log('Respuesta del servidor DC', data);
      });
    }
+
+   this.FrmItem.controls['Contraseña2'].setValidators([
+     Validators.required,
+     this.ConfirmarContraseña.bind( this.FrmItem )
+   ]);
+
+
   }
+
+  ConfirmarContraseña( control: FormGroup ): { [s: string]: boolean } {
+    let forma: any = this;
+    if ( control.value !== forma.controls['Contraseña'].value ) {
+      return {
+        ConfirmarContraseña: true
+      };
+    }
+    return null;
+  }
+
+
 
   save () {
     this.confirmationService.confirm({
