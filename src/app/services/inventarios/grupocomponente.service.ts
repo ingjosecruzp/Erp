@@ -23,4 +23,13 @@ export class GrupocomponenteService extends BaseService<GrupoComponente> impleme
    save(item: any): any {
     return this.http.post<GrupoComponente>('http://localhost:60493/Servicios/Inventarios/WcfGruposComponentes.svc/', item);
  }
+
+  
+    searchxTipoComponente(busqueda: string, _id: string): any {
+      const url = `http://localhost:60493/${this.Ws}/?searchBy=getXTipoComponente&busqueda=${busqueda}&_id=${_id}`;
+
+      return this.httpWs.get<GrupoComponente[]>(url);
+    }
+
+    
 }
