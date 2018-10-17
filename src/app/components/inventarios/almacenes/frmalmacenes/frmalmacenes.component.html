@@ -48,8 +48,8 @@
                 </div>
 
 
-                <div class="ui-g-12 ui-md-12 ui-g-nopad">
-                    <p-listbox [options]="GrupoComponentes" multiple="multiple" checkbox="checkbox" filter="filter" (completeMethod)="searchGrupoComponenteXTipoComponente($event,GrupoComponenteId,WsGrupoComponente)">
+                <div class="ui-g-12 ui-md-12 ui-g-nopad" style="overflow: scroll; height: 120px; max-height: 120px; border-color: black">
+                    <p-listbox [options]="GrupoComponentes" optionLabel="Nombre" multiple="multiple" checkbox="checkbox" style="">
                         <p-header>
                             <i class="pi pi-home"></i> Grupo Componente
                         </p-header>

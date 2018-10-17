@@ -1,4 +1,5 @@
 import { TipoComponente } from '../Generales/tipocomponente';
+import { GrupoComponente } from '../Generales/grupocomponente';
 
 export class Almacen {
     _id: string;
@@ -7,6 +8,7 @@ export class Almacen {
     TipoAlmacen: string;
     Activo: string;
     TipoComponente: TipoComponente;
+    GrupoComponente: GrupoComponente[];
 
     public constructor(init?: Partial<Almacen>) {
         Object.assign(this, init);
