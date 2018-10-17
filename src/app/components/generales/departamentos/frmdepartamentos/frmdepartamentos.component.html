@@ -1,5 +1,4 @@
-<p-dialog header="Departamento" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="440">
-
+<p-dialog header="Departamento" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="400">
     <form [formGroup]="FrmItem" (ngSubmit)="save()">
         <p-tabView>
             <div class="ui-g">
@@ -11,11 +10,10 @@
                         <input formControlName="Nombre" pInputText id="Nombre" />
                     </div>
                 </div>
+
             </div>
         </p-tabView>
-
     </form>
-
     <p-footer>
         <app-toolbar [Formulario]="this"></app-toolbar>
     </p-footer>
