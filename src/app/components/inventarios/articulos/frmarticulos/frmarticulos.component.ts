@@ -7,6 +7,7 @@ import { FrmBase } from 'src/app/components/frmbase';
 import { ArticulosService } from '../../../../services/inventarios/articulos.service';
 import { GrupocomponenteService } from '../../../../services/inventarios/grupocomponente.service';
 import { SubgrupocomponenteService } from '../../../../services/inventarios/subgrupocomponente.service';
+import { GrupounidadesService } from '../../../../services/Generales/grupounidades.service';
 
 @Component({
   selector: 'app-frmarticulos',
@@ -17,7 +18,8 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
   SubgrupoComponenteId: string;
 
   constructor(private confirmationService: ConfirmationService, private WsArticulos: ArticulosService, private fb: FormBuilder,
-              private WsGrupoComponente: GrupocomponenteService, private WsSubgrupoComponente: SubgrupocomponenteService) { 
+              private WsGrupoComponente: GrupocomponenteService, private WsSubgrupoComponente: SubgrupocomponenteService,
+              private WsGrupoUnidad: GrupounidadesService) { 
     super();
     this.displayDialog = true;
     this.Ws = WsArticulos;
@@ -30,8 +32,8 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
       Nombre: [null, [Validators.required]],
       GrupoComponente: [null, [Validators.required]],
       SubGrupoComponente: [null, [Validators.required]],
-      Predefinido: [null, [Validators.required]],
-      CostoAutomatico: [null, [Validators.required]]
+      GrupoUnidad: [null, [Validators.required]],
+      Activo: [null, [Validators.required]]
    });
 
 
@@ -39,6 +41,7 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
       this.SubgrupoComponenteId = data._id;
       this.FrmItem.controls['SubGrupoComponente'].reset();
    });
+
   }
 
 

@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@ang
 import { TipocomponenteService } from '../../../../services/inventarios/tipocomponente.service';
 import { TipoComponente } from '../../../../models/Generales/tipocomponente';
 import { AlmacenService } from 'src/app/services/inventarios/almacen.service';
+import {SelectItem} from 'primeng/api';
 
 @Component({
   selector: 'app-frmalmacenes',
@@ -30,6 +31,8 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
     super();
     this.displayDialog = true;
     this.Ws = WsAlmacen;
+    
+    
    }
 
   ngOnInit() {
