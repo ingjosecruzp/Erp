@@ -12,7 +12,12 @@ import { GrupoComponente } from '../models/Generales/grupocomponente';
 import { TipoConcepto } from '../models/Inventarios/tipoconcepto';
 import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
 import { SubgrupoComponente } from '../models/Generales/subgrupocompenente';
+<<<<<<< HEAD
+import { Departamento } from '../models/Generales/departamento';
+
+=======
 import { GrupoUnidad } from '../models/Generales/grupounidad';
+>>>>>>> 27e690d9a94ada97403fe78f1d20d9f6825de24e
 
 
 export class FrmBase<Modelo>   {
@@ -35,7 +40,11 @@ export class FrmBase<Modelo>   {
     public SubGrupoComponentes: SubgrupoComponente[];
     public TipoConceptos: TipoConcepto[];
     public UsuarioRoles: UsuarioRol[];
+<<<<<<< HEAD
+    public Departamento: Departamento[];
+=======
     public GrupoUnidades: GrupoUnidad[];
+>>>>>>> 27e690d9a94ada97403fe78f1d20d9f6825de24e
 
     /*******************************/
     public SourceOpcion: string[] = ['SI', 'NO'];
@@ -85,6 +94,12 @@ export class FrmBase<Modelo>   {
     public searchCondiciones(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.CondicionesDePago = data;
+      });
+    }
+
+    public searchDepartamento(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.Departamento = data;
       });
     }
     
