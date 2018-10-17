@@ -121,7 +121,6 @@ export class FrmBase<Modelo>   {
       });
     }
     
-    
     public searchZonaCliente(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.ZonasCliente = data;
@@ -140,6 +139,7 @@ export class FrmBase<Modelo>   {
       });
     }
 
+
     public searchSubGrupoComponenteXGrupo(event, _id , ws) {
       if ( _id === null || _id === undefined) {
         return null;
@@ -149,6 +149,18 @@ export class FrmBase<Modelo>   {
         this.SubGrupoComponentes = data;
       });
     }
+
+    public searchGrupoComponenteXTipoComponente(event, _id , ws) {
+      if ( _id === null || _id === undefined) {
+        return null;
+      }
+
+      ws.searchxTipoComponente(event.query, _id).subscribe(data => {
+        this.GrupoComponentes = data;
+      });
+    }
+
+
 
     public searchTipoConcepto(event, ws) {
       ws.search(event.query).subscribe(data => {
