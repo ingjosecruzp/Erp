@@ -20,6 +20,8 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
   FrmAlmacen: FormGroup;
   displayDialog: boolean;
   TipoComponente: TipoComponente[]; // se guarda en la base de datos al arrelgo
+  GrupoComponenteId: string;
+  GrupocomponenteSelecte: SelectItem[];
 
   constructor(
               public config: DialogConfig,
@@ -27,7 +29,8 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
               private WsTipoComponente: TipocomponenteService,
               private WsAlmacen: AlmacenService,
               private fb: FormBuilder,
-              private confirmationService: ConfirmationService ) {
+              private confirmationService: ConfirmationService,
+              private WsGrupoComponente: GrupocomponenteService ) {
     super();
     this.displayDialog = true;
     this.Ws = WsAlmacen;
@@ -52,6 +55,14 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
         console.log('Respuesta del servidor DC', data);
      });
    }
+
+      this.FrmItem.controls['TipoComponente'].valueChanges.subscribe( data => {
+        console.log('entramos', event);
+        this.GrupoComponenteId = data._id;
+        console.log('grupocompontnetID', this.GrupoComponenteId);
+        // this.FrmItem.controls['GrupoComponente'].reset();
+    });
+
   }
 
   save () {

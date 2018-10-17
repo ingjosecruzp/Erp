@@ -23,4 +23,5 @@ export class TipocomponenteService extends BaseService<TipoComponente> implement
    save(item: any): any {
     return this.http.post<TipoComponente>('http://localhost:60493/Servicios/Inventarios/WcfTipoComponente.svc/', item);
  }
+    
 }
