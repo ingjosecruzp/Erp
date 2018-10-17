@@ -20,7 +20,7 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
   FrmAlmacen: FormGroup;
   displayDialog: boolean;
   TipoComponente: TipoComponente[]; // se guarda en la base de datos al arrelgo
-  GrupoComponenteId: string;
+  TipoComponenteId: string;
   GrupocomponenteSelecte: SelectItem[];
 
   constructor(
@@ -44,7 +44,7 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
       Nombre: [null, [Validators.required]],
       TipoAlmacen: [null, [Validators.required]],
       Activo: [null, [Validators.required]],
-      TipoComponente: [null, [Validators.required]]
+      TipoComponente: [null, [Validators.required]],
    });
 
    if (this.config.data._id !== undefined) {
@@ -58,8 +58,9 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
 
       this.FrmItem.controls['TipoComponente'].valueChanges.subscribe( data => {
         console.log('entramos', event);
-        this.GrupoComponenteId = data._id;
-        console.log('grupocompontnetID', this.GrupoComponenteId);
+        this.TipoComponenteId = data._id;
+        console.log('grupocompontnetID', this.TipoComponenteId);
+        this.searchGrupoComponenteXTipoComponente(null, this.TipoComponenteId , this.WsGrupoComponente);
         // this.FrmItem.controls['GrupoComponente'].reset();
     });
 

@@ -1,60 +1,61 @@
 <p-dialog header="Usuarios" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="600">
     <form [formGroup]="FrmItem" (ngSubmit)="save()">
         <p-tabView>
-            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
-                <div class="ui-g-4">
-                    <label for="vin"><b>Nombre Completo:</b></label>
+            <div class="ui-g">
+                <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                    <div class="ui-g-4">
+                        <label for="vin"><b>Nombre Completo:</b></label>
+                    </div>
+                    <div class="ui-g-8">
+                        <input formControlName="Nombre" pInputText id="Nombre" />
+                    </div>
                 </div>
-                <div class="ui-g-8">
-                    <input formControlName="Nombre" pInputText id="Nombre" />
+                <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                    <div class="ui-g-4">
+                        <label for="vin"><b>Nombre Usuario:</b></label>
+                    </div>
+                    <div class="ui-g-8">
+                        <input formControlName="NombreUsuario" pInputText id="NombreUsuario" />
+                    </div>
                 </div>
-            </div>
-            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
-                <div class="ui-g-4">
-                    <label for="vin"><b>Nombre Usuario:</b></label>
-                </div>
-                <div class="ui-g-8">
-                    <input formControlName="NombreUsuario" pInputText id="NombreUsuario" />
-                </div>
-            </div>
 
-            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
-                <div class="ui-g-4">
-                    <label for="vin"><b>Contraseña:</b></label>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                    <div class="ui-g-4">
+                        <label for="vin"><b>Contraseña:</b></label>
+                    </div>
+                    <div class="ui-g-8">
+                        <input formControlName="Contraseña" pInputText id="Contraseña" type="password" pPassword/>
+                    </div>
                 </div>
-                <div class="ui-g-8">
-                    <input formControlName="Contraseña" pInputText id="Contraseña" type="password" pPassword/>
-                </div>
-            </div>
 
-            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
-                <div class="ui-g-4">
-                    <label for="vin"><b>Confirmar:</b></label>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                    <div class="ui-g-4">
+                        <label for="vin"><b>Confirmar:</b></label>
+                    </div>
+                    <div class="ui-g-8">
+                        <input type="password" formControlName="Contraseña2" pInputText/>
+                    </div>
                 </div>
-                <div class="ui-g-8">
-                    <input type="password" formControlName="Contraseña2" pInputText/>
-                </div>
-            </div>
 
-            <div class="ui-g-12 ui-md-12 ui-g-nopad">
-                <div class="ui-g-4">
-                    <label for="vin"><b>Rol de Usuario</b></label>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                    <div class="ui-g-4">
+                        <label for="vin"><b>Rol de Usuario</b></label>
+                    </div>
+                    <div class="ui-g-8">
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'92%'}" formControlName="UsuarioRol" [suggestions]="UsuarioRoles" (completeMethod)="searchUsuarioRol($event,WsUsuarioRol)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                    </div>
                 </div>
-                <div class="ui-g-8">
-                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'92%'}" formControlName="UsuarioRol" [suggestions]="UsuarioRoles" (completeMethod)="searchUsuarioRol($event,WsUsuarioRol)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
-                </div>
-            </div>
 
-            <div class="ui-g-12 ui-md-12 ui-g-nopad ">
-                <div class="ui-g-4">
-                    <label for="vin"><b>Estatus de usuario:</b></label>
-                </div>
-                <div class="ui-g-8">
-                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'92%'}" formControlName="EstatusUsuario" [suggestions]="OpcionEstatus" (completeMethod)="searchEstatus($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
-                    <!-- <input formControlName="EstatusUsuario" pInputText id="EstatusUsuario" type="text" /> -->
+                <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                    <div class="ui-g-4">
+                        <label for="vin"><b>Estatus de usuario:</b></label>
+                    </div>
+                    <div class="ui-g-8">
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'92%'}" formControlName="EstatusUsuario" [suggestions]="OpcionEstatus" (completeMethod)="searchEstatus($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                        <!-- <input formControlName="EstatusUsuario" pInputText id="EstatusUsuario" type="text" /> -->
+                    </div>
                 </div>
             </div>
-            <hr>
         </p-tabView>
     </form>
     <p-footer>

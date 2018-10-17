@@ -136,6 +136,7 @@ export class FrmBase<Modelo>   {
     public searchGrupoComponente(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.GrupoComponentes = data;
+        console.log(this.GrupoComponentes);
       });
     }
 
@@ -155,7 +156,7 @@ export class FrmBase<Modelo>   {
         return null;
       }
 
-      ws.searchxTipoComponente(event.query, _id).subscribe(data => {
+      ws.searchxTipoComponente('', _id).subscribe(data => {
         this.GrupoComponentes = data;
       });
     }
