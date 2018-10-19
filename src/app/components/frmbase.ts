@@ -12,12 +12,10 @@ import { GrupoComponente } from '../models/Generales/grupocomponente';
 import { TipoConcepto } from '../models/Inventarios/tipoconcepto';
 import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
 import { SubgrupoComponente } from '../models/Generales/subgrupocompenente';
-<<<<<<< HEAD
 import { Departamento } from '../models/Generales/departamento';
-
-=======
 import { GrupoUnidad } from '../models/Generales/grupounidad';
->>>>>>> 27e690d9a94ada97403fe78f1d20d9f6825de24e
+import { Marca } from '../models/Generales/marca';
+import { Unidad } from '../models/Generales/Unidad';
 
 
 export class FrmBase<Modelo>   {
@@ -40,11 +38,10 @@ export class FrmBase<Modelo>   {
     public SubGrupoComponentes: SubgrupoComponente[];
     public TipoConceptos: TipoConcepto[];
     public UsuarioRoles: UsuarioRol[];
-<<<<<<< HEAD
     public Departamento: Departamento[];
-=======
     public GrupoUnidades: GrupoUnidad[];
->>>>>>> 27e690d9a94ada97403fe78f1d20d9f6825de24e
+    public Marcas: Marca[];
+    public Unidades: Unidad[];
 
     /*******************************/
     public SourceOpcion: string[] = ['SI', 'NO'];
@@ -58,31 +55,33 @@ export class FrmBase<Modelo>   {
 
     public SourceTipoAlmacen: string[] = ['PRINCIPAL', 'AUXILIAR'];
     public OpcionTipoAlmacen: any[];
+
+    public SourceTipoSeguimiento: string[] = ['NORMAL', 'LOTES', 'NUMERO SERIE'];
+    public OpcionTipoSeguimiento: any[];
     /*******************************/
     
     save(): any {
-
-    if (this.FrmItem.status === 'INVALID') {
-   
-      return;
-    }
-    
-    this.Cargando = true;
-   
-    if (this._id === undefined || this._id === null) {
-      this.Ws.save(this.item).subscribe(data => {
-          console.log('Guardado');
+      if (this.FrmItem.status === 'INVALID') {
+     
+        return;
+      }
+      
+      this.Cargando = true;
+      if (this._id === undefined || this._id === null) {
+        this.Ws.save(this.item).subscribe(data => {
+            console.log('Guardado');
+            console.log(data);
+            this.Cargando = false;
+            this.FrmItem.reset();
+        });
+      } else {
+        this.Ws.update(this.item, this._id).subscribe(data => {
+          console.log('Modificado');
           console.log(data);
           this.Cargando = false;
           this.FrmItem.reset();
-      });
-    } else {
-      this.Ws.update(this.item, this._id).subscribe(data => {
-        console.log('Modificado');
-        console.log(data);
-        this.Cargando = false;
-        this.FrmItem.reset();
-      });
+        });
+      }
     }
     /*********Cargar combos*************/
      public searchMoneda(event, ws) {
@@ -136,7 +135,6 @@ export class FrmBase<Modelo>   {
     public searchGrupoComponente(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.GrupoComponentes = data;
-        console.log(this.GrupoComponentes);
       });
     }
 
@@ -151,7 +149,7 @@ export class FrmBase<Modelo>   {
       });
     }
 
-    public searchGrupoComponenteXTipoComponente(event, _id , ws) {
+    public searchGrupoUnidadxUnidad(event, _id , ws) {
       if ( _id === null || _id === undefined) {
         return null;
       }
@@ -162,6 +160,15 @@ export class FrmBase<Modelo>   {
     }
 
 
+    public searchGrupoComponenteXTipoComponente(event, _id , ws) {
+      if ( _id === null || _id === undefined) {
+        return null;
+      }
+
+      ws.searchXUnidad(event.query, _id).subscribe(data => {
+        this.Unidades = data;
+      });
+    }
 
     public searchTipoConcepto(event, ws) {
       ws.search(event.query).subscribe(data => {
@@ -179,6 +186,12 @@ export class FrmBase<Modelo>   {
       ws.search(event.query).subscribe(data => {
         this.GrupoUnidades = data;
         console.log(this.GrupoUnidades);
+      });
+    }
+
+    public searchMarca(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.Marcas = data;
       });
     }
    /***********************************/
@@ -221,6 +234,16 @@ export class FrmBase<Modelo>   {
           let item = this.SourceTipoAlmacen[i];
           if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
               this.OpcionTipoAlmacen.push(item);
+          }
+      }
+    }
+
+    public searchTipoSeguimiento(event) {
+      this.OpcionTipoSeguimiento = [];
+      for (let i = 0; i < this.SourceTipoSeguimiento.length; i++) {
+          let item = this.SourceTipoSeguimiento[i];
+          if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+              this.OpcionTipoSeguimiento.push(item);
           }
       }
     }

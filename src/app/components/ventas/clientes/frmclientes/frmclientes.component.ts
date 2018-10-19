@@ -41,6 +41,7 @@ export class FrmclientesComponent extends FrmBase<Cliente> implements OnInit, IF
 
   ngOnInit() {
     this.FrmItem = this.fb.group({
+      Clave: [null, [Validators.required]],
       Nombre: [null, [Validators.required]],
       Rfc: [null, [Validators.required]],
       Contacto1: [null, []],

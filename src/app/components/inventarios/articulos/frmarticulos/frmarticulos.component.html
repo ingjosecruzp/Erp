@@ -1,8 +1,8 @@
-<p-dialog header="Articulos" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="650">
+<p-dialog header="Articulos" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="750">
     <form [formGroup]="FrmItem" (ngSubmit)="save()">
-        <p-tabView>
+        <p-tabView [style]="{'height':'500px'}">
             <p-tabPanel header="General">
-                <div class="ui-g-8 ui-md-8 ui-g-nopad">
+                <div class="ui-g-7 ui-md-7 ui-g-nopad">
                     <div class="ui-g-6 ui-md-6 ui-g-nopad">
                         <div class="ui-g-4">
                             <label for="vin">Clave:</label>
@@ -65,18 +65,220 @@
                             <label for="vin">Marca:</label>
                         </div>
                         <div class="ui-g-10">
-                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'92%'}" formControlName="SubGrupoComponente" [suggestions]="SubGrupoComponentes" (completeMethod)="searchSubGrupoComponenteXGrupo($event,SubgrupoComponenteId,WsSubgrupoComponente)" field="Nombre"
-                                [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'92%'}" formControlName="Marca" [suggestions]="Marcas" (completeMethod)="searchMarca($event,WsMarca)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                         </div>
                     </div>
+                    <div class="ui-g-6 ui-md-6 ui-g-nopad">
+                        <div class="ui-g-4">
+                            <label for="vin">Modelo:</label>
+                        </div>
+                        <div class="ui-g-8">
+                            <input formControlName="Modelo" pInputText id="Modelo" />
+                        </div>
+                    </div>
+                    <div class="ui-g-6 ui-md-6 ui-g-nopad">
+                        <div class="ui-g-4">
+                            <label for="vin">No. Parte:</label>
+                        </div>
+                        <div class="ui-g-8">
+                            <input formControlName="NoParte" pInputText id="NoParte" />
+                        </div>
+                    </div>
+                    <div class="ui-g-12 ui-md-12">
+                        <p-panel header="Codigos de barra">
+                            <!-- <div class="ui-g" style="height: 128px;"> -->
+                            <div formArrayName="CodigosBarra">
+                                <p-table [value]="FrmItem.get('CodigosBarra').controls" [scrollable]="true" [style]="{'height':'129px'}" scrollHeight="112px">
+                                    <ng-template pTemplate="header">
+                                        <tr>
+                                            <th>Unidad</th>
+                                            <th>Codigo</th>
+                                            <th>Activo</th>
+                                        </tr>
+                                    </ng-template>
+                                    <ng-template pTemplate="body" let-codigoBarras let-rowIndex="rowIndex">
+                                        <tr [formGroupName]="rowIndex">
+                                            <td pEditableColumn>
+                                                <p-cellEditor>
+                                                    <ng-template pTemplate="input">
+                                                        <!-- <input type="text" formControlName="Unidad"> -->
+                                                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'70%'}" formControlName="Unidad" [suggestions]="Unidades" (completeMethod)="searchGrupoUnidadxUnidad($event,GrupoUnidadId,WsGrupoUnidad)" field="Abreviatura" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="output">
+                                                        {{ this.objectUtils.resolveFieldData(codigoBarras.controls.Unidad.value, "Abreviatura") }}
+                                                    </ng-template>
+                                                </p-cellEditor>
+                                            </td>
+                                            <td pEditableColumn>
+                                                <p-cellEditor>
+                                                    <ng-template pTemplate="input">
+                                                        <input type="text" formControlName="Codigo">
+                                                    </ng-template>
+                                                    <ng-template pTemplate="output">
+                                                        {{ codigoBarras.controls.Codigo.value }}
+                                                    </ng-template>
+                                                </p-cellEditor>
+                                            </td>
+                                            <td pEditableColumn>
+                                                <p-cellEditor>
+                                                    <ng-template pTemplate="input">
+                                                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'75%'}" formControlName="Activo" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                                                    </ng-template>
+                                                    <ng-template pTemplate="output">
+                                                        {{ codigoBarras.controls.Activo.value }}
+                                                    </ng-template>
+                                                </p-cellEditor>
+                                            </td>
+                                        </tr>
+                                    </ng-template>
+                                </p-table>
+                                <!-- </div> -->
+                            </div>
+                        </p-panel>
+                    </div>
                 </div>
-                <div class="ui-g-4 ui-md-4">Imagen</div>
+                <div class="ui-g-5 ui-md-5 ui-g-nopad">
+                    <p-panel header="Imagenes" [style]="{'height':'120px'}">
+                        <p-galleria [images]="images" frameWidth="30" frameHeight="20" panelWidth="260" panelHeight="360" [showCaption]="false"></p-galleria>
+                    </p-panel>
+                </div>
             </p-tabPanel>
             <p-tabPanel header="Inventarios y Unidades">
-                Content 2
-            </p-tabPanel>
-            <p-tabPanel header="Header 3">
-                Content 3
+                <div class="ui-g-6 ui-md-6">
+                    <p-panel header="Datos de inventarios">
+                        <div class="ui-g">
+                            <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                                <div class="ui-g-4">
+                                    <label for="vin">Inventariable:</label>
+                                </div>
+                                <div class="ui-g-8">
+                                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="Inventariable" [suggestions]="Opcion" (completeMethod)="searchOpciones($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                                <div class="ui-g-4">
+                                    <label for="vin">Seguimiento:</label>
+                                </div>
+                                <div class="ui-g-8">
+                                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="TipoSeguimiento" [suggestions]="OpcionTipoSeguimiento" (completeMethod)="searchTipoSeguimiento($event)" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                                <!-- Fila invisible para igualar diseño de los paneles-->
+                                <div class="ui-g-4">
+
+                                </div>
+                                <div class="ui-g-8">
+                                    <input pInputText id="Invisible" style="visibility: hidden;" />
+                                </div>
+                            </div>
+                        </div>
+                    </p-panel>
+                </div>
+                <div class="ui-g-6 ui-md-6">
+                    <p-panel header="Unidades">
+                        <div class="ui-g">
+                            <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                                <div class="ui-g-4">
+                                    <label for="vin">Inventario:</label>
+                                </div>
+                                <div class="ui-g-8">
+                                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="UnidadInventario" [suggestions]="Unidades" (completeMethod)="searchGrupoUnidadxUnidad($event,GrupoUnidadId,WsGrupoUnidad)" field="Abreviatura" [dropdown]="true"
+                                        [forceSelection]="true"></p-autoComplete>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                                <div class="ui-g-4">
+                                    <label for="vin">Venta:</label>
+                                </div>
+                                <div class="ui-g-8">
+                                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="UnidadVenta" [suggestions]="Unidades" (completeMethod)="searchGrupoUnidadxUnidad($event,GrupoUnidadId,WsGrupoUnidad)" field="Abreviatura" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                                </div>
+                            </div>
+                            <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                                <div class="ui-g-4">
+                                    <label for="vin">Compra:</label>
+                                </div>
+                                <div class="ui-g-8">
+                                    <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'86%'}" formControlName="UnidadCompra" [suggestions]="Unidades" (completeMethod)="searchGrupoUnidadxUnidad($event,GrupoUnidadId,WsGrupoUnidad)" field="Abreviatura" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                                </div>
+                            </div>
+                        </div>
+                    </p-panel>
+                </div>
+                <div class="ui-g-12 ui-md-12">
+                    <p-panel header="Configuración Almacenes">
+                        <!-- <div class="ui-g" style="height: 128px;"> -->
+                        <div formArrayName="CodigosBarra">
+                            <p-table [value]="FrmItem.get('CodigosBarra').controls" [scrollable]="true" [style]="{'height':'220px'}" scrollHeight="112px">
+                                <ng-template pTemplate="header">
+                                    <tr>
+                                        <th>Almacén</th>
+                                        <th>Maximo</th>
+                                        <th>Reorden</th>
+                                        <th>Minimo</th>
+                                        <th>Localización</th>
+                                    </tr>
+                                </ng-template>
+                                <ng-template pTemplate="body" let-codigoBarras let-rowIndex="rowIndex">
+                                    <tr [formGroupName]="rowIndex">
+                                        <td pEditableColumn>
+                                            <p-cellEditor>
+                                                <ng-template pTemplate="input">
+                                                    <input type="text" formControlName="Codigo">
+                                                </ng-template>
+                                                <ng-template pTemplate="output">
+                                                    {{ codigoBarras.controls.Codigo.value }}
+                                                </ng-template>
+                                            </p-cellEditor>
+                                        </td>
+                                        <td pEditableColumn>
+                                            <p-cellEditor>
+                                                <ng-template pTemplate="input">
+                                                    <input type="text" formControlName="Codigo">
+                                                </ng-template>
+                                                <ng-template pTemplate="output">
+                                                    {{ codigoBarras.controls.Codigo.value }}
+                                                </ng-template>
+                                            </p-cellEditor>
+                                        </td>
+                                        <td pEditableColumn>
+                                            <p-cellEditor>
+                                                <ng-template pTemplate="input">
+                                                    <input type="text" formControlName="Codigo">
+                                                </ng-template>
+                                                <ng-template pTemplate="output">
+                                                    {{ codigoBarras.controls.Codigo.value }}
+                                                </ng-template>
+                                            </p-cellEditor>
+                                        </td>
+                                        <td pEditableColumn>
+                                            <p-cellEditor>
+                                                <ng-template pTemplate="input">
+                                                    <input type="text" formControlName="Codigo">
+                                                </ng-template>
+                                                <ng-template pTemplate="output">
+                                                    {{ codigoBarras.controls.Codigo.value }}
+                                                </ng-template>
+                                            </p-cellEditor>
+                                        </td>
+                                        <td pEditableColumn>
+                                            <p-cellEditor>
+                                                <ng-template pTemplate="input">
+                                                    <input type="text" formControlName="Codigo">
+                                                </ng-template>
+                                                <ng-template pTemplate="output">
+                                                    {{ codigoBarras.controls.Codigo.value }}
+                                                </ng-template>
+                                            </p-cellEditor>
+                                        </td>
+                                    </tr>
+                                </ng-template>
+                            </p-table>
+                            <!-- </div> -->
+                        </div>
+                    </p-panel>
+                </div>
             </p-tabPanel>
         </p-tabView>
     </form>

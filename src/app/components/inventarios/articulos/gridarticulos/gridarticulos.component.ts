@@ -24,13 +24,14 @@ export class GridarticulosComponent implements OnInit {
       { field: 'Marca.Nombre', header: 'Marca' },
       { field: 'Activo', header: 'Activo' },
       { field: 'GrupoComponente.Nombre', header: 'Grupo Componente' },
-      { field: 'SubgrupoComponente.Nombre', header: 'Subgrupo Componente' }
+      { field: 'SubGrupoComponente.Nombre', header: 'Subgrupo Componente' }
     ];
   }
 
   refresh() {
     this.WsArticulos.getAll().subscribe(data => {
       this.articulos = data;
+      console.log(this.articulos);
      });
   }
 
