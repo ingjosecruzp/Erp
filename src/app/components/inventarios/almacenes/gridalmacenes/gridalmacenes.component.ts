@@ -23,7 +23,8 @@ export class GridalmacenesComponent implements OnInit {
       { field: 'Nombre', header: 'Nombre' },
       { field: 'TipoAlmacen', header: 'Nombre' },
       { field: 'Activo', header: 'Nombre' },
-      { field: 'TipoComponente.Nombre', header: 'Tipo Componente' }
+      { field: 'TipoComponente.Nombre', header: 'Tipo Componente' },
+      { field: 'GrupoComponente.Nombre', header: 'Grupos Componentes' }
     ];
   }
 
