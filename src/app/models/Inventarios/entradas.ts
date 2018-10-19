@@ -7,6 +7,7 @@ export class Entradas {
     folio: string;
     Concepto: Concepto;
     Almacen: Almacen;
+    descripcion: string;
 
     public constructor(init?: Partial<Entradas>) {
         Object.assign(this, init);

@@ -13,9 +13,24 @@ Entradas: Entradas[] = [];
 cols: any[];
 selectedConcepto: Entradas;
 
-  constructor() { }
+  constructor(public dialog: DialogService) { }
 
   ngOnInit() {
+    this.cols = [
+      {field: 'fecha', header: 'Fecha'},
+      {field: 'folio', header: 'Folio'},
+      {field: 'Concepto.Nombre', header: 'Concepto'},
+      {field: 'Almacen.Nombre', header: 'Almacen'},
+      {field: 'descripcion', header: 'Descripcion'}
+    ];
+  }
+
+  add() {
+    const ref = this.dialog.open(FrmentradasComponent, { 
+                  data: { message: 'I am a dynamic component inside of a dialog!'} });
+    /*ref.afterClosed.subscribe(result => {
+      console.log('Dialog closed', result);
+    });*/
   }
 
 }

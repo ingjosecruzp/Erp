@@ -159,7 +159,9 @@ import { FrmentradasComponent } from './components/inventarios/entradas/frmentra
                     FrmalmacenesComponent,
                     FrmmarcasComponent,
                     FrmdepartamentosComponent,
-                    FrmpuestosComponent
+                    FrmpuestosComponent,
+                    FrmentradasComponent
+                    
                     ]
 })
 export class AppModule { }
