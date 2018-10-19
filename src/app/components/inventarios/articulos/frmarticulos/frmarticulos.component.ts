@@ -11,6 +11,7 @@ import { GrupounidadesService } from '../../../../services/Generales/grupounidad
 import { MarcaService } from '../../../../services/Generales/marca.service';
 import { DialogConfig } from '../../../shared/dialog/dialog-config';
 import { ObjectUtils } from 'primeng/components/utils/objectutils';
+import { GrupoComponente } from '../../../../models/Generales/grupocomponente';
 
 @Component({
   selector: 'app-frmarticulos',
@@ -58,6 +59,9 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
       UnidadCompra: [null, [Validators.required]],
       CodigosBarra: this.fb.array([
           this.createItem()]
+      ),
+      ConfiguracionesAlmacen: this.fb.array([
+        this.createItem()]
       )
    });
    
@@ -76,16 +80,21 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
 
       this.SubgrupoComponenteId = data._id;
       this.FrmItem.controls['SubGrupoComponente'].reset();
+      this.cargarGridAlmacenes();
    });
-   
+  
    this.FrmItem.controls['GrupoUnidad'].valueChanges.subscribe( data => {
       if ( data == null) { return; }
-
+  
       this.GrupoUnidadId = data._id;
       this.FrmItem.controls['UnidadInventario'].reset();
       this.FrmItem.controls['UnidadVenta'].reset();
       this.FrmItem.controls['UnidadCompra'].reset();
    });
+
+   this.FrmItem.controls['Inventariable'].valueChanges.subscribe( data => {
+      this.cargarGridAlmacenes();
+    });
   }
 
   createItem(): FormGroup {
@@ -94,6 +103,18 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
       Codigo: [null, [Validators.required]],
       Activo: [null, [Validators.required]]
     });
+  }
+
+  cargarGridAlmacenes() {
+     
+     let GrupoComponente = this.FrmItem.get('GrupoComponente').value;
+     let Inventariable = this.FrmItem.get('Inventariable').value;
+     
+     if (GrupoComponente != null && Inventariable != null)
+     {
+       console.log(GrupoComponente);
+       console.log(Inventariable);
+     }
   }
   
   save () {

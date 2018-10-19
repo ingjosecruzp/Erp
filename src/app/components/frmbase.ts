@@ -12,17 +12,10 @@ import { GrupoComponente } from '../models/Generales/grupocomponente';
 import { TipoConcepto } from '../models/Inventarios/tipoconcepto';
 import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
 import { SubgrupoComponente } from '../models/Generales/subgrupocompenente';
-<<<<<<< HEAD
 import { Departamento } from '../models/Generales/departamento';
-
-=======
 import { GrupoUnidad } from '../models/Generales/grupounidad';
-<<<<<<< HEAD
 import { Marca } from '../models/Generales/marca';
 import { Unidad } from '../models/Generales/Unidad';
-=======
->>>>>>> 27e690d9a94ada97403fe78f1d20d9f6825de24e
->>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
 
 
 export class FrmBase<Modelo>   {
@@ -45,16 +38,10 @@ export class FrmBase<Modelo>   {
     public SubGrupoComponentes: SubgrupoComponente[];
     public TipoConceptos: TipoConcepto[];
     public UsuarioRoles: UsuarioRol[];
-<<<<<<< HEAD
     public Departamento: Departamento[];
-=======
     public GrupoUnidades: GrupoUnidad[];
-<<<<<<< HEAD
     public Marcas: Marca[];
     public Unidades: Unidad[];
-=======
->>>>>>> 27e690d9a94ada97403fe78f1d20d9f6825de24e
->>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
 
     /*******************************/
     public SourceOpcion: string[] = ['SI', 'NO'];
@@ -74,27 +61,27 @@ export class FrmBase<Modelo>   {
     /*******************************/
     
     save(): any {
-
-    if (this.FrmItem.status === 'INVALID') {
-   
-      return;
-    }
-    
-    this.Cargando = true;
-    if (this._id === undefined || this._id === null) {
-      this.Ws.save(this.item).subscribe(data => {
-          console.log('Guardado');
+      if (this.FrmItem.status === 'INVALID') {
+     
+        return;
+      }
+      
+      this.Cargando = true;
+      if (this._id === undefined || this._id === null) {
+        this.Ws.save(this.item).subscribe(data => {
+            console.log('Guardado');
+            console.log(data);
+            this.Cargando = false;
+            this.FrmItem.reset();
+        });
+      } else {
+        this.Ws.update(this.item, this._id).subscribe(data => {
+          console.log('Modificado');
           console.log(data);
           this.Cargando = false;
           this.FrmItem.reset();
-      });
-    } else {
-      this.Ws.update(this.item, this._id).subscribe(data => {
-        console.log('Modificado');
-        console.log(data);
-        this.Cargando = false;
-        this.FrmItem.reset();
-      });
+        });
+      }
     }
     /*********Cargar combos*************/
      public searchMoneda(event, ws) {
@@ -148,7 +135,6 @@ export class FrmBase<Modelo>   {
     public searchGrupoComponente(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.GrupoComponentes = data;
-        console.log(this.GrupoComponentes);
       });
     }
 
@@ -163,30 +149,27 @@ export class FrmBase<Modelo>   {
       });
     }
 
-<<<<<<< HEAD
     public searchGrupoUnidadxUnidad(event, _id , ws) {
-=======
-    public searchGrupoComponenteXTipoComponente(event, _id , ws) {
->>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
       if ( _id === null || _id === undefined) {
         return null;
       }
 
-<<<<<<< HEAD
-      ws.searchXUnidad(event.query, _id).subscribe(data => {
-        this.Unidades = data;
-=======
       ws.searchxTipoComponente('', _id).subscribe(data => {
         this.GrupoComponentes = data;
->>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
       });
     }
 
 
-<<<<<<< HEAD
-=======
+    public searchGrupoComponenteXTipoComponente(event, _id , ws) {
+      if ( _id === null || _id === undefined) {
+        return null;
+      }
 
->>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
+      ws.searchXUnidad(event.query, _id).subscribe(data => {
+        this.Unidades = data;
+      });
+    }
+
     public searchTipoConcepto(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.TipoConceptos = data;
