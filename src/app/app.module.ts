@@ -25,9 +25,10 @@ import { GridbaseComponent } from './components/shared/gridbase/gridbase.compone
 import {DialogModule} from './modules/dialog/dialog.module';
 import {DialogModule as DialogPrime} from 'primeng/dialog';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
-import {FieldsetModule} from 'primeng/fieldset';
-import {PaisesComponent } from './components/paises/paises.component';
 import {PanelModule} from 'primeng/panel';
+import {FieldsetModule} from 'primeng/fieldset';
+import {GalleriaModule} from 'primeng/galleria';
+import {PaisesComponent } from './components/paises/paises.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { ExampleComponent } from './components/example/example.component';
@@ -130,7 +131,8 @@ import { GridpuestosComponent } from './components/generales/puestos/gridpuestos
     CurrencyMaskModule,
     AutoCompleteModule,
     ButtonModule,
-    ConfirmDialogModule
+    ConfirmDialogModule,
+    GalleriaModule
   ],
   providers: [ObjectUtils, ConfirmationService],
   bootstrap: [AppComponent],

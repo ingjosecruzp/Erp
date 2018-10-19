@@ -13,6 +13,8 @@ import { TipoConcepto } from '../models/Inventarios/tipoconcepto';
 import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
 import { SubgrupoComponente } from '../models/Generales/subgrupocompenente';
 import { GrupoUnidad } from '../models/Generales/grupounidad';
+import { Marca } from '../models/Generales/marca';
+import { Unidad } from '../models/Generales/Unidad';
 
 
 export class FrmBase<Modelo>   {
@@ -36,6 +38,8 @@ export class FrmBase<Modelo>   {
     public TipoConceptos: TipoConcepto[];
     public UsuarioRoles: UsuarioRol[];
     public GrupoUnidades: GrupoUnidad[];
+    public Marcas: Marca[];
+    public Unidades: Unidad[];
 
     /*******************************/
     public SourceOpcion: string[] = ['SI', 'NO'];
@@ -49,6 +53,9 @@ export class FrmBase<Modelo>   {
 
     public SourceTipoAlmacen: string[] = ['PRINCIPAL', 'AUXILIAR'];
     public OpcionTipoAlmacen: any[];
+
+    public SourceTipoSeguimiento: string[] = ['NORMAL', 'LOTES', 'NUMERO SERIE'];
+    public OpcionTipoSeguimiento: any[];
     /*******************************/
     
     save(): any {
@@ -59,7 +66,6 @@ export class FrmBase<Modelo>   {
     }
     
     this.Cargando = true;
-   
     if (this._id === undefined || this._id === null) {
       this.Ws.save(this.item).subscribe(data => {
           console.log('Guardado');
@@ -135,6 +141,17 @@ export class FrmBase<Modelo>   {
       });
     }
 
+    public searchGrupoUnidadxUnidad(event, _id , ws) {
+      if ( _id === null || _id === undefined) {
+        return null;
+      }
+
+      ws.searchXUnidad(event.query, _id).subscribe(data => {
+        this.Unidades = data;
+      });
+    }
+
+
     public searchTipoConcepto(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.TipoConceptos = data;
@@ -151,6 +168,12 @@ export class FrmBase<Modelo>   {
       ws.search(event.query).subscribe(data => {
         this.GrupoUnidades = data;
         console.log(this.GrupoUnidades);
+      });
+    }
+
+    public searchMarca(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.Marcas = data;
       });
     }
    /***********************************/
@@ -193,6 +216,16 @@ export class FrmBase<Modelo>   {
           let item = this.SourceTipoAlmacen[i];
           if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
               this.OpcionTipoAlmacen.push(item);
+          }
+      }
+    }
+
+    public searchTipoSeguimiento(event) {
+      this.OpcionTipoSeguimiento = [];
+      for (let i = 0; i < this.SourceTipoSeguimiento.length; i++) {
+          let item = this.SourceTipoSeguimiento[i];
+          if (item.toLowerCase().indexOf(event.query.toLowerCase()) === 0) {
+              this.OpcionTipoSeguimiento.push(item);
           }
       }
     }
