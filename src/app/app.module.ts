@@ -57,7 +57,7 @@ import { GridusuariosrolesComponent } from './components/administracion/usuarios
 import { FrmusuariosrolesComponent } from './components/administracion/usuariosroles/frmusuariosroles/frmusuariosroles.component';
 import { GridtipoconceptosComponent } from './components/inventarios/tipoconceptos/gridtipoconceptos/gridtipoconceptos.component';
 import { FrmtipoconceptosComponent } from './components/inventarios/tipoconceptos/frmtipoconceptos/frmtipoconceptos.component';
-
+import {ListboxModule} from 'primeng/listbox';
 import {DropdownModule} from 'primeng/primeng';
 import { GridalmacenesComponent } from './components/inventarios/almacenes/gridalmacenes/gridalmacenes.component';
 import { FrmalmacenesComponent } from './components/inventarios/almacenes/frmalmacenes/frmalmacenes.component';
@@ -67,6 +67,7 @@ import { GriddepartamentosComponent } from './components/generales/departamentos
 import { FrmdepartamentosComponent } from './components/generales/departamentos/frmdepartamentos/frmdepartamentos.component';
 import { FrmpuestosComponent } from './components/generales/puestos/frmpuestos/frmpuestos.component';
 import { GridpuestosComponent } from './components/generales/puestos/gridpuestos/gridpuestos.component';
+import {PasswordModule} from 'primeng/password';
 @NgModule({
   declarations: [
     AppComponent,
@@ -110,6 +111,8 @@ import { GridpuestosComponent } from './components/generales/puestos/gridpuestos
   ],
   imports: [
     DropdownModule,
+    PasswordModule,
+    ListboxModule,
     BrowserModule,
     APP_ROUTING,
     BrowserAnimationsModule,

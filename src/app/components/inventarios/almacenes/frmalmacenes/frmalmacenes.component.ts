@@ -10,6 +10,7 @@ import { FormGroup, FormControl, Validators, FormArray, FormBuilder } from '@ang
 import { TipocomponenteService } from '../../../../services/inventarios/tipocomponente.service';
 import { TipoComponente } from '../../../../models/Generales/tipocomponente';
 import { AlmacenService } from 'src/app/services/inventarios/almacen.service';
+import {SelectItem} from 'primeng/api';
 
 @Component({
   selector: 'app-frmalmacenes',
@@ -19,6 +20,8 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
   FrmAlmacen: FormGroup;
   displayDialog: boolean;
   TipoComponente: TipoComponente[]; // se guarda en la base de datos al arrelgo
+  TipoComponenteId: string;
+  GrupocomponenteSelecte: SelectItem[];
 
   constructor(
               public config: DialogConfig,
@@ -26,10 +29,13 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
               private WsTipoComponente: TipocomponenteService,
               private WsAlmacen: AlmacenService,
               private fb: FormBuilder,
-              private confirmationService: ConfirmationService ) {
+              private confirmationService: ConfirmationService,
+              private WsGrupoComponente: GrupocomponenteService ) {
     super();
     this.displayDialog = true;
     this.Ws = WsAlmacen;
+    
+    
    }
 
   ngOnInit() {
@@ -38,7 +44,7 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
       Nombre: [null, [Validators.required]],
       TipoAlmacen: [null, [Validators.required]],
       Activo: [null, [Validators.required]],
-      TipoComponente: [null, [Validators.required]]
+      TipoComponente: [null, [Validators.required]],
    });
 
    if (this.config.data._id !== undefined) {
@@ -49,6 +55,15 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
         console.log('Respuesta del servidor DC', data);
      });
    }
+
+      this.FrmItem.controls['TipoComponente'].valueChanges.subscribe( data => {
+        console.log('entramos', event);
+        this.TipoComponenteId = data._id;
+        console.log('grupocompontnetID', this.TipoComponenteId);
+        this.searchGrupoComponenteXTipoComponente(null, this.TipoComponenteId , this.WsGrupoComponente);
+        // this.FrmItem.controls['GrupoComponente'].reset();
+    });
+
   }
 
   save () {

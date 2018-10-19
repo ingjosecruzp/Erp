@@ -12,9 +12,17 @@ import { GrupoComponente } from '../models/Generales/grupocomponente';
 import { TipoConcepto } from '../models/Inventarios/tipoconcepto';
 import { UsuarioRol } from 'src/app/models/administracion/usuariorol';
 import { SubgrupoComponente } from '../models/Generales/subgrupocompenente';
+<<<<<<< HEAD
+import { Departamento } from '../models/Generales/departamento';
+
+=======
 import { GrupoUnidad } from '../models/Generales/grupounidad';
+<<<<<<< HEAD
 import { Marca } from '../models/Generales/marca';
 import { Unidad } from '../models/Generales/Unidad';
+=======
+>>>>>>> 27e690d9a94ada97403fe78f1d20d9f6825de24e
+>>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
 
 
 export class FrmBase<Modelo>   {
@@ -37,9 +45,16 @@ export class FrmBase<Modelo>   {
     public SubGrupoComponentes: SubgrupoComponente[];
     public TipoConceptos: TipoConcepto[];
     public UsuarioRoles: UsuarioRol[];
+<<<<<<< HEAD
+    public Departamento: Departamento[];
+=======
     public GrupoUnidades: GrupoUnidad[];
+<<<<<<< HEAD
     public Marcas: Marca[];
     public Unidades: Unidad[];
+=======
+>>>>>>> 27e690d9a94ada97403fe78f1d20d9f6825de24e
+>>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
 
     /*******************************/
     public SourceOpcion: string[] = ['SI', 'NO'];
@@ -93,6 +108,12 @@ export class FrmBase<Modelo>   {
         this.CondicionesDePago = data;
       });
     }
+
+    public searchDepartamento(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.Departamento = data;
+      });
+    }
     
     public searchTipoCliente(event, ws) {
       ws.search(event.query).subscribe(data => {
@@ -112,7 +133,6 @@ export class FrmBase<Modelo>   {
       });
     }
     
-    
     public searchZonaCliente(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.ZonasCliente = data;
@@ -128,8 +148,10 @@ export class FrmBase<Modelo>   {
     public searchGrupoComponente(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.GrupoComponentes = data;
+        console.log(this.GrupoComponentes);
       });
     }
+
 
     public searchSubGrupoComponenteXGrupo(event, _id , ws) {
       if ( _id === null || _id === undefined) {
@@ -141,17 +163,30 @@ export class FrmBase<Modelo>   {
       });
     }
 
+<<<<<<< HEAD
     public searchGrupoUnidadxUnidad(event, _id , ws) {
+=======
+    public searchGrupoComponenteXTipoComponente(event, _id , ws) {
+>>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
       if ( _id === null || _id === undefined) {
         return null;
       }
 
+<<<<<<< HEAD
       ws.searchXUnidad(event.query, _id).subscribe(data => {
         this.Unidades = data;
+=======
+      ws.searchxTipoComponente('', _id).subscribe(data => {
+        this.GrupoComponentes = data;
+>>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
       });
     }
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> d1ae99a1a24571e84249cb45cd21d2cbadbfc10b
     public searchTipoConcepto(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.TipoConceptos = data;
