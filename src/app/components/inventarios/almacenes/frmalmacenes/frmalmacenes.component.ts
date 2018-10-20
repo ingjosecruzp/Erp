@@ -57,10 +57,10 @@ export class FrmalmacenesComponent extends FrmBase<Almacen> implements OnInit, I
    }
 
       this.FrmItem.controls['TipoComponente'].valueChanges.subscribe( data => {
-        console.log('entramos', event);
+        // console.log('entramos', event);
         this.TipoComponenteId = data._id;
-        console.log('grupocompontnetID', this.TipoComponenteId);
-        this.searchGrupoComponenteXTipoComponente(null, this.TipoComponenteId , this.WsGrupoComponente);
+        // console.log('grupocompontnetID', this.TipoComponenteId);
+        this.searchGrupoComponenteXTipoComponente(null, this.TipoComponenteId, this.WsGrupoComponente);
         // this.FrmItem.controls['GrupoComponente'].reset();
     });
 
