@@ -144,7 +144,7 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
     this.CodigosBarra.push(this.createItem());
     console.log(this.FrmItem.value);
     console.log(this.FrmItem);
-    return;
+    // return;
 
 
     this.confirmationService.confirm({
