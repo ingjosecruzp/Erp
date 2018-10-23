@@ -16,6 +16,8 @@ import { GridmarcasComponent } from './components/generales/marcas/gridmarcas/gr
 import { GridalmacenesComponent } from './components/inventarios/almacenes/gridalmacenes/gridalmacenes.component';
 import { GriddepartamentosComponent } from './components/generales/departamentos/griddepartamentos/griddepartamentos.component';
 import { GridpuestosComponent } from './components/generales/puestos/gridpuestos/gridpuestos.component';
+import { GridentradasComponent } from './components/inventarios/entradas/gridentradas/gridentradas.component';
+
 
 
 const APP_ROUTES: Routes = [
@@ -35,6 +37,7 @@ const APP_ROUTES: Routes = [
     { path: 'almacenes', component: GridalmacenesComponent},
     { path: 'departamentos', component: GriddepartamentosComponent},
     { path: 'puestos', component: GridpuestosComponent},
+    { path: 'entradas', component: GridentradasComponent},
 
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];

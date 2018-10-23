@@ -16,6 +16,8 @@ import { Departamento } from '../models/Generales/departamento';
 import { GrupoUnidad } from '../models/Generales/grupounidad';
 import { Marca } from '../models/Generales/marca';
 import { Unidad } from '../models/Generales/Unidad';
+import { Almacen } from '../models/Inventarios/almacen';
+
 
 
 export class FrmBase<Modelo>   {
@@ -42,6 +44,7 @@ export class FrmBase<Modelo>   {
     public GrupoUnidades: GrupoUnidad[];
     public Marcas: Marca[];
     public Unidades: Unidad[];
+    public Almacen: Almacen[];
 
     /*******************************/
     public SourceOpcion: string[] = ['SI', 'NO'];
@@ -173,6 +176,12 @@ export class FrmBase<Modelo>   {
     public searchTipoConcepto(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.TipoConceptos = data;
+      });
+    }
+
+    public searchAlmacen(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.Almacen = data;
       });
     }
 
