@@ -21,6 +21,12 @@ export class AlmacenService extends BaseService<Almacen> implements ServicesBase
 
    save(item: any): any {
     return this.http.post<Almacen>('http://localhost:60493/Servicios/Inventarios/WcfAlmacenes.svc/', item);
- }
+   }
+
+   searchXTipoComponente(busqueda: string, _id: string): any {
+    const url = `http://localhost:60493/${this.Ws}/?searchBy=getXTipoComponente&busqueda=${busqueda}&_id=${_id}`;
+
+    return this.httpWs.get<Almacen[]>(url);
+   }
 
 }

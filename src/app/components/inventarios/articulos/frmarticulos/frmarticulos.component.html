@@ -209,8 +209,8 @@
                 <div class="ui-g-12 ui-md-12">
                     <p-panel header="Configuración Almacenes">
                         <!-- <div class="ui-g" style="height: 128px;"> -->
-                        <div formArrayName="CodigosBarra">
-                            <p-table [value]="FrmItem.get('CodigosBarra').controls" [scrollable]="true" [style]="{'height':'220px'}" scrollHeight="112px">
+                        <div formArrayName="ConfiguracionesAlmacen">
+                            <p-table [value]="FrmItem.get('ConfiguracionesAlmacen').controls" [scrollable]="true" [style]="{'height':'220px'}" scrollHeight="112px">
                                 <ng-template pTemplate="header">
                                     <tr>
                                         <th>Almacén</th>
@@ -220,55 +220,48 @@
                                         <th>Localización</th>
                                     </tr>
                                 </ng-template>
-                                <ng-template pTemplate="body" let-codigoBarras let-rowIndex="rowIndex">
+                                <ng-template pTemplate="body" let-ConfiguracionesAlmacen let-rowIndex="rowIndex">
                                     <tr [formGroupName]="rowIndex">
+                                        <td>
+                                            {{ this.objectUtils.resolveFieldData(ConfiguracionesAlmacen.controls.Almacen.value, "Clave") }}
+                                        </td>
                                         <td pEditableColumn>
                                             <p-cellEditor>
                                                 <ng-template pTemplate="input">
-                                                    <input type="text" formControlName="Codigo">
+                                                    <input type="text" pInputText pKeyFilter="num" formControlName="Maximo">
                                                 </ng-template>
                                                 <ng-template pTemplate="output">
-                                                    {{ codigoBarras.controls.Codigo.value }}
+                                                    {{ ConfiguracionesAlmacen.controls.Maximo.value }}
                                                 </ng-template>
                                             </p-cellEditor>
                                         </td>
                                         <td pEditableColumn>
                                             <p-cellEditor>
                                                 <ng-template pTemplate="input">
-                                                    <input type="text" formControlName="Codigo">
+                                                    <input type="text" pInputText pKeyFilter="num" formControlName="Reorden">
                                                 </ng-template>
                                                 <ng-template pTemplate="output">
-                                                    {{ codigoBarras.controls.Codigo.value }}
+                                                    {{ ConfiguracionesAlmacen.controls.Reorden.value }}
                                                 </ng-template>
                                             </p-cellEditor>
                                         </td>
                                         <td pEditableColumn>
                                             <p-cellEditor>
                                                 <ng-template pTemplate="input">
-                                                    <input type="text" formControlName="Codigo">
+                                                    <input type="text" pInputText pKeyFilter="num" formControlName="Minimo">
                                                 </ng-template>
                                                 <ng-template pTemplate="output">
-                                                    {{ codigoBarras.controls.Codigo.value }}
+                                                    {{ ConfiguracionesAlmacen.controls.Minimo.value }}
                                                 </ng-template>
                                             </p-cellEditor>
                                         </td>
                                         <td pEditableColumn>
                                             <p-cellEditor>
                                                 <ng-template pTemplate="input">
-                                                    <input type="text" formControlName="Codigo">
+                                                    <input type="text" pInputText formControlName="Localizacion">
                                                 </ng-template>
                                                 <ng-template pTemplate="output">
-                                                    {{ codigoBarras.controls.Codigo.value }}
-                                                </ng-template>
-                                            </p-cellEditor>
-                                        </td>
-                                        <td pEditableColumn>
-                                            <p-cellEditor>
-                                                <ng-template pTemplate="input">
-                                                    <input type="text" formControlName="Codigo">
-                                                </ng-template>
-                                                <ng-template pTemplate="output">
-                                                    {{ codigoBarras.controls.Codigo.value }}
+                                                    {{ ConfiguracionesAlmacen.controls.Localizacion.value }}
                                                 </ng-template>
                                             </p-cellEditor>
                                         </td>

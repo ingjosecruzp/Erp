@@ -12,6 +12,9 @@ import { MarcaService } from '../../../../services/Generales/marca.service';
 import { DialogConfig } from '../../../shared/dialog/dialog-config';
 import { ObjectUtils } from 'primeng/components/utils/objectutils';
 import { GrupoComponente } from '../../../../models/Generales/grupocomponente';
+import { TipoComponente } from '../../../../models/Generales/tipocomponente';
+import { AlmacenService } from '../../../../services/inventarios/almacen.service';
+import { Almacen } from '../../../../models/Inventarios/almacen';
 
 @Component({
   selector: 'app-frmarticulos',
@@ -23,11 +26,12 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
   GrupoUnidadId: string;
   images: any[];
   CodigosBarra: FormArray;
+  ConfiguracionesAlmacen: FormArray;
 
   constructor(private confirmationService: ConfirmationService, private WsArticulos: ArticulosService, private fb: FormBuilder,
               private WsGrupoComponente: GrupocomponenteService, private WsSubgrupoComponente: SubgrupocomponenteService,
               private WsGrupoUnidad: GrupounidadesService, private WsMarca: MarcaService, public config: DialogConfig,
-              public objectUtils: ObjectUtils) { 
+              private WsAlmacenes: AlmacenService, public objectUtils: ObjectUtils) { 
     super();
     this.displayDialog = true;
     this.Ws = WsArticulos;
@@ -57,12 +61,8 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
       UnidadInventario: [null, [Validators.required]],
       UnidadVenta: [null, [Validators.required]],
       UnidadCompra: [null, [Validators.required]],
-      CodigosBarra: this.fb.array([
-          this.createItem()]
-      ),
-      ConfiguracionesAlmacen: this.fb.array([
-        this.createItem()]
-      )
+      CodigosBarra: this.fb.array([this.createItem()]),
+      ConfiguracionesAlmacen: this.fb.array([])
    });
    
    if (this.config.data._id !== undefined) {
@@ -80,6 +80,7 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
 
       this.SubgrupoComponenteId = data._id;
       this.FrmItem.controls['SubGrupoComponente'].reset();
+      this.FrmItem.controls['ConfiguracionesAlmacen'].reset();
       this.cargarGridAlmacenes();
    });
   
@@ -93,6 +94,7 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
    });
 
    this.FrmItem.controls['Inventariable'].valueChanges.subscribe( data => {
+    this.FrmItem.controls['ConfiguracionesAlmacen'].reset();
       this.cargarGridAlmacenes();
     });
   }
@@ -105,17 +107,37 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
     });
   }
 
+  createAlmacenes(almacen: Almacen): FormGroup {
+    return this.fb.group({
+      Almacen: [almacen, [Validators.required]],
+      Maximo: [null, [Validators.required]],
+      Reorden: [null, [Validators.required]],
+      Minimo: [null, [Validators.required]],
+      Localizacion: [null, [Validators.required]]
+    });
+  }
+
   cargarGridAlmacenes() {
-     
-     let GrupoComponente = this.FrmItem.get('GrupoComponente').value;
+     let GrpComponente = this.FrmItem.get('GrupoComponente').value;
      let Inventariable = this.FrmItem.get('Inventariable').value;
+     let frm = this.FrmItem;
      
-     if (GrupoComponente != null && Inventariable != null)
-     {
-       console.log(GrupoComponente);
-       console.log(Inventariable);
+     if (GrpComponente != null && (Inventariable != null && Inventariable === 'SI')) {
+          console.log('TipoComponente ID', GrpComponente.TipoComponente._id);
+          this.WsAlmacenes.searchXTipoComponente('', GrpComponente.TipoComponente._id).subscribe(data => {
+              let Almacenes: Almacen[] = data;
+               
+              let self = this;
+               Almacenes.forEach(function (almacen) {
+                console.log(self.FrmItem); 
+
+                self.ConfiguracionesAlmacen = self.FrmItem.get('ConfiguracionesAlmacen') as FormArray;
+                 self.ConfiguracionesAlmacen.push(self.createAlmacenes(almacen)); 
+              });
+          });
      }
   }
+
   
   save () {
     this.CodigosBarra = this.FrmItem.get('CodigosBarra') as FormArray;

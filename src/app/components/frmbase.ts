@@ -154,8 +154,8 @@ export class FrmBase<Modelo>   {
         return null;
       }
 
-      ws.searchxTipoComponente('', _id).subscribe(data => {
-        this.GrupoComponentes = data;
+      ws.searchXUnidad(event.query, _id).subscribe(data => {
+        this.Unidades = data;
       });
     }
 
@@ -165,8 +165,8 @@ export class FrmBase<Modelo>   {
         return null;
       }
 
-      ws.searchXUnidad(event.query, _id).subscribe(data => {
-        this.Unidades = data;
+      ws.searchxTipoComponente('', _id).subscribe(data => {
+        this.GrupoComponentes = data;
       });
     }
 
