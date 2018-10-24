@@ -1,45 +1,47 @@
-<p-dialog header="Entradas" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="600">
+<p-dialog header="Entradas" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="700">
     <form [formGroup]="FrmItem" (ngSubmit)="save()">
         <p-tabView>
-            <div class="ui-g">
-                <div class="ui-g-7 ui-g-nopad">
-                    <div class="ui-g-6 ui-g-nopad">
-                        <div class="ui-g-4">
-                            <label for="vin">Fecha:</label>
+            <p-tabPanel header="Entrada">
+                <div class="ui-g">
+                    <div class="ui-g-7 ui-md-7 ui-g-nopad">
+                        <div class="ui-g-6 ui-md-6 ui-g-nopad">
+                            <div class="ui-g-4">
+                                <label for="vin">Fecha:</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <p-calendar [style]="{'width':'100%'}" [inputStyle]="{'width':'84%'}" formControlName="fecha" [showIcon]="true"></p-calendar>
+                            </div>
                         </div>
-                        <div class="ui-g-8">
-                            <p-calendar formControlName="fecha" [showIcon]="true"></p-calendar>
+                        <div class="ui-g-6  ui-md-6 ui-g-nopad">
+                            <div class="ui-g-4">
+                                <label for="vin">Folio:</label>
+                            </div>
+                            <div class="ui-g-8">
+                                <input formControlName="folio" pInputText id="folio" />
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad">
+                            <div class="ui-g-2">
+                                <label for="vin"><b>Concepto:</b></label>
+                            </div>
+                            <div class="ui-g-10">
+                                <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'92%'}" formControlName="TipoConceptos" [suggestions]="TipoConceptos" (completeMethod)="searchTipoConcepto($event,WsConcepto)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                            </div>
+                        </div>
+                        <div class="ui-g-12 ui-g-nopad">
+                            <div class="ui-g-2">
+                                <label for="vin"><b>Almacen:</b></label>
+                            </div>
+                            <div class="ui-g-10">
+                                <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'92%'}" formControlName="Almacen" [suggestions]="Almacen" (completeMethod)="searchAlmacen($event,WsAlmacenes)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                            </div>
                         </div>
                     </div>
-                    <div class="ui-g-6 ui-g-nopad">
-                        <div class="ui-g-4">
-                            <label for="vin">Folio:</label>
-                        </div>
-                        <div class="ui-g-8">
-                            <input formControlName="folio" pInputText id="folio" />
-                        </div>
-                    </div>
-                    <div class="ui-g-12 ui-g-nopad">
-                        <div class="ui-g-2">
-                            <label for="vin"><b>Concepto:</b></label>
-                        </div>
-                        <div class="ui-g-10">
-                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'90%'}" formControlName="TipoConceptos" [suggestions]="TipoConceptos" (completeMethod)="searchTipoConcepto($event,WsConcepto)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
-                        </div>
-                    </div>
-                    <div class="ui-g-12 ui-g-nopad">
-                        <div class="ui-g-2">
-                            <label for="vin"><b>Almacen:</b></label>
-                        </div>
-                        <div class="ui-g-10">
-                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'90%'}" formControlName="Almacen" [suggestions]="Almacen" (completeMethod)="searchAlmacen($event,WsAlmacenes)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
-                        </div>
+                    <div class="ui-g-5">
+                        textarea
                     </div>
                 </div>
-                <div class="ui-g-5">
-                    textarea
-                </div>
-            </div>
+            </p-tabPanel>
         </p-tabView>
     </form>
     <p-footer>
