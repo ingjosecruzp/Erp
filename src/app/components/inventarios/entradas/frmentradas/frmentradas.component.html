@@ -2,7 +2,7 @@
     <form [formGroup]="FrmItem" (ngSubmit)="save()">
         <p-tabView>
             <div class="ui-g">
-                <div class="ui-g-8 ui-g-nopad">
+                <div class="ui-g-7 ui-g-nopad">
                     <div class="ui-g-6 ui-g-nopad">
                         <div class="ui-g-4">
                             <label for="vin">Fecha:</label>
@@ -24,7 +24,7 @@
                             <label for="vin"><b>Concepto:</b></label>
                         </div>
                         <div class="ui-g-10">
-                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'91%'}" formControlName="TipoConceptos" [suggestions]="TipoConceptos" (completeMethod)="searchTipoConcepto($event,WsConcepto)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'90%'}" formControlName="TipoConceptos" [suggestions]="TipoConceptos" (completeMethod)="searchTipoConcepto($event,WsConcepto)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                         </div>
                     </div>
                     <div class="ui-g-12 ui-g-nopad">
@@ -32,11 +32,11 @@
                             <label for="vin"><b>Almacen:</b></label>
                         </div>
                         <div class="ui-g-10">
-                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'91%'}" formControlName="Almacen" [suggestions]="Almacen" (completeMethod)="searchAlmacen($event,WsAlmacenes)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                            <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'90%'}" formControlName="Almacen" [suggestions]="Almacen" (completeMethod)="searchAlmacen($event,WsAlmacenes)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
                         </div>
                     </div>
                 </div>
-                <div class="ui-g-4">
+                <div class="ui-g-5">
                     textarea
                 </div>
             </div>
