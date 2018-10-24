@@ -71,6 +71,8 @@ import { GridpuestosComponent } from './components/generales/puestos/gridpuestos
 import {PasswordModule} from 'primeng/password';
 import { GridentradasComponent } from './components/inventarios/entradas/gridentradas/gridentradas.component';
 import { FrmentradasComponent } from './components/inventarios/entradas/frmentradas/frmentradas.component';
+import { GridsalidasComponent } from './components/inventarios/salidas/gridsalidas/gridsalidas.component';
+import { FrmsalidasComponent } from './components/inventarios/salidas/frmsalidas/frmsalidas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -112,7 +114,9 @@ import { FrmentradasComponent } from './components/inventarios/entradas/frmentra
     FrmpuestosComponent,
     GridpuestosComponent,
     GridentradasComponent,
-    FrmentradasComponent
+    FrmentradasComponent,
+    GridsalidasComponent,
+    FrmsalidasComponent
   ],
   imports: [
     DropdownModule,
