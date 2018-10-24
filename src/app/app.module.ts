@@ -166,7 +166,8 @@ import { FrmsalidasComponent } from './components/inventarios/salidas/frmsalidas
                     FrmmarcasComponent,
                     FrmdepartamentosComponent,
                     FrmpuestosComponent,
-                    FrmentradasComponent
+                    FrmentradasComponent,
+                    FrmsalidasComponent
                     
                     ]
 })
