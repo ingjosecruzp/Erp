@@ -223,6 +223,7 @@
                                 <ng-template pTemplate="body" let-ConfiguracionesAlmacen let-rowIndex="rowIndex">
                                     <tr [formGroupName]="rowIndex">
                                         <td>
+                                            <!-- creamos una columna que no sera editable -->
                                             {{ this.objectUtils.resolveFieldData(ConfiguracionesAlmacen.controls.Almacen.value, "Clave") }}
                                         </td>
                                         <td pEditableColumn>
