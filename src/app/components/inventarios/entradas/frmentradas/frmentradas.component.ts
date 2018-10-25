@@ -11,6 +11,8 @@ import { Concepto } from '../../../../models/Inventarios/concepto';
 import { Almacen } from '../../../../models/Inventarios/almacen';
 import { TipoconceptoService } from '../../../../services/inventarios/tipoconcepto.service';
 import { AlmacenService } from '../../../../services/inventarios/almacen.service';
+import { Articulo } from '../../../../models/Inventarios/articulos';
+import { Unidad } from '../../../../models/Generales/Unidad';
 
 
 @Component({
@@ -23,6 +25,7 @@ export class FrmentradasComponent extends FrmBase<Entradas> implements OnInit, I
   displayDialog: boolean;
   TipoConceptos: Concepto[];
   Almacen: Almacen[];
+  detallesEntradas: FormArray;
 
 
   constructor(public config: DialogConfig,
@@ -42,9 +45,30 @@ export class FrmentradasComponent extends FrmBase<Entradas> implements OnInit, I
       folio: [null, [Validators.required]],
       TipoConceptos: [null, [Validators.required]],
       Almacen: [null, [Validators.required]],
-      descripcion: [null, [Validators.required]]
+      descripcion: [null, [Validators.required]],
+      detallesEntradas: this.fb.array([this.createDetallesEntradas()]),
 
    });
+  }
+
+  createDetallesEntradas(): FormGroup {
+    return this.fb.group({
+      Clave: [null, [Validators.required]],
+      Articulo: [null, [Validators.required]],
+      Cantidad: [null, [Validators.required]],
+      Unidad: [null, [Validators.required]],
+      Costo: [null, [Validators.required]],
+      CostoTotal: [null, [Validators.required]]
+    });
+  }
+
+  save() {
+    console.log(this.FrmItem.value);
+    console.log(this.FrmItem);
+  }
+  agregarFilas() {
+    this.detallesEntradas = this.FrmItem.get('detallesEntradas') as FormArray;
+    this.detallesEntradas.push(this.createDetallesEntradas());
   }
 
 }
