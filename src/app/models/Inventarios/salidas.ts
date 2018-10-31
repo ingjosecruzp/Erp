@@ -1,16 +1,15 @@
 import { Concepto } from './concepto';
 import { Almacen } from './almacen';
 
-export class Entradas {
+export class Salidas {
     _id: string;
     fecha: string;
     folio: string;
     Concepto: Concepto;
     Almacen: Almacen;
     descripcion: string;
-    
 
-    public constructor(init?: Partial<Entradas>) {
+    public constructor(init?: Partial<Salidas>) {
         Object.assign(this, init);
     }
 }

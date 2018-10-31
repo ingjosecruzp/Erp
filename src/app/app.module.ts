@@ -48,7 +48,11 @@ import { GridtipocomponentesComponent } from './components/inventarios/tipocompo
 import { FrmtipocomponentesComponent } from './components/inventarios/tipocomponentes/frmtipocomponentes/frmtipocomponentes.component';
 import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.component';
 import { KeyFilterModule } from 'primeng/keyfilter';
+<<<<<<< HEAD
 import {OverlayPanelModule} from 'primeng/overlaypanel';
+=======
+import {CalendarModule} from 'primeng/calendar';
+>>>>>>> 1d0d7b56122d60d6e8f1aa03bc6376487e0aa291
 
 import {ConfirmationService} from 'primeng/api';
 import { GridarticulosComponent } from './components/inventarios/articulos/gridarticulos/gridarticulos.component';
@@ -72,6 +76,8 @@ import { GridpuestosComponent } from './components/generales/puestos/gridpuestos
 import {PasswordModule} from 'primeng/password';
 import { GridentradasComponent } from './components/inventarios/entradas/gridentradas/gridentradas.component';
 import { FrmentradasComponent } from './components/inventarios/entradas/frmentradas/frmentradas.component';
+import { GridsalidasComponent } from './components/inventarios/salidas/gridsalidas/gridsalidas.component';
+import { FrmsalidasComponent } from './components/inventarios/salidas/frmsalidas/frmsalidas.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -113,7 +119,9 @@ import { FrmentradasComponent } from './components/inventarios/entradas/frmentra
     FrmpuestosComponent,
     GridpuestosComponent,
     GridentradasComponent,
-    FrmentradasComponent
+    FrmentradasComponent,
+    GridsalidasComponent,
+    FrmsalidasComponent
   ],
   imports: [
     DropdownModule,
@@ -143,7 +151,11 @@ import { FrmentradasComponent } from './components/inventarios/entradas/frmentra
     ConfirmDialogModule,
     GalleriaModule,
     KeyFilterModule,
+<<<<<<< HEAD
     OverlayPanelModule
+=======
+    CalendarModule
+>>>>>>> 1d0d7b56122d60d6e8f1aa03bc6376487e0aa291
   ],
   providers: [ObjectUtils, ConfirmationService],
   bootstrap: [AppComponent],
@@ -164,7 +176,8 @@ import { FrmentradasComponent } from './components/inventarios/entradas/frmentra
                     FrmmarcasComponent,
                     FrmdepartamentosComponent,
                     FrmpuestosComponent,
-                    FrmentradasComponent
+                    FrmentradasComponent,
+                    FrmsalidasComponent
                     
                     ]
 })
