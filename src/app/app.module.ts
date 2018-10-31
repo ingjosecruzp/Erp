@@ -48,6 +48,7 @@ import { GridtipocomponentesComponent } from './components/inventarios/tipocompo
 import { FrmtipocomponentesComponent } from './components/inventarios/tipocomponentes/frmtipocomponentes/frmtipocomponentes.component';
 import { FrmpaisesComponent } from './components/paises/frmpaises/frmpaises.component';
 import { KeyFilterModule } from 'primeng/keyfilter';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
 
 import {ConfirmationService} from 'primeng/api';
 import { GridarticulosComponent } from './components/inventarios/articulos/gridarticulos/gridarticulos.component';
@@ -141,7 +142,8 @@ import { FrmentradasComponent } from './components/inventarios/entradas/frmentra
     ButtonModule,
     ConfirmDialogModule,
     GalleriaModule,
-    KeyFilterModule
+    KeyFilterModule,
+    OverlayPanelModule
   ],
   providers: [ObjectUtils, ConfirmationService],
   bootstrap: [AppComponent],

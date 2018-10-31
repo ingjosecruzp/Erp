@@ -84,6 +84,7 @@
                             <input formControlName="NoParte" pInputText id="NoParte" />
                         </div>
                     </div>
+
                     <div class="ui-g-12 ui-md-12">
                         <p-panel header="Codigos de barra">
                             <!-- <div class="ui-g" style="height: 128px;"> -->
@@ -97,7 +98,7 @@
                                         </tr>
                                     </ng-template>
                                     <ng-template pTemplate="body" let-codigoBarras let-rowIndex="rowIndex">
-                                        <tr [formGroupName]="rowIndex">
+                                        <tr [formGroupName]="rowIndex" #actualTarget>
                                             <td pEditableColumn>
                                                 <p-cellEditor>
                                                     <ng-template pTemplate="input">

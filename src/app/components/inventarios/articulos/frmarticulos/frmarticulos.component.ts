@@ -15,6 +15,7 @@ import { GrupoComponente } from '../../../../models/Generales/grupocomponente';
 import { TipoComponente } from '../../../../models/Generales/tipocomponente';
 import { AlmacenService } from '../../../../services/inventarios/almacen.service';
 import { Almacen } from '../../../../models/Inventarios/almacen';
+import { OverlayPanel } from 'primeng/primeng';
 
 @Component({
   selector: 'app-frmarticulos',
@@ -160,5 +161,11 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
           console.log('cancelar');
         }
     });
+  }
+
+  showUnidades(event, op: OverlayPanel) {
+    console.log(event);
+    console.log(op);
+    op.toggle(event);
   }
 }
