@@ -52,7 +52,7 @@
                                     <ng-template pTemplate="header">
                                         <tr>
                                             <th>Clave</th>
-                                            <th>Articulos</th>
+                                            <th style="width: 18em">Articulos</th>
                                             <th>Cantidad</th>
                                             <th>Unidad</th>
                                             <th>Costo</th>
@@ -61,7 +61,6 @@
                                     </ng-template>
                                     <ng-template pTemplate="body" let-detallesEntradas let-rowIndex="rowIndex">
                                         <tr [formGroupName]="rowIndex">
-
                                             <td pEditableColumn>
                                                 <p-cellEditor>
                                                     <ng-template pTemplate="input">
@@ -72,24 +71,23 @@
                                                     </ng-template>
                                                 </p-cellEditor>
                                             </td>
-
-                                            <td pEditableColumn>
+                                            <td pEditableColumn style="width: 18em">
                                                 <p-cellEditor>
                                                     <ng-template pTemplate="input">
-                                                        <input type="text" pInputText formControlName="Articulo">
+                                                        <!-- <input type="text" pInputText formControlName="Articulo"> -->
+                                                        <button type="button" pButton (click)="mostrarArticulos($event,detallesEntradas,op3)" icon="pi pi-fw pi-caret-down"></button>
                                                     </ng-template>
-                                                    <ng-template pTemplate="output">
+                                                    <ng-template pTemplate="output ">
                                                         {{ detallesEntradas.controls.Articulo.value }}
                                                     </ng-template>
                                                 </p-cellEditor>
                                             </td>
-
                                             <td pEditableColumn>
                                                 <p-cellEditor>
-                                                    <ng-template pTemplate="input">
-                                                        <input type="text" pKeyFilter="num" pInputText formControlName="Cantidad">
+                                                    <ng-template pTemplate="input ">
+                                                        <input type="text " pKeyFilter="num " pInputText formControlName="Cantidad ">
                                                     </ng-template>
-                                                    <ng-template pTemplate="output">
+                                                    <ng-template pTemplate="output ">
                                                         {{ detallesEntradas.controls.Cantidad.value }}
                                                     </ng-template>
                                                 </p-cellEditor>
@@ -97,10 +95,10 @@
 
                                             <td pEditableColumn>
                                                 <p-cellEditor>
-                                                    <ng-template pTemplate="input">
-                                                        <input type="text" pInputText formControlName="Unidad">
+                                                    <ng-template pTemplate="input ">
+                                                        <input type="text " pInputText formControlName="Unidad ">
                                                     </ng-template>
-                                                    <ng-template pTemplate="output">
+                                                    <ng-template pTemplate="output ">
                                                         {{ detallesEntradas.controls.Unidad.value }}
                                                     </ng-template>
                                                 </p-cellEditor>
@@ -108,10 +106,10 @@
 
                                             <td pEditableColumn>
                                                 <p-cellEditor>
-                                                    <ng-template pTemplate="input">
-                                                        <input type="text" pInputText formControlName="Costo">
+                                                    <ng-template pTemplate="input ">
+                                                        <input type="text " pInputText formControlName="Costo ">
                                                     </ng-template>
-                                                    <ng-template pTemplate="output">
+                                                    <ng-template pTemplate="output ">
                                                         {{ detallesEntradas.controls.Costo.value }}
                                                     </ng-template>
                                                 </p-cellEditor>
@@ -119,10 +117,10 @@
 
                                             <td pEditableColumn>
                                                 <p-cellEditor>
-                                                    <ng-template pTemplate="input">
-                                                        <input type="text" pInputText formControlName="CostoTotal">
+                                                    <ng-template pTemplate="input ">
+                                                        <input type="text " pInputText formControlName="CostoTotal ">
                                                     </ng-template>
-                                                    <ng-template pTemplate="output">
+                                                    <ng-template pTemplate="output ">
                                                         {{ detallesEntradas.controls.CostoTotal.value }}
                                                     </ng-template>
                                                 </p-cellEditor>
@@ -134,8 +132,8 @@
                             </div>
                         </p-panel>
                     </div>
-                    <div class="ui-g-12 ui-md-12">
-                        <p-button (click)="agregarFilas()" label="Click"></p-button>
+                    <div class="ui-g-12 ui-md-12 ">
+                        <p-button (click)="agregarFilas() " label="Click "></p-button>
                     </div>
 
                 </div>
@@ -143,6 +141,9 @@
         </p-tabView>
     </form>
     <p-footer>
-        <app-toolbar [Formulario]="this"></app-toolbar>
+        <app-toolbar [Formulario]="this "></app-toolbar>
     </p-footer>
+    <p-overlayPanel #op3>
+        <img src="assets/showcase/images/demo/car/{{selectedCar.brand}}.png" *ngIf="selectedCar" />
+    </p-overlayPanel>
 </p-dialog>

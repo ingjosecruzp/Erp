@@ -13,6 +13,8 @@ import { TipoconceptoService } from '../../../../services/inventarios/tipoconcep
 import { AlmacenService } from '../../../../services/inventarios/almacen.service';
 import { Articulo } from '../../../../models/Inventarios/articulos';
 import { Unidad } from '../../../../models/Generales/Unidad';
+import { ArticulosService } from '../../../../services/inventarios/articulos.service';
+import { OverlayPanel } from 'primeng/primeng';
 
 
 @Component({
@@ -33,6 +35,7 @@ export class FrmentradasComponent extends FrmBase<Entradas> implements OnInit, I
     private fb: FormBuilder,
     private WsConcepto: TipoconceptoService,
     private WsAlmacenes: AlmacenService,
+    private WsArticulos: ArticulosService,
     private confirmationService: ConfirmationService) {
       super();
     this.displayDialog = true;
@@ -47,7 +50,6 @@ export class FrmentradasComponent extends FrmBase<Entradas> implements OnInit, I
       Almacen: [null, [Validators.required]],
       descripcion: [null, [Validators.required]],
       detallesEntradas: this.fb.array([this.createDetallesEntradas()]),
-
    });
   }
 
@@ -70,6 +72,23 @@ export class FrmentradasComponent extends FrmBase<Entradas> implements OnInit, I
     this.detallesEntradas = this.FrmItem.get('detallesEntradas') as FormArray;
     this.detallesEntradas.push(this.createDetallesEntradas());
   }
+  public searchCondiciones(event, ws) {
+    ws.search(event.query).subscribe(data => {
+      this.CondicionesDePago = data;
+    });
+  }
+  cargarArticulos(event) {
+    this.WsArticulos.search(event.query).subscribe(data => {
+      this.CondicionesDePago = data;
+    });
+  }
 
+  mostrarArticulos(event , detalle , grid: OverlayPanel) {
+    console.log(event);
+    /*console.log(detalle);
+    console.log(grid);*/
+
+    grid.toggle(event);
+  }
 }
 

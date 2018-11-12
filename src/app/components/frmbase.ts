@@ -17,6 +17,7 @@ import { GrupoUnidad } from '../models/Generales/grupounidad';
 import { Marca } from '../models/Generales/marca';
 import { Unidad } from '../models/Generales/Unidad';
 import { Almacen } from '../models/Inventarios/almacen';
+import { Articulo } from '../models/Inventarios/articulos';
 
 
 
@@ -45,6 +46,7 @@ export class FrmBase<Modelo>   {
     public Marcas: Marca[];
     public Unidades: Unidad[];
     public Almacen: Almacen[];
+    public Articulos: Articulo[];
 
     /*******************************/
     public SourceOpcion: string[] = ['SI', 'NO'];
@@ -201,6 +203,12 @@ export class FrmBase<Modelo>   {
     public searchMarca(event, ws) {
       ws.search(event.query).subscribe(data => {
         this.Marcas = data;
+      });
+    }
+
+    public searchArticulos(event, ws) {
+      ws.search(event.query).subscribe(data => {
+        this.Articulos = data;
       });
     }
    /***********************************/

@@ -27,6 +27,7 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
   GrupoUnidadId: string;
   images: any[];
   CodigosBarra: FormArray;
+  Imagenes: FormArray;
   ConfiguracionesAlmacen: FormArray;
 
   constructor(private confirmationService: ConfirmationService, private WsArticulos: ArticulosService, private fb: FormBuilder,
@@ -40,11 +41,11 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
 
   ngOnInit() {
     this.images = [];
-    this.images.push({source: 'http://localhost:60493/img/270200327.jpg', alt: 'Description for Image 1', title: 'Title 1', width: '100%', height: '100%'});
-    this.images.push({source: 'http://localhost:60493/img/270200328.jpg', alt: 'Description for Image 2', title: 'Title 2'});
-    this.images.push({source: 'http://localhost:60493/img/270200329.jpg', alt: 'Description for Image 3', title: 'Title 3'});
-    this.images.push({source: 'http://localhost:60493/img/270500010.jpg', alt: 'Description for Image 4', title: 'Title 4'});
-    this.images.push({source: 'http://localhost:60493/img/DSC03749.jpg', alt: 'Description for Image 4', title:'Title 4'});
+    this.images.push({Source: 'NoImagen.jpg', alt: 'Description for Image 1'});
+    this.images.push({Source: 'NoImagen.jpg', alt: 'Description for Image 2'});
+    this.images.push({Source: 'NoImagen.jpg', alt: 'Description for Image 3'});
+    /*this.images.push({source: 'http://localhost:60493/img/270500010.jpg', alt: 'Description for Image 4', title: 'Title 4'});
+    this.images.push({source: 'http://localhost:60493/img/DSC03749.jpg', alt: 'Description for Image 4', title: 'Title 4'}); */
 
     this.FrmItem = this.fb.group({
       Clave: [null, [Validators.required]],
@@ -63,17 +64,38 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
       UnidadVenta: [null, [Validators.required]],
       UnidadCompra: [null, [Validators.required]],
       CodigosBarra: this.fb.array([this.createItem()]),
-      ConfiguracionesAlmacen: this.fb.array([])
+      ConfiguracionesAlmacen: this.fb.array([]),
+      /*Imagenes: this.fb.array([])*/
    });
    
+   // Agrega siempre tres espacios para imagenes
+   /*this.Imagenes = this.FrmItem.get('Imagenes') as FormArray;
+   this.Imagenes.push(this.agregarImagen()); 
+   this.Imagenes.push(this.agregarImagen()); 
+   this.Imagenes.push(this.agregarImagen());*/
+
    if (this.config.data._id !== undefined) {
+
       this.WsArticulos.get(this.config.data._id).subscribe(data => {
          this._id = data._id;
+         
+         for (let i = 0; i < data.CodigosBarra.length; i++) {
+             this.CodigosBarra = this.FrmItem.get('CodigosBarra') as FormArray;
+             this.CodigosBarra.push(this.createItem()); 
+        }
+
+        for (let i = 0; i < data.ConfiguracionesAlmacen.length; i++) {
+          this.ConfiguracionesAlmacen = this.FrmItem.get('ConfiguracionesAlmacen') as FormArray;
+          this.ConfiguracionesAlmacen.push(this.createAlmacenes(data.ConfiguracionesAlmacen[0].Almacen)); 
+        }
+
          let item = new Articulo(data);
+         
          this.FrmItem.patchValue(item);
          console.log('Respuesta del servidor', data);
+
+         this.images = data.Imagen;
       });
-      
    } 
 
    this.FrmItem.controls['GrupoComponente'].valueChanges.subscribe( data => {
@@ -81,7 +103,7 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
 
       this.SubgrupoComponenteId = data._id;
       this.FrmItem.controls['SubGrupoComponente'].reset();
-      this.FrmItem.controls['ConfiguracionesAlmacen'].reset();
+      // this.FrmItem.controls['ConfiguracionesAlmacen'].reset();
       this.cargarGridAlmacenes();
    });
   
@@ -95,7 +117,7 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
    });
 
    this.FrmItem.controls['Inventariable'].valueChanges.subscribe( data => {
-    this.FrmItem.controls['ConfiguracionesAlmacen'].reset();
+      // this.FrmItem.controls['ConfiguracionesAlmacen'].reset();
       this.cargarGridAlmacenes();
     });
   }
@@ -119,6 +141,9 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
   }
 
   cargarGridAlmacenes() {
+    // console.log(this.FrmItem.dirty);
+    if (this.FrmItem.dirty === false) { return; }
+
      let GrpComponente = this.FrmItem.get('GrupoComponente').value;
      let Inventariable = this.FrmItem.get('Inventariable').value;
      let frm = this.FrmItem;
@@ -132,7 +157,7 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
                Almacenes.forEach(function (almacen) {
                 console.log(self.FrmItem); 
 
-                self.ConfiguracionesAlmacen = self.FrmItem.get('ConfiguracionesAlmacen') as FormArray;
+                 self.ConfiguracionesAlmacen = self.FrmItem.get('ConfiguracionesAlmacen') as FormArray;
                  self.ConfiguracionesAlmacen.push(self.createAlmacenes(almacen)); 
               });
           });
@@ -141,12 +166,10 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
 
   
   save () {
-    this.CodigosBarra = this.FrmItem.get('CodigosBarra') as FormArray;
-    this.CodigosBarra.push(this.createItem());
-    console.log(this.FrmItem.value);
-    console.log(this.FrmItem);
-    // return;
-
+    // this.CodigosBarra = this.FrmItem.get('CodigosBarra') as FormArray;
+    // this.CodigosBarra.push(this.createItem());
+    // console.log(this.FrmItem.value);
+    // console.log(this.FrmItem);
 
     this.confirmationService.confirm({
         message: '¿Esta seguro de guardar la información?',
@@ -154,6 +177,8 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
         icon: 'pi pi-exclamation-triangle',
         accept: () => {
           this.item = new Articulo(this.FrmItem.value);
+          this.item.Imagen = this.images;
+
           console.log(this.item);
           super.save();
         },
@@ -168,4 +193,21 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
     console.log(op);
     op.toggle(event);
   }
+
+  /***Imagenes ****/
+  agregarImagen() {
+    return this.fb.group({
+      Source: ['http://localhost:60493/img/NoImagen.jpg', [Validators.required]],
+    });
+  }
+  guardarImagen (event, img) {
+      let reader = new FileReader();
+
+      reader.onload = function (e) {
+        img.Source = e.target.result;
+      };
+
+      reader.readAsDataURL(event.files[0]);
+  }
+  /***************/
 }

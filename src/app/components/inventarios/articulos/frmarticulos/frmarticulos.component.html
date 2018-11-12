@@ -98,7 +98,7 @@
                                         </tr>
                                     </ng-template>
                                     <ng-template pTemplate="body" let-codigoBarras let-rowIndex="rowIndex">
-                                        <tr [formGroupName]="rowIndex" #actualTarget>
+                                        <tr [formGroupName]="rowIndex">
                                             <td pEditableColumn>
                                                 <p-cellEditor>
                                                     <ng-template pTemplate="input">
@@ -139,9 +139,21 @@
                     </div>
                 </div>
                 <div class="ui-g-5 ui-md-5 ui-g-nopad">
-                    <p-panel header="Imagenes" [style]="{'height':'120px'}">
-                        <p-galleria [images]="images" frameWidth="30" frameHeight="20" panelWidth="260" panelHeight="360" [showCaption]="false"></p-galleria>
-                    </p-panel>
+                    <p-carousel headerText="Imagenes" [value]="images" numVisible="1" pageLinks="6">
+                        <ng-template let-img pTemplate="item">
+                            <div class="ui-grid ui-grid-responsive">
+                                <div class="ui-grid-row" style="height: 366px;">
+                                    <div class="ui-grid-col-12" style="text-align: center;display: block;margin: auto;">
+                                        <img [src]="img.Source.substring(0, 4) =='data' ? img.Source : 'http://localhost:60493/img/'+img.Source" width="260px" height="260px">
+                                        <div class="ui-grid-col-12" style="text-align: center;">
+                                            <p-fileUpload mode="basic" accept="image/*" auto="auto" name="myfile[]" customUpload="true" (uploadHandler)="guardarImagen($event,img)" chooseLabel="Buscar"></p-fileUpload>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </ng-template>
+                    </p-carousel>
+                    <!-- <p-galleria [images]="images" frameWidth="30" frameHeight="20" panelWidth="260" panelHeight="360" [showCaption]="false"></p-galleria> -->
                 </div>
             </p-tabPanel>
             <p-tabPanel header="Inventarios y Unidades">

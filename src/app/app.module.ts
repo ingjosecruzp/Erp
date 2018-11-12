@@ -15,6 +15,8 @@ import {TabViewModule} from 'primeng/tabview';
 import {TableModule} from 'primeng/table';
 import { ClientesComponent } from './components/ventas/clientes/clientes.component';
 import { HomeComponent } from './components/home/home.component';
+import {CarouselModule} from 'primeng/carousel';
+import {FileUploadModule} from 'primeng/fileupload';
 
 import {ToolbarModule} from 'primeng/toolbar';
 import {AutoCompleteModule} from 'primeng/autocomplete';
@@ -149,7 +151,9 @@ import { FrmsalidasComponent } from './components/inventarios/salidas/frmsalidas
     GalleriaModule,
     KeyFilterModule,
     OverlayPanelModule,
-    CalendarModule
+    CalendarModule,
+    CarouselModule,
+    FileUploadModule
   ],
   providers: [ObjectUtils, ConfirmationService],
   bootstrap: [AppComponent],
