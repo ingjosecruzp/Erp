@@ -211,3 +211,4 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
   }
   /***************/
 }
+
