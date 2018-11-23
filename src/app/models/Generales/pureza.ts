@@ -1,3 +1,4 @@
+
 import { GrupoComponente } from './grupocomponente';
 export class Pureza {
     _id: string;
