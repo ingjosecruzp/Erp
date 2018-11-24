@@ -179,7 +179,8 @@ import { FrmpurezaComponent } from './components/inventarios/pureza/frmpureza/fr
                     FrmdepartamentosComponent,
                     FrmpuestosComponent,
                     FrmentradasComponent,
-                    FrmsalidasComponent
+                    FrmsalidasComponent,
+                    FrmpurezaComponent
                     
                     ]
 })
