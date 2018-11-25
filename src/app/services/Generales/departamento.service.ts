@@ -15,10 +15,10 @@ export class DepartamentoService extends BaseService<Departamento> {
   }
 
   getAll(): any {
-    return this.http.get<Departamento[]>('http://localhost:60493/Servicios/Generales/WcfDepartamentos.svc/');
+    return this.http.get<Departamento[]>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfDepartamentos.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<Departamento>('http://localhost:60493/Servicios/Generales/WcfDepartamentos.svc/', item);
+    return this.http.post<Departamento>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfDepartamentos.svc/', item);
  }
 }

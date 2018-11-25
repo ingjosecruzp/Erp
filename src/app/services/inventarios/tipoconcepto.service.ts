@@ -17,10 +17,10 @@ export class TipoconceptoService extends BaseService<TipoConcepto> implements Se
    }
 
    getAll(): any {
-    return this.http.get<TipoConcepto[]>('http://localhost:60493/Servicios/Inventarios/WcfTipoConceptos.svc/');
+    return this.http.get<TipoConcepto[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfTipoConceptos.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<TipoConcepto>('http://localhost:60493/Servicios/Inventarios/WcfTipoConceptos.svc/', item);
+    return this.http.post<TipoConcepto>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfTipoConceptos.svc/', item);
  }
 }

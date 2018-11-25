@@ -16,10 +16,10 @@ export class UnidadService extends BaseService<Unidad> implements ServicesBase {
    }
 
   getAll(): any {
-    return this.http.get<Unidad[]>('http://localhost:60493/Servicios/Inventarios/WcfUnidades.svc/');
+    return this.http.get<Unidad[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfUnidades.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<Unidad>('http://localhost:60493/Servicios/Inventarios/WcfUnidades.svc/', item);
+    return this.http.post<Unidad>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfUnidades.svc/', item);
  }
 }

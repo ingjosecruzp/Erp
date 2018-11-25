@@ -16,11 +16,11 @@ export class UsuarioService extends BaseService<Usuario> implements ServicesBase
   }
 
   getAll(): any {
-    return this.http.get<Usuario[]>('http://localhost:60493/Servicios/Administracion/WcfUsuarios.svc/');
+    return this.http.get<Usuario[]>('http://18.191.252.222/WcfErp/Servicios/Administracion/WcfUsuarios.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<Usuario>('http://localhost:60493/Servicios/Administracion/WcfUsuarios.svc/', item);
+    return this.http.post<Usuario>('http://18.191.252.222/WcfErp/Servicios/Administracion/WcfUsuarios.svc/', item);
  }
 
 }
