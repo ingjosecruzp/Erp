@@ -1,0 +1,27 @@
+<p-dialog header="Purezas" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="400">
+    <form [formGroup]="FrmItem" (ngSubmit)="save()">
+        <p-tabView>
+            <div class=ui-g>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad ">
+                    <div class="ui-g-4">
+                        <label for="vin">Pureza:</label>
+                    </div>
+                    <div class="ui-g-8">
+                        <input formControlName="Nombre" pInputText id="Nombre" />
+                    </div>
+                </div>
+                <div class="ui-g-12 ui-md-12 ui-g-nopad">
+                    <div class="ui-g-4">
+                        <label for="vin">Grupo de Componente:</label>
+                    </div>
+                    <div class="ui-g-8">
+                        <p-autoComplete [style]="{'width':'100%'}" [inputStyle]="{'width':'88%'}" formControlName="GrupoComponente" [suggestions]="GrupoComponentes" (completeMethod)="searchGrupoComponente($event,WsGrupoComponentes)" field="Nombre" [dropdown]="true" [forceSelection]="true"></p-autoComplete>
+                    </div>
+                </div>
+            </div>
+        </p-tabView>
+    </form>
+    <p-footer>
+        <app-toolbar [Formulario]="this"></app-toolbar>
+    </p-footer>
+</p-dialog>

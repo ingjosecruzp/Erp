@@ -52,6 +52,7 @@ export class MenubarComponent implements OnInit {
                     {label: 'Puestos', icon: 'pi pi-fw fa fa-object-group', routerLink: ['/puestos']},
                     {label: 'Entradas', icon: 'fa fa-file-text-o', routerLink: ['/entradas']},
                     {label: 'Salidas', icon: 'fa fa-file-text-o', routerLink: ['/salidas']},
+                    {label: 'Purezas', icon: 'pi pi-fw fa fa-product-hunt', routerLink: ['/purezas']},
                     {label: 'Refresh', icon: 'pi pi-fw pi pi-fw pi-refresh'},
                 ]
             }

@@ -77,6 +77,8 @@ import { GridentradasComponent } from './components/inventarios/entradas/grident
 import { FrmentradasComponent } from './components/inventarios/entradas/frmentradas/frmentradas.component';
 import { GridsalidasComponent } from './components/inventarios/salidas/gridsalidas/gridsalidas.component';
 import { FrmsalidasComponent } from './components/inventarios/salidas/frmsalidas/frmsalidas.component';
+import { GridpurezaComponent } from './components/inventarios/pureza/gridpureza/gridpureza.component';
+import { FrmpurezaComponent } from './components/inventarios/pureza/frmpureza/frmpureza.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -120,7 +122,9 @@ import { FrmsalidasComponent } from './components/inventarios/salidas/frmsalidas
     GridentradasComponent,
     FrmentradasComponent,
     GridsalidasComponent,
-    FrmsalidasComponent
+    FrmsalidasComponent,
+    GridpurezaComponent,
+    FrmpurezaComponent
   ],
   imports: [
     DropdownModule,
@@ -175,7 +179,8 @@ import { FrmsalidasComponent } from './components/inventarios/salidas/frmsalidas
                     FrmdepartamentosComponent,
                     FrmpuestosComponent,
                     FrmentradasComponent,
-                    FrmsalidasComponent
+                    FrmsalidasComponent,
+                    FrmpurezaComponent
                     
                     ]
 })
