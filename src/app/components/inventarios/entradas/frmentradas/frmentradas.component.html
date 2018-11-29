@@ -1,6 +1,6 @@
-<p-dialog header="Entradas" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="700">
+<p-dialog header="Entradas" [contentStyle]="{'overflow':'visible'}" [(visible)]="displayDialog" [responsive]="true" showEffect="fade" [modal]="false" [width]="750">
     <form [formGroup]="FrmItem" (ngSubmit)="save()">
-        <p-tabView>
+        <p-tabView [style]="{'height':'550px'}">
             <p-tabPanel header="Entrada">
                 <div class="ui-g">
                     <div class="ui-g-7 ui-md-7 ui-g-nopad">
@@ -48,11 +48,11 @@
                     <div class="ui-g-12 ui-md-12">
                         <p-panel header="Detalles">
                             <div formArrayName="detallesEntradas">
-                                <p-table [value]="FrmItem.get('detallesEntradas').controls" [scrollable]="true" [style]="{'height':'129px'}" scrollHeight="112px">
+                                <p-table [value]="FrmItem.get('detallesEntradas').controls" [scrollable]="true" [style]="{'height':'300px'}" scrollHeight="300px">
                                     <ng-template pTemplate="header">
                                         <tr>
                                             <th>Clave</th>
-                                            <th style="width: 18em">Articulos</th>
+                                            <th style="width: 25em">Articulos</th>
                                             <th>Cantidad</th>
                                             <th>Unidad</th>
                                             <th>Costo</th>
@@ -71,14 +71,21 @@
                                                     </ng-template>
                                                 </p-cellEditor>
                                             </td>
-                                            <td pEditableColumn style="width: 18em">
+                                            <td pEditableColumn style="width: 25em">
                                                 <p-cellEditor>
                                                     <ng-template pTemplate="input">
                                                         <!-- <input type="text" pInputText formControlName="Articulo"> -->
-                                                        <button type="button" pButton (click)="mostrarArticulos($event,detallesEntradas,op3)" icon="pi pi-fw pi-caret-down"></button>
+                                                        <p-autoComplete formControlName="Articulo" [suggestions]="Articulos" (completeMethod)="searchArticulos($event,WsArticulos)" [size]="500" [minLength]="1" placeholder="Selecciona" [dropdown]="false">
+                                                            <ng-template let-articulo pTemplate="item">
+                                                                <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
+                                                                    <img src="http://18.191.252.222/WcfErp/img/{{articulo.Imagen[0].Source}}" style="width:32px;display:inline-block;margin:5px 0 2px 5px" />
+                                                                    <div style="font-size:12px;float:right;margin:5px 5px 0 0">{{articulo.Nombre}}</div>
+                                                                </div>
+                                                            </ng-template>
+                                                        </p-autoComplete>
                                                     </ng-template>
                                                     <ng-template pTemplate="output ">
-                                                        {{ detallesEntradas.controls.Articulo.value }}
+                                                        {{ this.objectUtils.resolveFieldData(detallesEntradas.controls.Articulo.value, "Nombre") }}
                                                     </ng-template>
                                                 </p-cellEditor>
                                             </td>

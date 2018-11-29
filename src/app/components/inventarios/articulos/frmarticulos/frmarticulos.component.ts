@@ -44,8 +44,6 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
     this.images.push({Source: 'NoImagen.jpg', alt: 'Description for Image 1'});
     this.images.push({Source: 'NoImagen.jpg', alt: 'Description for Image 2'});
     this.images.push({Source: 'NoImagen.jpg', alt: 'Description for Image 3'});
-    /*this.images.push({source: 'http://localhost:60493/img/270500010.jpg', alt: 'Description for Image 4', title: 'Title 4'});
-    this.images.push({source: 'http://localhost:60493/img/DSC03749.jpg', alt: 'Description for Image 4', title: 'Title 4'}); */
 
     this.FrmItem = this.fb.group({
       Clave: [null, [Validators.required]],
@@ -197,14 +195,14 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
   /***Imagenes ****/
   agregarImagen() {
     return this.fb.group({
-      Source: ['http://localhost:60493/img/NoImagen.jpg', [Validators.required]],
+      Source: ['http://18.191.252.222/WcfErp/img/NoImagen.jpg', [Validators.required]],
     });
   }
   guardarImagen (event, img) {
       let reader = new FileReader();
 
       reader.onload = function (e) {
-        img.Source = e.target.result;
+        img.Source = e.target['result'];
       };
 
       reader.readAsDataURL(event.files[0]);

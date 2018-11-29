@@ -15,6 +15,7 @@ import { Articulo } from '../../../../models/Inventarios/articulos';
 import { Unidad } from '../../../../models/Generales/Unidad';
 import { ArticulosService } from '../../../../services/inventarios/articulos.service';
 import { OverlayPanel } from 'primeng/primeng';
+import { ObjectUtils } from 'primeng/components/utils/objectutils';
 
 
 @Component({
@@ -36,7 +37,7 @@ export class FrmentradasComponent extends FrmBase<Entradas> implements OnInit, I
     private WsConcepto: TipoconceptoService,
     private WsAlmacenes: AlmacenService,
     private WsArticulos: ArticulosService,
-    private confirmationService: ConfirmationService) {
+    private confirmationService: ConfirmationService, public objectUtils: ObjectUtils) {
       super();
     this.displayDialog = true;
 

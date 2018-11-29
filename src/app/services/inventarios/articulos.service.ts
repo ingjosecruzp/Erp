@@ -16,10 +16,10 @@ export class ArticulosService extends BaseService<Articulo> implements ServicesB
    }
 
    getAll(): any {
-    return this.http.get<Articulo[]>('http://localhost:60493/Servicios/Inventarios/WcfArticulos.svc/');
+    return this.http.get<Articulo[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfArticulos.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<Articulo>('http://localhost:60493/Servicios/Inventarios/WcfArticulos.svc/', item);
+    return this.http.post<Articulo>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfArticulos.svc/', item);
    }
 }

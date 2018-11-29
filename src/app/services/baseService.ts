@@ -5,19 +5,19 @@ export class BaseService<Modelo>   {
     httpWs: HttpClient;
 
     search(busqueda: string): any {
-        const url = `http://localhost:60493/${this.Ws}/?searchBy=getXNombre&busqueda=${busqueda}`;
+        const url = `http://18.191.252.222/WcfErp/${this.Ws}/?searchBy=getXNombre&busqueda=${busqueda}`;
 
         return this.httpWs.get<Modelo[]>(url);
     }
 
     get(id: string): any {
-        const url = `http://localhost:60493/${this.Ws}/${id}`;
+        const url = `http://18.191.252.222/WcfErp/${this.Ws}/${id}`;
 
         return this.httpWs.get<Modelo[]>(url);
     }
 
     update(item: Modelo, id: string): any {
-        const url = `http://localhost:60493/${this.Ws}/${id}`;
+        const url = `http://18.191.252.222/WcfErp/${this.Ws}/${id}`;
         item['_id'] = id;
 
         return this.httpWs.put<Modelo[]>(url, item);

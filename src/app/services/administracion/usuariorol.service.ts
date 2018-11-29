@@ -16,11 +16,11 @@ export class UsuariorolService extends BaseService<UsuarioRol> implements Servic
    }
 
    getAll(): any {
-    return this.http.get<UsuarioRol[]>('http://localhost:60493/Servicios/Administracion/WcfUsuariosRoles.svc/');
+    return this.http.get<UsuarioRol[]>('http://18.191.252.222/WcfErp/Servicios/Administracion/WcfUsuariosRoles.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<UsuarioRol>('http://localhost:60493/Servicios/Administracion/WcfUsuariosRoles.svc/', item);
+    return this.http.post<UsuarioRol>('http://18.191.252.222/WcfErp/Servicios/Administracion/WcfUsuariosRoles.svc/', item);
   }
 
 }

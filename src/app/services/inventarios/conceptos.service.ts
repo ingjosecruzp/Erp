@@ -16,11 +16,11 @@ export class ConceptosService extends BaseService<Concepto> implements ServicesB
    }
 
    getAll(): any {
-    return this.http.get<Concepto[]>('http://localhost:60493/Servicios/Inventarios/WcfConceptos.svc/');
+    return this.http.get<Concepto[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfConceptos.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<Concepto>('http://localhost:60493/Servicios/Inventarios/WcfConceptos.svc/', item);
+    return this.http.post<Concepto>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfConceptos.svc/', item);
  }
 }
 

@@ -17,10 +17,10 @@ export class EntradasService extends BaseService<Entradas> implements ServicesBa
   }
 
   getAll() {
-    return this.http.get<Entradas[]>('http://localhost:60493/Servicios/Inventarios/WcfSubgruposComponentes.svc/');
+    return this.http.get<Entradas[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfSubgruposComponentes.svc/');
   }
   save(item: any) {
-    return this.http.post<Entradas>('http://localhost:60493/Servicios/Inventarios/WcfSubgruposComponentes.svc/', item);
+    return this.http.post<Entradas>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfSubgruposComponentes.svc/', item);
   }
 
 }

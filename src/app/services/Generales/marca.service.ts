@@ -14,10 +14,10 @@ export class MarcaService extends BaseService<Marca> {
     this.httpWs = http;
   }
   getAll(): any {
-    return this.http.get<Marca[]>('http://localhost:60493/Servicios/Generales/WcfMarcas.svc/');
+    return this.http.get<Marca[]>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfMarcas.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<Marca>('http://localhost:60493/Servicios/Generales/WcfMarcas.svc/', item);
+    return this.http.post<Marca>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfMarcas.svc/', item);
  }
 }
