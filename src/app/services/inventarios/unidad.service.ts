@@ -23,3 +23,4 @@ export class UnidadService extends BaseService<Unidad> implements ServicesBase {
     return this.http.post<Unidad>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfUnidades.svc/', item);
  }
 }
+
