@@ -15,10 +15,10 @@ export class PesoService extends BaseService<Peso> implements ServicesBase {
     this.httpWs = http;
    }
    getAll(): any {
-    return this.http.get<Peso[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfPesos.svc/');
+    return this.http.get<Peso[]>('http://localhost:60493/Servicios/Inventarios/WcfPesos.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<Peso>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfPesos.svc/', item);
+    return this.http.post<Peso>('http://localhost:60493/Servicios/Inventarios/WcfPesos.svc/', item);
  }
 }
