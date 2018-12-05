@@ -19,6 +19,8 @@ import { GridpuestosComponent } from './components/generales/puestos/gridpuestos
 import { GridentradasComponent } from './components/inventarios/entradas/gridentradas/gridentradas.component';
 import { GridsalidasComponent } from './components/inventarios/salidas/gridsalidas/gridsalidas.component';
 import { GridpurezaComponent } from './components/inventarios/pureza/gridpureza/gridpureza.component';
+import { GridpesoComponent } from './components/inventarios/peso/gridpeso/gridpeso.component';
+
 
 
 const APP_ROUTES: Routes = [
@@ -41,6 +43,7 @@ const APP_ROUTES: Routes = [
     { path: 'entradas', component: GridentradasComponent},
     { path: 'salidas', component: GridsalidasComponent },
     { path: 'purezas', component: GridpurezaComponent },
+    { path: 'pesos', component: GridpesoComponent },
 
     { path: '**', pathMatch: 'full', redirectTo: 'home'}
 ];
