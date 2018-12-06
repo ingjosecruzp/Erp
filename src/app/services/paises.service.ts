@@ -17,11 +17,11 @@ export class PaisesService extends BaseService<Paises> implements ServicesBase {
    }
 
   getAll(): any {
-    return this.http.get<Paises[]>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfPaises.svc/');
+    return this.http.get<Paises[]>('http://localhost:60493/Servicios/Generales/WcfPaises.svc/');
   }
 
   save(item: any): any {
-    return this.http.post<Paises>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfPaises.svc/', item);
+    return this.http.post<Paises>('http://localhost:60493/Servicios/Generales/WcfPaises.svc/', item);
   }
 }
 

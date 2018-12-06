@@ -16,10 +16,10 @@ export class PuestoService extends BaseService<Puesto> implements ServicesBase {
   }
 
   getAll(): any {
-    return this.http.get<Puesto[]>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfPuestos.svc/');
+    return this.http.get<Puesto[]>('http://localhost:60493/Servicios/Generales/WcfPuestos.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<Puesto>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfPuestos.svc/', item);
+    return this.http.post<Puesto>('http://localhost:60493/Servicios/Generales/WcfPuestos.svc/', item);
  }
 }

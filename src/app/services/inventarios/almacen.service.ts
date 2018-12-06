@@ -16,15 +16,15 @@ export class AlmacenService extends BaseService<Almacen> implements ServicesBase
   }
 
   getAll(): any {
-    return this.http.get<Almacen[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfAlmacenes.svc/');
+    return this.http.get<Almacen[]>('http://localhost:60493/Servicios/Inventarios/WcfAlmacenes.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<Almacen>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfAlmacenes.svc/', item);
+    return this.http.post<Almacen>('http://localhost:60493/Servicios/Inventarios/WcfAlmacenes.svc/', item);
    }
 
    searchXTipoComponente(busqueda: string, _id: string): any {
-    const url = `http://18.191.252.222/WcfErp/${this.Ws}/?searchBy=getXTipoComponente&busqueda=${busqueda}&_id=${_id}`;
+    const url = `http://localhost:60493/${this.Ws}/?searchBy=getXTipoComponente&busqueda=${busqueda}&_id=${_id}`;
 
     return this.httpWs.get<Almacen[]>(url);
    }

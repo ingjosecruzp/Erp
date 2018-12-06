@@ -78,7 +78,7 @@
                                                         <p-autoComplete formControlName="Articulo" [suggestions]="Articulos" (completeMethod)="searchArticulos($event,WsArticulos)" [size]="500" [minLength]="1" placeholder="Selecciona" [dropdown]="false">
                                                             <ng-template let-articulo pTemplate="item">
                                                                 <div class="ui-helper-clearfix" style="border-bottom:1px solid #D5D5D5">
-                                                                    <img src="http://18.191.252.222/WcfErp/img/{{articulo.Imagen[0].Source}}" style="width:32px;display:inline-block;margin:5px 0 2px 5px" />
+                                                                    <img src="http://localhost:60493/img/{{articulo.Imagen[0].Source}}" style="width:32px;display:inline-block;margin:5px 0 2px 5px" />
                                                                     <div style="font-size:12px;float:right;margin:5px 5px 0 0">{{articulo.Nombre}}</div>
                                                                 </div>
                                                             </ng-template>

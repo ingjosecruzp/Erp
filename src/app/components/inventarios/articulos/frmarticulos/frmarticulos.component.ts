@@ -195,7 +195,7 @@ export class FrmarticulosComponent extends FrmBase<Articulo> implements OnInit, 
   /***Imagenes ****/
   agregarImagen() {
     return this.fb.group({
-      Source: ['http://18.191.252.222/WcfErp/img/NoImagen.jpg', [Validators.required]],
+      Source: ['http://localhost:60493/img/NoImagen.jpg', [Validators.required]],
     });
   }
   guardarImagen (event, img) {

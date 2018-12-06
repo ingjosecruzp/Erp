@@ -17,12 +17,12 @@ export class ClienteService  extends BaseService<Cliente> implements ServicesBas
   }
 
   getAll(): any {
-    return this.http.get<Cliente[]>('http://18.191.252.222/WcfErp/Servicios/Ventas/WcfClientes.svc/');
+    return this.http.get<Cliente[]>('http://localhost:60493/Servicios/Ventas/WcfClientes.svc/');
   }
 
   save(item: any): any {
      console.log(item);
-     return this.http.post<Cliente>('http://18.191.252.222/WcfErp/Servicios/Ventas/WcfClientes.svc/', item);
+     return this.http.post<Cliente>('http://localhost:60493/Servicios/Ventas/WcfClientes.svc/', item);
   }
 
   delete(): any {

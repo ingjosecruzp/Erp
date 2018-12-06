@@ -17,11 +17,11 @@ export class TipocomponenteService extends BaseService<TipoComponente> implement
    }
 
    getAll(): any {
-    return this.http.get<TipoComponente[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfTipoComponente.svc/');
+    return this.http.get<TipoComponente[]>('http://localhost:60493/Servicios/Inventarios/WcfTipoComponente.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<TipoComponente>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfTipoComponente.svc/', item);
+    return this.http.post<TipoComponente>('http://localhost:60493/Servicios/Inventarios/WcfTipoComponente.svc/', item);
  }
     
 }

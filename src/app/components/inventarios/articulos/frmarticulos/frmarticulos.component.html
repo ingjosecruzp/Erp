@@ -144,7 +144,7 @@
                             <div class="ui-grid ui-grid-responsive">
                                 <div class="ui-grid-row" style="height: 366px;">
                                     <div class="ui-grid-col-12" style="text-align: center;display: block;margin: auto;">
-                                        <img [src]="img.Source.substring(0, 4) =='data' ? img.Source : 'http://18.191.252.222/WcfErp/img/'+img.Source" width="260px" height="260px">
+                                        <img [src]="img.Source.substring(0, 4) =='data' ? img.Source : 'http://localhost:60493/img/'+img.Source" width="260px" height="260px">
                                         <div class="ui-grid-col-12" style="text-align: center;">
                                             <p-fileUpload mode="basic" accept="image/*" auto="auto" name="myfile[]" customUpload="true" (uploadHandler)="guardarImagen($event,img)" chooseLabel="Buscar"></p-fileUpload>
                                         </div>

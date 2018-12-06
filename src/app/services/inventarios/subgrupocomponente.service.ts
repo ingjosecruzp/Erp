@@ -17,15 +17,15 @@ export class SubgrupocomponenteService  extends BaseService<SubgrupoComponente> 
   }
 
   getAll(): any {
-    return this.http.get<SubgrupoComponente[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfSubgruposComponentes.svc/');
+    return this.http.get<SubgrupoComponente[]>('http://localhost:60493/Servicios/Inventarios/WcfSubgruposComponentes.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<SubgrupoComponente>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfSubgruposComponentes.svc/', item);
+    return this.http.post<SubgrupoComponente>('http://localhost:60493/Servicios/Inventarios/WcfSubgruposComponentes.svc/', item);
   }
 
   searchxGrupo(busqueda: string, _id: string): any {
-    const url = `http://18.191.252.222/WcfErp/${this.Ws}/?searchBy=getXGrupo&busqueda=${busqueda}&_id=${_id}`;
+    const url = `http://localhost:60493/${this.Ws}/?searchBy=getXGrupo&busqueda=${busqueda}&_id=${_id}`;
 
     return this.httpWs.get<SubgrupoComponente[]>(url);
   }

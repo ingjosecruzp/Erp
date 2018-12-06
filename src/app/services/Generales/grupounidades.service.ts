@@ -16,15 +16,15 @@ export class GrupounidadesService extends BaseService<GrupoUnidad> {
   }
 
   getAll(): any {
-    return this.http.get<GrupoUnidad[]>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfGrupoUnidades.svc/');
+    return this.http.get<GrupoUnidad[]>('http://localhost:60493/Servicios/Generales/WcfGrupoUnidades.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<GrupoUnidad>('http://18.191.252.222/WcfErp/Servicios/Generales/WcfGrupoUnidades.svc/', item);
+    return this.http.post<GrupoUnidad>('http://localhost:60493/Servicios/Generales/WcfGrupoUnidades.svc/', item);
    }
 
    searchXUnidad(busqueda: string, _id: string): any {
-    const url = `http://18.191.252.222/WcfErp/${this.Ws}/?searchBy=getXUnidad&busqueda=${busqueda}&_id=${_id}`;
+    const url = `http://localhost:60493/${this.Ws}/?searchBy=getXUnidad&busqueda=${busqueda}&_id=${_id}`;
 
     return this.httpWs.get<Unidad[]>(url);
    }

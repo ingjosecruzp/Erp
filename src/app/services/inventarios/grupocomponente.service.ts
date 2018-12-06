@@ -17,16 +17,16 @@ export class GrupocomponenteService extends BaseService<GrupoComponente> impleme
 
 
    getAll(): any {
-    return this.http.get<GrupoComponente[]>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfGruposComponentes.svc/');
+    return this.http.get<GrupoComponente[]>('http://localhost:60493/Servicios/Inventarios/WcfGruposComponentes.svc/');
    }
 
    save(item: any): any {
-    return this.http.post<GrupoComponente>('http://18.191.252.222/WcfErp/Servicios/Inventarios/WcfGruposComponentes.svc/', item);
+    return this.http.post<GrupoComponente>('http://localhost:60493/Servicios/Inventarios/WcfGruposComponentes.svc/', item);
  }
 
   
     searchxTipoComponente(busqueda: string, _id: string): any {
-      const url = `http://18.191.252.222/WcfErp/${this.Ws}/?searchBy=getXTipoComponente&busqueda=${busqueda}&_id=${_id}`;
+      const url = `http://localhost:60493/${this.Ws}/?searchBy=getXTipoComponente&busqueda=${busqueda}&_id=${_id}`;
 
       return this.httpWs.get<GrupoComponente[]>(url);
     }
