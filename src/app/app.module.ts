@@ -189,7 +189,8 @@ import { FrmprocedenciasComponent } from './components/inventarios/procedencias/
                     FrmentradasComponent,
                     FrmsalidasComponent,
                     FrmpurezaComponent,
-                    FrmpesoComponent
+                    FrmpesoComponent,
+                    FrmprocedenciasComponent
                     
                     ]
 })
