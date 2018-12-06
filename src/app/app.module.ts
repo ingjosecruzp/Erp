@@ -184,7 +184,8 @@ import { GridpesoComponent } from './components/inventarios/peso/gridpeso/gridpe
                     FrmpuestosComponent,
                     FrmentradasComponent,
                     FrmsalidasComponent,
-                    FrmpurezaComponent
+                    FrmpurezaComponent,
+                    FrmpesoComponent
                     
                     ]
 })
