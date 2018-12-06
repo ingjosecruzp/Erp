@@ -24,3 +24,4 @@ export class ProcedenciaService extends BaseService<Procedencia> implements Serv
  }
 
 }
+
